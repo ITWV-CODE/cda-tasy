@@ -1,8 +1,8 @@
 package br.com.itwv.builders;
 
-import br.com.itwv.br.com.itwv.dto.Allergy;
+import br.com.itwv.br.com.itwv.dto.AllergyDTO;
 import br.com.itwv.br.com.itwv.dto.CodedValue;
-import br.com.itwv.br.com.itwv.dto.Patient;
+import br.com.itwv.br.com.itwv.dto.PatientDto;
 import br.com.itwv.br.com.itwv.utils.ExcelUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -17,13 +17,13 @@ import java.util.List;
  */
 public class PatientBuilder {
 
-    private List<Patient> patients;
+    private List<PatientDto> patients;
 
     public PatientBuilder() {
-        this.patients = new ArrayList<Patient>();
+        this.patients = new ArrayList<PatientDto>();
     }
 
-    public List<Patient> getResult() {
+    public List<PatientDto> getResult() {
         return this.patients;
     }
 
@@ -40,7 +40,7 @@ public class PatientBuilder {
 
     private void buildPatient(final XSSFWorkbook workbook, final Row row) {
 
-        final Patient patient = new Patient();
+        final PatientDto patient = new PatientDto();
         this.patients.add(patient);
 
         final String sequence = ExcelUtils.getCellValue(row.getCell(0));
@@ -55,15 +55,16 @@ public class PatientBuilder {
         this.buildAllergies(patient, allergiesSheet, sequence);
     }
 
-    private void buildAllergies(final Patient patient, final XSSFSheet allergiesSheet, final String sequence) {
+    private void buildAllergies(final PatientDto patient, final XSSFSheet allergiesSheet, final String sequence) {
 
         final Iterator<Row> rowIterator = allergiesSheet.iterator();
         rowIterator.next();
 
         while (rowIterator.hasNext()) {
             final Row row = rowIterator.next();
+            String a = row.getCell(0).toString();
             if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
-                final Allergy allergy = new Allergy();
+                final AllergyDTO allergy = new AllergyDTO();
                 patient.getAllergies().add(allergy);
                 allergy.setId(ExcelUtils.getCellValue(row.getCell(1)));
                 allergy.setType(new CodedValue(ExcelUtils.getCellValue(row.getCell(2)), ExcelUtils.getCellValue(row.getCell(3))));

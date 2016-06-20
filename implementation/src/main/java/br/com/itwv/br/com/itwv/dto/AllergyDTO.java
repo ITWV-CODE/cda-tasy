@@ -1,26 +1,17 @@
 package br.com.itwv.br.com.itwv.dto;
 
-import java.io.Serializable;
+import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 
 /**
  * Created by itwv_2 on 20/06/2016.
  */
-public class Allergy implements Serializable {
+public class AllergyDTO extends Dto {
 
-    private String id;
     private CodedValue type;
     private CodedValue substance;
     private CodedValue reaction;
     private CodedValue status;
     private String date;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public CodedValue getType() {
         return type;

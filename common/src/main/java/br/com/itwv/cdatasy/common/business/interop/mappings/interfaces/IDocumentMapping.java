@@ -2,8 +2,6 @@ package br.com.itwv.cdatasy.common.business.interop.mappings.interfaces;
 
 import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
 
-import java.util.HashMap;
-
 public interface IDocumentMapping {
 
     public enum x_DocDocumentSectionType {

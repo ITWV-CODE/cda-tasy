@@ -1,8 +1,7 @@
 package br.com.itwv.cdatasy.common.business.interop.mappings.interfaces;
 
+import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
-
-import java.util.HashMap;
 
 public interface IPatientMapping {
 
@@ -10,5 +9,5 @@ public interface IPatientMapping {
         UNDEFINED, PATIENT, PATIENTROLE, RECORD_TARGET
     }
 
-    public ClinicalDocument mapPatientSections(ClinicalDocument doc, IPatientMapping.x_DocPatientSectionType x_DocPatientSectionType) throws Exception;
+    public ClinicalDocument mapPatientSections(ClinicalDocument doc, IPatientMapping.x_DocPatientSectionType x_DocPatientSectionType, Dto patientDto) throws Exception;
 }

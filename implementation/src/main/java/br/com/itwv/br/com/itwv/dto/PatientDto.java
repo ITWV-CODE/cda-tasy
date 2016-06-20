@@ -1,30 +1,21 @@
 package br.com.itwv.br.com.itwv.dto;
 
-import java.io.Serializable;
+import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by itwv_2 on 20/06/2016.
  */
-public class Patient implements Serializable {
+public class PatientDto extends Dto {
 
-    private String id;
     private CodedValue institution;
     private String givenName;
     private String familyName;
     private String gender;
     private String birthDate;
-
-    private List<Allergy> allergies;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private List<AllergyDTO> allergies;
 
     public CodedValue getInstitution() {
         return institution;
@@ -66,14 +57,14 @@ public class Patient implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public List<Allergy> getAllergies() {
+    public List<AllergyDTO> getAllergies() {
         if (allergies == null) {
-            allergies = new ArrayList<Allergy>();
+            allergies = new ArrayList<AllergyDTO>();
         }
         return allergies;
     }
 
-    public void setAllergies(List<Allergy> allergies) {
+    public void setAllergies(List<AllergyDTO> allergies) {
         this.allergies = allergies;
     }
 }

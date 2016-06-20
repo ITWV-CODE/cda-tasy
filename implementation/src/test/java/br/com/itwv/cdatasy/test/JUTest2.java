@@ -1,13 +1,19 @@
 package br.com.itwv.cdatasy.test;
 
-import br.com.itwv.br.com.itwv.dto.Patient;
+import br.com.itwv.br.com.itwv.dto.PatientDto;
 import br.com.itwv.builders.PatientBuilder;
+import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.ContinuityOfCareDocumentFactory;
+import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.IClinicalDocumentFactory;
+import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping;
 import br.com.itwv.cdatasy.common.business.resources.Resources;
+import br.com.itwv.mappings.factory.MappingsFactory;
 import junit.framework.TestCase;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
+import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +33,7 @@ public class JUTest2 extends TestCase {
     public void test() throws Exception {
 
         XSSFWorkbook workbook = new XSSFWorkbook(file);
-        final List<Patient> patients = new PatientBuilder().build(workbook).getResult();
+        final List<PatientDto> patients = new PatientBuilder().build(workbook).getResult();
         workbook.close();
         file.close();
 
@@ -49,10 +55,21 @@ public class JUTest2 extends TestCase {
                     assertEquals(patients.get(i).getId(), "43444343433");
                     assertNotNull(patients.get(i).getAllergies());
                     assertFalse(patients.get(i).getAllergies().isEmpty());
-                    assertEquals(patients.get(i).getAllergies().size(), 2);
+                    assertEquals(patients.get(i).getAllergies().size(), 1);
                     break;
                 }
             }
+        }
+
+        for (final PatientDto patientDto : patients) {
+            ContinuityOfCareDocumentFactory.getInstance().createClinicalDocumentFactory(IClinicalDocumentFactory.x_FactoryLoadTypes.DEFAULT, null);
+            List<ClinicalDocument> docList = new ArrayList<ClinicalDocument>();
+            docList.add(ContinuityOfCareDocumentFactory.getClinicalDocumentInstance());
+
+            MappingsFactory.getInstance().createEntityMappingsFactory();
+            MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
+            MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ALERTS, patientDto.getAllergies());
+            System.out.println(ContinuityOfCareDocumentFactory.getString());
         }
     }
 }
