@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.itwv.com.br/CDA-TASY/LoggingDataSchemaDataTypes"
+	targetNamespace="http://www.itwv.com.br/CDA-TASY/LoggingDataSchemaDataTypes"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:annotation>
+		<xs:appinfo>
+			<xs:schemaInfo standards_version="" document_type="Temp"
+				version="1.0.0104.0.2.0" root_reference="LoggingDataSchemaDataTypes" />
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:complexType name="LoggingDataSchemaItem">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element minOccurs="1" name="LoggingDefinition" type="LoggingDefinition"
+				form="qualified" nillable="false" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LoggingDefinition">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element minOccurs="1" name="Message" type="xs:string"
+				form="qualified" nillable="false" maxOccurs="1" />
+			<xs:element minOccurs="0" name="ExceptionName" type="xs:string"
+				form="qualified" nillable="false" maxOccurs="1" />
+			<xs:element minOccurs="0" name="ExceptionMessage" type="xs:string"
+				form="qualified" nillable="false" maxOccurs="1" />
+			<xs:element minOccurs="0" name="ExecutionPoint" type="xs:string"
+				form="qualified" nillable="false" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attributeGroup ref="LoggingAttributeGroup" />
+	</xs:complexType>
+
+	<xs:simpleType name="LoggingSeverityDefinition" final="#all">
+		<xs:restriction base="LoggingSeverity" />
+	</xs:simpleType>
+
+	<xs:simpleType name="LoggingResumableDefinition" final="#all">
+		<xs:restriction base="LoggingResumable" />
+	</xs:simpleType>
+
+	<xs:simpleType name="LoggingUTCDefinition" final="#all">
+		<xs:restriction base="LoggingUTC" />
+	</xs:simpleType>
+
+	<xs:simpleType name="LoggingSeverity">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse" />
+			<xs:enumeration value="Information" />
+			<xs:enumeration value="Warning" />
+			<xs:enumeration value="Error" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LoggingResumable">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value="true|false" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LoggingUTC">
+		<xs:restriction base="xs:dateTime">
+			<xs:pattern
+				value="((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T(([01][0-9])|(2[0-3]))(:[0-5][0-9])(:00)" />
+			<xs:maxInclusive value="2079-06-06T23:59:00" />
+			<xs:minInclusive value="1900-01-01T00:00:00" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:attributeGroup name="LoggingAttributeGroup">
+		<xs:attribute name="DateTime" type="LoggingUTCDefinition"
+			use="required" />
+		<xs:attribute name="Resumable" type="LoggingResumableDefinition"
+			use="required" />
+		<xs:attribute name="Severity" type="LoggingSeverityDefinition"
+			use="required" />
+	</xs:attributeGroup>
+
+</xs:schema>

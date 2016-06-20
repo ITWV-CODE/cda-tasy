@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.itwv.com.br/CDA-TASY/LoggingDataSchema"
+	xmlns:ns0="http://www.itwv.com.br/CDA-TASY/LoggingDataSchemaDataTypes"
+	targetNamespace="http://www.itwv.com.br/CDA-TASY/LoggingDataSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import schemaLocation="LoggingDataSchemaDataTypes.xsd"
+		namespace="http://www.itwv.com.br/CDA-TASY/LoggingDataSchemaDataTypes" />
+
+	<xs:annotation>
+		<xs:appinfo>
+			<xs:schemaInfo standards_version="" document_type="Temp"
+				version="2.0.0104.0.2.0" root_reference="LoggingDataSchema" />
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:element name="LoggingDataSchema">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element minOccurs="1" name="LoggingDataSchemaItem"
+					type="ns0:LoggingDataSchemaItem" form="qualified" nillable="false"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
