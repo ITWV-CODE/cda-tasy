@@ -10,49 +10,49 @@ import org.openhealthtools.mdht.uml.cda.ccd.ProblemObservation;
 import org.openhealthtools.mdht.uml.cda.ccd.ProblemSection;
 
 public class ProblemSectionTable {
-	private static ProblemSectionTable instance = null;
+    private static ProblemSectionTable instance = null;
 
-	protected ProblemSectionTable() {
-	}
+    protected ProblemSectionTable() {
+    }
 
-	public static ProblemSectionTable getInstance() {
-		if (instance == null) {
-			instance = new ProblemSectionTable();
-		}
-		return instance;
-	}
+    public static ProblemSectionTable getInstance() {
+        if (instance == null) {
+            instance = new ProblemSectionTable();
+        }
+        return instance;
+    }
 
-	public String getTable(ProblemSection problemSection) {
+    public String getTable(ProblemSection problemSection) {
 
-		ProblemCollection problemCollection = new ProblemCollection();
+        ProblemCollection problemCollection = new ProblemCollection();
 
-		for (ProblemAct problemAct : problemSection.getProblemActs()) {
+        for (ProblemAct problemAct : problemSection.getProblemActs()) {
 
-			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText())) {
-			case ACTIVE:
-			case NEW:
-			case COMPLETED: {
+            switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase())) {
+                case ACTIVE:
+                case NEW:
+                case COMPLETED: {
 
-				Problem problem = new Problem();
-				problem.setInitialDate(CDADataTypesFactory.getInstance().getPrettyPrintDate(problemAct.getEffectiveTime().getLow(), "yyyyMMdd",
-						"yyyy/MM/dd"));
-				for (Observation observation : problemAct.getObservations()) {
-					if (observation instanceof ProblemObservation) {
-						problem.setCode(observation.getCode().getCode());
-						problem.setDescription(observation.getCode().getDisplayName());
-						problem.setClassificationCode(observation.getCode().getCodeSystemName());
-					}
-				}
-				problemCollection.add(problem);
+                    Problem problem = new Problem();
+                    problem.setInitialDate(CDADataTypesFactory.getInstance().getPrettyPrintDate(problemAct.getEffectiveTime().getLow(), "yyyyMMdd",
+                            "yyyy/MM/dd"));
+                    for (Observation observation : problemAct.getObservations()) {
+                        if (observation instanceof ProblemObservation) {
+                            problem.setCode(observation.getCode().getCode());
+                            problem.setDescription(observation.getCode().getDisplayName());
+                            problem.setClassificationCode(observation.getCode().getCodeSystemName());
+                        }
+                    }
+                    problemCollection.add(problem);
 
-				break;
-			}
-			default:
-				break;
-			}
-		}
-		if (problemCollection.size() == 0)
-			return "<content ID=\"actproblem\">Não existem problemas activos.</content>";
-		return problemCollection.toString();
-	}
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+        if (problemCollection.size() == 0)
+            return "<content ID=\"actproblem\">Não existem problemas activos.</content>";
+        return problemCollection.toString();
+    }
 }

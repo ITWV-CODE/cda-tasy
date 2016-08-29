@@ -30,9 +30,7 @@ public class JUTest1 extends TestCase {
         medicationsSection.setMoodCode(ActMood.EVN);
         medicationsSection.createStrucDocText("<content ID=\"nomedicationdescription\">Não existem medicamentos.</content>");
         medicationsSection.addSubstanceAdministration(ContinuityOfCareDocumentFactory.createMedicationsSectionEntry(null, true));
-
         clinicalDocumentInstance.addSection(medicationsSection);
-
     }
 
     @Test
@@ -44,5 +42,4 @@ public class JUTest1 extends TestCase {
         writer.close();
         System.out.println(docString);
     }
-
 }

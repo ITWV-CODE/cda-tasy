@@ -26,7 +26,7 @@ public class ImmunizationSectionTable {
 		for (MedicationActivity activity : immunizationsSection.getMedicationActivities()) {
 
 			Immunization immunization = new Immunization();
-			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(activity.getStatusCode().getOriginalText().getText())) {
+			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(activity.getStatusCode().getCode().toUpperCase())) {
 			case ACTIVE:
 			case NEW:
 			case COMPLETED: {

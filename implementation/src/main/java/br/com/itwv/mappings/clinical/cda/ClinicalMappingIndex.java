@@ -31,19 +31,19 @@ public class ClinicalMappingIndex {
         for (SubstanceAdministration activity : ((MedicationsSection) EObjectElementsFactory.getDocumentSection(doc, x_EObjectTypes.MEDICATIONS))
                 .getSubstanceAdministrations()) {
             if (new MedicationActivityComparable(activity).equals((medicationActivity))
-                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getOriginalText().getText()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("held",
-                        IClinicalMapping.x_DocEntryStatusCode.HELD));
+                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getCode().toUpperCase()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.HELD.name().toLowerCase()));
         }
 
-        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getOriginalText().getText()).equals(
+        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getCode().toUpperCase()).equals(
                 IClinicalMapping.x_DocEntryStatusCode.NEW)) {
             if ((((IVL_TS) medicationActivity.getEffectiveTimes().get(0)).getHigh().getValue() != null))
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             else
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return medicationActivity;
     }
@@ -52,18 +52,18 @@ public class ClinicalMappingIndex {
 
         for (ProblemAct act : ((AlertsSection) EObjectElementsFactory.getDocumentSection(doc, x_EObjectTypes.ALLERGIES)).getProblemActs()) {
             if (new AlertsProblemActComparable(act).equals((problemAct))
-                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
+                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
                 problemAct
-                        .setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("held", IClinicalMapping.x_DocEntryStatusCode.HELD));
+                        .setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.HELD.name().toLowerCase()));
         }
-        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText()).equals(
+        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase()).equals(
                 IClinicalMapping.x_DocEntryStatusCode.NEW)) {
             if ((((IVL_TS) problemAct.getEffectiveTime()).getHigh().getValue() != null))
-                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             else
-                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return problemAct;
     }
@@ -72,18 +72,18 @@ public class ClinicalMappingIndex {
 
         for (Procedure proc : ((ProceduresSection) EObjectElementsFactory.getDocumentSection(doc, x_EObjectTypes.PROCEDURES)).getProcedures()) {
             if (new ProcedureActivityComparable((ProcedureActivityProcedure) proc).equals((procedureActivityProcedure))
-                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivityProcedure.getStatusCode().getOriginalText().getText()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
-                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("held",
-                        IClinicalMapping.x_DocEntryStatusCode.HELD));
+                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivityProcedure.getStatusCode().getCode().toUpperCase()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
+                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.HELD.name().toLowerCase()));
         }
-        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivityProcedure.getStatusCode().getOriginalText().getText()).equals(
+        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivityProcedure.getStatusCode().getCode().toUpperCase()).equals(
                 IClinicalMapping.x_DocEntryStatusCode.NEW)) {
             if ((((IVL_TS) procedureActivityProcedure.getEffectiveTime()).getHigh().getValue() != null))
-                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             else
-                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                procedureActivityProcedure.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return procedureActivityProcedure;
     }
@@ -93,18 +93,18 @@ public class ClinicalMappingIndex {
         for (SubstanceAdministration activity : ((ImmunizationsSection) EObjectElementsFactory.getDocumentSection(doc, x_EObjectTypes.IMMUNIZATIONS))
                 .getSubstanceAdministrations()) {
             if (new ImmunizationActivityComparable(activity).equals((medicationActivity))
-                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getOriginalText().getText()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("held",
-                        IClinicalMapping.x_DocEntryStatusCode.HELD));
+                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getCode().toUpperCase()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.HELD.name().toLowerCase()));
         }
-        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getOriginalText().getText()).equals(
+        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(medicationActivity.getStatusCode().getCode().toUpperCase()).equals(
                 IClinicalMapping.x_DocEntryStatusCode.NEW)) {
             if (medicationActivity.getEffectiveTimes().get(0).getValue() != null)
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             else
-                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return medicationActivity;
     }
@@ -113,18 +113,18 @@ public class ClinicalMappingIndex {
 
         for (ProblemAct act : ((ProblemSection) EObjectElementsFactory.getDocumentSection(doc, x_EObjectTypes.PROBLEMS)).getProblemActs()) {
             if (new ProblemsProblemActComparable(act).equals((problemAct))
-                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
+                    && IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase()) != IClinicalMapping.x_DocEntryStatusCode.OBSOLETE)
                 problemAct
-                        .setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("held", IClinicalMapping.x_DocEntryStatusCode.HELD));
+                        .setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.HELD.name().toLowerCase()));
         }
-        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText()).equals(
+        if (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase()).equals(
                 IClinicalMapping.x_DocEntryStatusCode.NEW)) {
             if ((((IVL_TS) problemAct.getEffectiveTime()).getHigh().getValue() != null))
-                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             else
-                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+                problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                        IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return problemAct;
     }

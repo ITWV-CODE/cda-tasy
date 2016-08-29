@@ -8,7 +8,6 @@ public interface IDocumentMapping {
         UNDEFINED, PROPERTIES, AUTHOR, DOCUMENTOF, CUSTODIAN, PARTICIPANT
     }
 
-    public ClinicalDocument mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType,
-                                                IClinicalMapping.x_DocClinicalSectionType x_DocClinicalSectionType, Object relatedDocumentObject)
+    public ClinicalDocument mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType)
             throws Exception;
 }

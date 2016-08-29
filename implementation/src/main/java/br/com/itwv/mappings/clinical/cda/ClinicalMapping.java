@@ -1,6 +1,5 @@
 package br.com.itwv.mappings.clinical.cda;
 
-import br.com.itwv.br.com.itwv.dto.AllergyDTO;
 import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping;
 import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
@@ -37,7 +36,7 @@ public class ClinicalMapping extends ClinicalMappingBase implements IClinicalMap
             case IMMUNIZATIONS:
                 return super.mapImmunizationsFactory(docList);
             case PROBLEMS:
-                return super.mapProblemsFactory(docList);
+                return super.mapProblemsFactory(segments.get("ProblemDTO"), docList);
             case PROCEDURES:
                 return super.mapProceduresFactory(docList);
             default:

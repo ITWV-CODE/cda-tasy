@@ -1,6 +1,7 @@
 package br.com.itwv.mappings.clinical.cda;
 
 import br.com.itwv.br.com.itwv.dto.AllergyDTO;
+import br.com.itwv.br.com.itwv.dto.ProblemDTO;
 import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.ContinuityOfCareDocumentFactory;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.IClinicalDocumentFactory;
@@ -8,17 +9,14 @@ import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.helper
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.helpers.EObjectElementsFactory;
 import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
 import br.com.itwv.mappings.clinical.tables.AlertSectionTable;
-import org.eclipse.emf.ecore.EObject;
+import br.com.itwv.mappings.clinical.tables.ProblemSectionTable;
 import org.openhealthtools.mdht.uml.cda.*;
-import org.openhealthtools.mdht.uml.cda.ccd.AlertsSection;
-import org.openhealthtools.mdht.uml.cda.ccd.ProblemAct;
+import org.openhealthtools.mdht.uml.cda.ccd.*;
 import org.openhealthtools.mdht.uml.hl7.vocab.EntityClassRoot;
 import org.openhealthtools.mdht.uml.hl7.vocab.ParticipationType;
 import org.openhealthtools.mdht.uml.hl7.vocab.RoleClassRoot;
 
 import java.util.List;
-
-import static br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping.x_DocEntryStatusCode;
 
 public abstract class ClinicalMappingBase {
 
@@ -43,19 +41,19 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertMedicationEntry(List<ClinicalDocument> docList, EObject... eObjects) throws Exception {
+    protected static List<ClinicalDocument> insertMedicationEntry(List<ClinicalDocument> docList) throws Exception {
 
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertAlertEntry(List<Dto> allergies, List<ClinicalDocument> docList, EObject... eObjects) throws Exception {
+    protected static List<ClinicalDocument> insertAlertEntry(List<Dto> allergies, List<ClinicalDocument> docList) throws Exception {
 
         final AlertsSection alertsSection = (AlertsSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.ALLERGIES, "", "");
-        ProblemAct problemAct = null;
 
         for (final Dto dto : allergies) {
             final AllergyDTO allergy = (AllergyDTO) dto;
-            problemAct = ContinuityOfCareDocumentFactory.createAlertsSectionEntry(problemAct, false);
+            ProblemAct problemAct = ContinuityOfCareDocumentFactory.createAlertsSectionEntry(null, false);
+            alertsSection.addAct(problemAct);
             problemAct.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(allergy.getId(), null, null));
             problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(allergy.getDate(), null));
             problemAct.getObservations().get(0).setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getSubstance().getCode(), null, "SUBS", allergy.getSubstance().getDescription(), null));
@@ -73,50 +71,16 @@ public abstract class ClinicalMappingBase {
             PlayingEntity playingEntity = CDAFactory.eINSTANCE.createPlayingEntity();
             participantRole.setPlayingEntity(playingEntity);
             playingEntity.setClassCode(EntityClassRoot.MMAT);
-
             CDADataTypesFactory.getInstance().createBaseReactionObservation(problemAct.getObservations().get(0), allergy.getReaction().getCode(), null, null, allergy.getReaction().getDescription());
-
-            //CDADataTypesFactory.getInstance().createBaseSeverityObservation(problemAct.getObservations().get(0), iam.getIam4_AllergySeverityCode().getCe1_Identifier().getValue(), null, iam.getIam4_AllergySeverityCode().getCe3_NameOfCodingSystem().getValue(), iam.getIam4_AllergySeverityCode().getCe2_Text().getValue());
-
             CDADataTypesFactory.getInstance().createBaseAlertStatusObservation(problemAct.getObservations().get(0), allergy.getStatus().getCode(), null, null, allergy.getStatus().getDescription(), null);
-
-
-            problemAct = ClinicalMappingIndex.getInstance().indexAlerts(docList.get(0), problemAct);
             ClinicalMappingEntryRelationships.getInstance().defineProblemActEntryRelationships(docList.get(0), problemAct);
         }
-        if (eObjects.length == 0)
-            alertsSection.addAct(problemAct);
         alertsSection.createStrucDocText(AlertSectionTable.getInstance().getTable(alertsSection));
-
         return docList;
     }
 
-    protected static List<ClinicalDocument> updateProblemEntry(List<ClinicalDocument> docList, x_DocEntryStatusCode x_DocEntryStatusCode) throws Exception {
 
-        return docList;
-
-    }
-
-    protected static List<ClinicalDocument> updateProcedureEntry(List<ClinicalDocument> docList, x_DocEntryStatusCode x_DocEntryStatusCode) throws Exception {
-
-        return docList;
-
-    }
-
-    protected static List<ClinicalDocument> updateAlertEntry(List<ClinicalDocument> docList, x_DocEntryStatusCode x_DocEntryStatusCode) throws Exception {
-
-        return docList;
-    }
-
-    protected static List<ClinicalDocument> updateImmunizationEntry(List<ClinicalDocument> docList, x_DocEntryStatusCode x_DocEntryStatusCode) throws Exception {
-        return docList;
-    }
-
-    protected static List<ClinicalDocument> updateMedicationEntry(List<ClinicalDocument> docList, x_DocEntryStatusCode x_DocEntryStatusCode) throws Exception {
-        return docList;
-    }
-
-    protected static List<ClinicalDocument> insertImmunizationEntry(List<ClinicalDocument> docList, EObject... eObjects)
+    protected static List<ClinicalDocument> insertImmunizationEntry(List<ClinicalDocument> docList)
             throws Exception {
 
         return docList;
@@ -136,9 +100,9 @@ public abstract class ClinicalMappingBase {
         return ClinicalMappingBase.insertAlertEntry(allergies, docList);
     }
 
-    protected List<ClinicalDocument> mapProblemsFactory(List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapProblemsFactory(final List<Dto> problems, List<ClinicalDocument> docList) throws Exception {
 
-        return ClinicalMappingBase.insertProblemEntry(docList);
+        return ClinicalMappingBase.insertProblemEntry(problems, docList);
     }
 
     protected List<ClinicalDocument> mapProceduresFactory(List<ClinicalDocument> docList) throws Exception {
@@ -146,16 +110,32 @@ public abstract class ClinicalMappingBase {
         return ClinicalMappingBase.insertProcedureEntry(docList);
     }
 
-    protected static List<ClinicalDocument> insertProcedureEntry(List<ClinicalDocument> docList, EObject... eObjects)
+    protected static List<ClinicalDocument> insertProcedureEntry(List<ClinicalDocument> docList)
             throws Exception {
 
         return docList;
 
     }
 
-    protected static List<ClinicalDocument> insertProblemEntry(List<ClinicalDocument> docList, EObject... eObjects)
+    protected static List<ClinicalDocument> insertProblemEntry(List<Dto> problems, List<ClinicalDocument> docList)
             throws Exception {
 
+        final ProblemSection problemSection = (ProblemSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.PROBLEMS, "", "");
+
+        for (final Dto dto : problems) {
+            final ProblemDTO problem = (ProblemDTO) dto;
+            ProblemAct problemAct = ContinuityOfCareDocumentFactory.createProblemsSectionEntry(null, false);
+            problemSection.addAct(problemAct);
+            problemAct.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(problem.getId(), null, null));
+            problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(problem.getDate(), null));
+            problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createProblemCodeCD(problem.getProblem().getCode(), "I9C", problem.getProblem().getDescription()));
+            ProblemStatusObservation problemStatusObservation = CCDFactory.eINSTANCE.createProblemStatusObservation().init();
+            problemAct.getObservations().get(0).addObservation(problemStatusObservation);
+            problemStatusObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(problem.getDate(), problem.getDate()));
+            problemStatusObservation.getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCE(problem.getStatus().getCode(), null, null, problem.getStatus().getDescription(), null));
+            ClinicalMappingEntryRelationships.getInstance().defineProblemActEntryRelationships(docList.get(0), problemAct);
+        }
+        problemSection.createStrucDocText(ProblemSectionTable.getInstance().getTable(problemSection));
         return docList;
     }
 }

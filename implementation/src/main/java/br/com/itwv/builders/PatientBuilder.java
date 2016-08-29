@@ -3,6 +3,7 @@ package br.com.itwv.builders;
 import br.com.itwv.br.com.itwv.dto.AllergyDTO;
 import br.com.itwv.br.com.itwv.dto.CodedValue;
 import br.com.itwv.br.com.itwv.dto.PatientDto;
+import br.com.itwv.br.com.itwv.dto.ProblemDTO;
 import br.com.itwv.br.com.itwv.utils.ExcelUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -52,7 +53,10 @@ public class PatientBuilder {
         patient.setBirthDate(ExcelUtils.getCellValue(row.getCell(7)));
 
         final XSSFSheet allergiesSheet = workbook.getSheet("Alergias");
+        final XSSFSheet problemsSheet = workbook.getSheet("Problemas");
+
         this.buildAllergies(patient, allergiesSheet, sequence);
+        this.buildProblems(patient, problemsSheet, sequence);
     }
 
     private void buildAllergies(final PatientDto patient, final XSSFSheet allergiesSheet, final String sequence) {
@@ -62,7 +66,6 @@ public class PatientBuilder {
 
         while (rowIterator.hasNext()) {
             final Row row = rowIterator.next();
-            String a = row.getCell(0).toString();
             if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
                 final AllergyDTO allergy = new AllergyDTO();
                 patient.getAllergies().add(allergy);
@@ -72,6 +75,24 @@ public class PatientBuilder {
                 allergy.setReaction(new CodedValue(ExcelUtils.getCellValue(row.getCell(6)), ExcelUtils.getCellValue(row.getCell(7))));
                 allergy.setStatus(new CodedValue(ExcelUtils.getCellValue(row.getCell(8)), ExcelUtils.getCellValue(row.getCell(9))));
                 allergy.setDate(ExcelUtils.getCellValue(row.getCell(10)));
+            }
+        }
+    }
+
+    private void buildProblems(final PatientDto patient, final XSSFSheet problemsSheet, final String sequence) {
+
+        final Iterator<Row> rowIterator = problemsSheet.iterator();
+        rowIterator.next();
+
+        while (rowIterator.hasNext()) {
+            final Row row = rowIterator.next();
+            if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
+                final ProblemDTO problem = new ProblemDTO();
+                patient.getProblems().add(problem);
+                problem.setId(ExcelUtils.getCellValue(row.getCell(1)));
+                problem.setProblem(new CodedValue(ExcelUtils.getCellValue(row.getCell(2)), ExcelUtils.getCellValue(row.getCell(3))));
+                problem.setStatus(new CodedValue(ExcelUtils.getCellValue(row.getCell(4)), ExcelUtils.getCellValue(row.getCell(5))));
+                problem.setDate(ExcelUtils.getCellValue(row.getCell(6)));
             }
         }
     }

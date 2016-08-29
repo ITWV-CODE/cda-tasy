@@ -29,7 +29,7 @@ public class MedicationSectionTable {
 		for (MedicationActivity activity : medicationsSection.getMedicationActivities()) {
 
 			Medication medication = new Medication();
-			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(activity.getStatusCode().getOriginalText().getText())) {
+			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(activity.getStatusCode().getCode().toUpperCase())) {
 			case ACTIVE:
 			case NEW:
 			case COMPLETED: {

@@ -95,6 +95,6 @@ public class ClinicalMappingStateValidation {
                 x = x_DocEntryStatusCode;
                 break;
         }
-        return CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x.name().toLowerCase(), x);
+        return CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x.name().toLowerCase());
     }
 }

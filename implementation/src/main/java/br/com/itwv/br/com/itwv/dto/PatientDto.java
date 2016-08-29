@@ -16,6 +16,7 @@ public class PatientDto extends Dto {
     private String gender;
     private String birthDate;
     private List<AllergyDTO> allergies;
+    private List<ProblemDTO> problems;
 
     public CodedValue getInstitution() {
         return institution;
@@ -67,4 +68,16 @@ public class PatientDto extends Dto {
     public void setAllergies(List<AllergyDTO> allergies) {
         this.allergies = allergies;
     }
+
+    public List<ProblemDTO> getProblems() {
+        if (problems == null) {
+            problems = new ArrayList<ProblemDTO>();
+        }
+        return problems;
+    }
+
+    public void setProblems(List<ProblemDTO> problems) {
+        this.problems = problems;
+    }
+
 }

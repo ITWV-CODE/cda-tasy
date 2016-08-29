@@ -21,21 +21,13 @@ public class DocumentMappingFacade implements IDocumentMappingFacade {
     }
 
     @Override
-    public Object mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType,
-                                      IClinicalMapping.x_DocClinicalSectionType x_DocClinicalSectionType, Object relatedDocumentObject) throws Exception {
+    public Object mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType
+    ) throws Exception {
 
-        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.PROPERTIES, x_DocClinicalSectionType,
-                relatedDocumentObject);
-
-        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.AUTHOR, x_DocClinicalSectionType,
-                relatedDocumentObject);
-
-        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.PARTICIPANT, x_DocClinicalSectionType,
-                relatedDocumentObject);
-
-        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, x_DocClinicalSectionType,
-                relatedDocumentObject);
-
+        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.PROPERTIES);
+        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.AUTHOR);
+        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.PARTICIPANT);
+        DocumentMapping.getInstance().mapDocumentSections(doc, IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN);
         return doc;
     }
 }

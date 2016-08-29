@@ -28,7 +28,20 @@ public class CDADataTypesFactory {
         return instance;
     }
 
-    public CS createBaseStatusCodeCS(String status, IClinicalMapping.x_DocEntryStatusCode x_DocEntryStatusCode) {
+    public InfrastructureRootTypeId createInfrastructureRootTypeId(final String extension) {
+        final InfrastructureRootTypeId infrastructureRootTypeId = CDAFactory.eINSTANCE.createInfrastructureRootTypeId();
+        infrastructureRootTypeId.setExtension(extension);
+        return infrastructureRootTypeId;
+    }
+
+    public CS createBaseStatusCodeCS(String status) {
+
+        CS statusCode = DatatypesFactory.eINSTANCE.createCS();
+        statusCode.setCode(status);
+        return statusCode;
+    }
+
+   /* public CS createBaseStatusCodeCS(String status, IClinicalMapping.x_DocEntryStatusCode x_DocEntryStatusCode) {
 
         CS statusCode = DatatypesFactory.eINSTANCE.createCS();
         statusCode.setCode(status);
@@ -36,7 +49,7 @@ public class CDADataTypesFactory {
         statusCode.setCodeSystemName("ActStatus");
         statusCode.setOriginalText(DatatypesFactory.eINSTANCE.createED(x_DocEntryStatusCode.toString()));
         return statusCode;
-    }
+    }*/
 
     public PIVL_TS createBaseEffectiveTimePIVL_TS(boolean institutionSpecified, SetOperator operator, NullFlavor... nullFlavor) {
         return this.createBaseEffectiveTimePIVL_TS(null, null, institutionSpecified, operator, nullFlavor);
@@ -226,7 +239,7 @@ public class CDADataTypesFactory {
         // TODO: SNOMED
         reactionObservation.setCode(this.createBaseCodeCD("418799008", "2.16.840.1.113883.6.96", "SNOMED-CT",
                 "Finding reported 1950 by subject or history provider", null));
-        reactionObservation.setStatusCode(this.createBaseStatusCodeCS("completed", IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+        reactionObservation.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         reactionObservation.getValues().add(this.createBaseCodeCD(code, codeSystem, codeSystemName, displayName, null));
         return reactionObservation;
     }
@@ -250,8 +263,8 @@ public class CDADataTypesFactory {
         statement.addObservation(severityObservation);
         severityObservation.setCode(CDADataTypesFactory.getInstance()
                 .createBaseCodeCD("SEV", "2.16.840.1.113883.5.4", "HL7ActCode", "Severity", null));
-        severityObservation.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS("completed",
-                IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+        severityObservation.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(
+                IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         severityObservation.getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(code, codeSystem, codeSystemName, displayName, null));
         return severityObservation;
     }
@@ -272,7 +285,7 @@ public class CDADataTypesFactory {
         patientInstruction.setMoodCode(x_DocumentActMood.EVN);
         patientInstruction.setCode(this.createBaseCodeCD("PINSTRUCT", "1.3.6.1.4.1.19376.1.5.3.2", "IHEActCode", null, null));
         patientInstruction.setText(this.createBaseED(instructions, null));
-        patientInstruction.setStatusCode(this.createBaseStatusCodeCS("completed", IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+        patientInstruction.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         return statement;
     }
 
@@ -282,7 +295,7 @@ public class CDADataTypesFactory {
         FulfillmentInstruction fulfillmentInstruction = CCDFactory.eINSTANCE.createFulfillmentInstruction().init();
         statement.getSupplies().get(0).addAct(fulfillmentInstruction);
         fulfillmentInstruction.setMoodCode(x_DocumentActMood.EVN);
-        fulfillmentInstruction.setStatusCode(this.createBaseStatusCodeCS("completed", IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+        fulfillmentInstruction.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         fulfillmentInstruction.setCode(codedElement);
         if (comment != null)
             this.createBaseComment(fulfillmentInstruction, commentId, comment);
@@ -300,7 +313,7 @@ public class CDADataTypesFactory {
         comment.getIds().add(this.createBaseRootII(commentId, null, null));
         comment.setClassCode(x_ActClassDocumentEntryAct.ACT);
         comment.setMoodCode(x_DocumentActMood.EVN);
-        comment.setStatusCode(this.createBaseStatusCodeCS("completed", IClinicalMapping.x_DocEntryStatusCode.COMPLETED));
+        comment.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         comment.setCode(this.createBaseCodeCD("48767-8", "2.16.840.1.113883.6.1", "LOINC", "Annotation Comment", null));
         comment.setText(this.createBaseED(commentText, null));
         return statement;

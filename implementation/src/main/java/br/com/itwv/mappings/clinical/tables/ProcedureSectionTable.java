@@ -27,7 +27,7 @@ public class ProcedureSectionTable {
 
 		for (org.openhealthtools.mdht.uml.cda.Procedure procedureActivity : procedureSection.getProcedures()) {
 
-			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivity.getStatusCode().getOriginalText().getText())) {
+			switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(procedureActivity.getStatusCode().getCode().toUpperCase())) {
 			case ACTIVE:
 			case NEW:
 			case COMPLETED: {

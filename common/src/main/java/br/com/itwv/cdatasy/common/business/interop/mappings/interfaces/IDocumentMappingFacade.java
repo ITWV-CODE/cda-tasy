@@ -4,6 +4,5 @@ import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
 
 public interface IDocumentMappingFacade {
 
-    Object mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType,
-                               IClinicalMapping.x_DocClinicalSectionType x_DocClinicalSectionType, Object relatedDocumentObject) throws Exception;
+    Object mapDocumentSections(ClinicalDocument doc, IDocumentMapping.x_DocDocumentSectionType x_DocDocumentSectionType) throws Exception;
 }

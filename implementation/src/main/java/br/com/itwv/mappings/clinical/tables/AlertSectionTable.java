@@ -31,7 +31,7 @@ public class AlertSectionTable {
         AlertCollection alertCollection = new AlertCollection();
         for (ProblemAct problemAct : alertsSection.getProblemActs()) {
 
-            switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getOriginalText().getText())) {
+            switch (IClinicalMapping.x_DocEntryStatusCode.valueOf(problemAct.getStatusCode().getCode().toUpperCase())) {
                 case ACTIVE:
                 case NEW:
                 case COMPLETED: {
