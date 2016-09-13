@@ -115,7 +115,7 @@ public class CDADataTypesFactory {
         return ts;
     }
 
-    private ON createBaseOrganizationName(String text) {
+    public ON createBaseOrganizationName(String text) {
 
         ON on = DatatypesFactory.eINSTANCE.createON();
 
@@ -129,9 +129,10 @@ public class CDADataTypesFactory {
 
     }
 
-    public PN createBasePN(String familyName, String givenName, String suffixName) {
+    public PN createBasePN(String familyName, String givenName, String suffixName, String prefixName) {
 
         PN name = DatatypesFactory.eINSTANCE.createPN();
+
         try {
             if (familyName == null) {
                 name.setNullFlavor(NullFlavor.NI);
@@ -146,17 +147,21 @@ public class CDADataTypesFactory {
 
             if (suffixName != null)
                 name.addSuffix(suffixName);
+
+            if (prefixName != null)
+                name.addPrefix(prefixName);
+
         } catch (Exception e) {
             name.setNullFlavor(NullFlavor.NI);
         }
         return name;
     }
 
-    private Person createBasePerson(String familyName, String givenName, String suffixName) {
+    private Person createBasePerson(String familyName, String givenName, String suffixName, String prefixName) {
 
         Person person = CDAFactory.eINSTANCE.createPerson();
         try {
-            PN name = this.createBasePN(familyName, givenName, suffixName);
+            PN name = this.createBasePN(familyName, givenName, suffixName, prefixName);
             person.getNames().add(name);
         } catch (Exception e) {
             person.setNullFlavor(NullFlavor.NI);
@@ -165,12 +170,12 @@ public class CDADataTypesFactory {
     }
 
     private AssignedAuthor createBaseAssignedAuthor(String extension, String root, String assigningAuthorityName, String personFamilyName,
-                                                    String personGivenName, String personSuffixName, String organizationName, String organizationExtension, String country, String city,
+                                                    String personGivenName, String personSuffixName, String personPrefixName, String organizationName, String organizationExtension, String country, String city,
                                                     String postalCode, String streetAddressLine, String state) {
 
         AssignedAuthor assignedAuthor = CDAFactory.eINSTANCE.createAssignedAuthor();
         try {
-            assignedAuthor.setAssignedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName));
+            assignedAuthor.setAssignedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName, personPrefixName));
             assignedAuthor.getIds().add(this.createBaseRootII(extension, root, assigningAuthorityName));
             assignedAuthor.setRepresentedOrganization(this.createBaseOrganization(organizationName, organizationExtension, country, city, postalCode,
                     streetAddressLine, state));
@@ -189,7 +194,7 @@ public class CDADataTypesFactory {
             author.setTime(this.createBaseTime(time));
             if (personSuffixName != null)
                 author.setFunctionCode(this.createBaseCodeCE(null, null, null, personSuffixName, null));
-            author.setAssignedAuthor(this.createBaseAssignedAuthor(extension, root, assigningAuthorityName, personFamilyName, personGivenName, null,
+            author.setAssignedAuthor(this.createBaseAssignedAuthor(extension, root, assigningAuthorityName, personFamilyName, personGivenName, null, null,
                     organizationName, organizationExtension, country, city, postalCode, streetAddressLine, state));
         } catch (Exception e) {
             author.setNullFlavor(NullFlavor.NI);
@@ -511,9 +516,9 @@ public class CDADataTypesFactory {
         return sdtcPatient;
     }
 
-    private AssignedEntity createBaseAssignedEntity(String extension, String root, String assigningAuthorityName, String personFamilyName,
-                                                    String personGivenName, String personSuffixName, String organizationName, String organizationExtension, String clinicalRecordIdentifier,
-                                                    String country, String city, String postalCode, String streetAddressLine, String state) {
+    public AssignedEntity createBaseAssignedEntity(String extension, String root, String assigningAuthorityName, String personFamilyName,
+                                                   String personGivenName, String personSuffixName, String personPrefixName, String organizationName, String organizationExtension, String clinicalRecordIdentifier,
+                                                   String country, String city, String postalCode, String streetAddressLine, String state, boolean ignoreSDTCPatient) {
 
         AssignedEntity assignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
         try {
@@ -521,8 +526,10 @@ public class CDADataTypesFactory {
             assignedEntity.getIds().add(this.createBaseRootII(extension, root, assigningAuthorityName));
             assignedEntity.getRepresentedOrganizations().add(
                     this.createBaseOrganization(organizationName, organizationExtension, country, city, postalCode, streetAddressLine, state));
-            assignedEntity.setAssignedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName));
-            assignedEntity.setSDTCPatient(this.createBaseSDTCPatient(clinicalRecordIdentifier, null, null));
+            assignedEntity.setAssignedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName, personPrefixName));
+            if (!ignoreSDTCPatient) {
+                assignedEntity.setSDTCPatient(this.createBaseSDTCPatient(clinicalRecordIdentifier, null, null));
+            }
         } catch (Exception e) {
             assignedEntity.setNullFlavor(NullFlavor.NI);
         }
@@ -531,7 +538,7 @@ public class CDADataTypesFactory {
 
     private Performer1 createBasePerformer1(String performerFunctionCode, String performerFunctionDisplayName, String performerLowValue,
                                             String performerHighValue, String extension, String root, String assigningAuthorityName, String personFamilyName, String personGivenName,
-                                            String personSuffixName, String organizationName, String organizationExtension, String clinicalRecordIdentifier, String country,
+                                            String personSuffixName, String personPrefixName, String organizationName, String organizationExtension, String clinicalRecordIdentifier, String country,
                                             String city, String postalCode, String streetAddressLine, String state) {
 
         Performer1 performer = CDAFactory.eINSTANCE.createPerformer1();
@@ -541,8 +548,8 @@ public class CDADataTypesFactory {
                 performer.setFunctionCode(this.createBaseCodeCE(performerFunctionCode, null, null, performerFunctionDisplayName, null));
             performer.setTime(this.createBaseEffectiveTimeIVL_TS(performerLowValue, performerHighValue));
             performer.setAssignedEntity(this.createBaseAssignedEntity(extension, root, assigningAuthorityName, personFamilyName, personGivenName,
-                    personSuffixName, organizationName, organizationExtension, clinicalRecordIdentifier, country, city, postalCode,
-                    streetAddressLine, state));
+                    personSuffixName, personPrefixName, organizationName, organizationExtension, clinicalRecordIdentifier, country, city, postalCode,
+                    streetAddressLine, state, false));
         } catch (Exception e) {
             performer.setNullFlavor(NullFlavor.NI);
         }
@@ -551,7 +558,7 @@ public class CDADataTypesFactory {
 
     private ServiceEvent createBaseServiceEvent(String serviceEventLowValue, String serviceEventHighValue, String performerLowValue,
                                                 String performerHighValue, String performerFunctionCode, String performerFunctionDisplayName, String extension, String root,
-                                                String assigningAuthorityName, String personFamilyName, String personGivenName, String personSuffixName, String organizationName,
+                                                String assigningAuthorityName, String personFamilyName, String personGivenName, String personSuffixName, String personPrefixName, String organizationName,
                                                 String organizationExtension, String clinicalRecordIdentifier, String country, String city, String postalCode, String streetAddressLine,
                                                 String state) {
 
@@ -561,7 +568,7 @@ public class CDADataTypesFactory {
             serviceEvent.setEffectiveTime(this.createBaseEffectiveTimeIVL_TS(serviceEventLowValue, serviceEventHighValue));
             serviceEvent.getPerformers().add(
                     this.createBasePerformer1(performerFunctionCode, performerFunctionDisplayName, performerLowValue, performerHighValue, extension,
-                            root, assigningAuthorityName, personFamilyName, personGivenName, personSuffixName, organizationName,
+                            root, assigningAuthorityName, personFamilyName, personGivenName, personSuffixName, personPrefixName, organizationName,
                             organizationExtension, clinicalRecordIdentifier, country, city, postalCode, streetAddressLine, state));
         } catch (Exception e) {
             serviceEvent.setNullFlavor(NullFlavor.NI);
@@ -571,14 +578,14 @@ public class CDADataTypesFactory {
 
     public DocumentationOf createBaseDocumentationOf(String serviceEventLowValue, String serviceEventHighValue, String performerLowValue,
                                                      String performerHighValue, String performerFunctionCode, String performerFunctionDisplayName, String extension, String root,
-                                                     String assigningAuthorityName, String personFamilyName, String personGivenName, String personSuffixName, String organizationName,
+                                                     String assigningAuthorityName, String personFamilyName, String personGivenName, String personSuffixName, String personPrefixName, String organizationName,
                                                      String organizationExtension, String clinicalRecordIdentifier, String country, String city, String postalCode, String streetAddressLine,
                                                      String state) {
 
         DocumentationOf documentationOf = CDAFactory.eINSTANCE.createDocumentationOf();
         documentationOf.setServiceEvent(this.createBaseServiceEvent(serviceEventLowValue, serviceEventHighValue, performerLowValue,
                 performerHighValue, performerFunctionCode, performerFunctionDisplayName, extension, root, assigningAuthorityName, personFamilyName,
-                personGivenName, null, organizationName, organizationExtension, clinicalRecordIdentifier, country, city, postalCode,
+                personGivenName, personSuffixName, personPrefixName, organizationName, organizationExtension, clinicalRecordIdentifier, country, city, postalCode,
                 streetAddressLine, state));
         return documentationOf;
     }
@@ -653,22 +660,22 @@ public class CDADataTypesFactory {
         return codedDefinition;
     }
 
-    public Organization createBaseProviderOrganization() {
+    public Organization createBaseProviderOrganization(String extension, String organizationName) {
         Organization providerOrganization = CDAFactory.eINSTANCE.createOrganization();
-        providerOrganization.getIds().add(this.createBaseRootII(null, "2.16.840.1.113883.19.5", null));
-        providerOrganization.getNames().add(this.createBaseOrganizationName("Registo Nacional de Utentes"));
+        providerOrganization.getIds().add(this.createBaseRootII(extension, "2.16.840.1.113883.19.5", null));
+        providerOrganization.getNames().add(this.createBaseOrganizationName(organizationName));
 
         return providerOrganization;
     }
 
     private AssociatedEntity createBaseAssociatedEntity(RoleClassAssociative role, String personFamilyName, String personGivenName,
-                                                        String personSuffixName, String country, String city, String postalCode, String streetAddressLine, String state) {
+                                                        String personSuffixName, String personPrefixName, String country, String city, String postalCode, String streetAddressLine, String state) {
         AssociatedEntity associatedEntity = CDAFactory.eINSTANCE.createAssociatedEntity();
         try {
             associatedEntity.setClassCode(role);
             associatedEntity.getAddrs().add(this.createBaseAddress(country, city, postalCode, streetAddressLine, state));
             associatedEntity.getTelecoms().add(this.createBaseTEL(null));
-            associatedEntity.setAssociatedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName));
+            associatedEntity.setAssociatedPerson(this.createBasePerson(personFamilyName, personGivenName, personSuffixName, personPrefixName));
         } catch (Exception e) {
             associatedEntity.setNullFlavor(NullFlavor.NI);
         }
@@ -686,7 +693,7 @@ public class CDADataTypesFactory {
         return tel;
     }
 
-    public Participant1 createBaseParticipant(String personFamilyName, String personGivenName, String personSuffixName, String country, String city,
+    public Participant1 createBaseParticipant(String personFamilyName, String personGivenName, String personSuffixName, String personPrefixName, String country, String city,
                                               String postalCode, String streetAddressLine, String state) {
 
         Participant1 participant = CDAFactory.eINSTANCE.createParticipant1();
@@ -695,7 +702,7 @@ public class CDADataTypesFactory {
             participant.setFunctionCode(this
                     .createBaseCodeCE("PCP", "2.16.840.1.113883.5.88", "HL7 ParticipationFunction", "Médico de Família", null));
             participant.setAssociatedEntity(this.createBaseAssociatedEntity(RoleClassAssociative.PRS, personFamilyName, personGivenName,
-                    personSuffixName, country, city, postalCode, streetAddressLine, state));
+                    personSuffixName, personPrefixName, country, city, postalCode, streetAddressLine, state));
         } catch (Exception e) {
             participant.setNullFlavor(NullFlavor.NI);
         }

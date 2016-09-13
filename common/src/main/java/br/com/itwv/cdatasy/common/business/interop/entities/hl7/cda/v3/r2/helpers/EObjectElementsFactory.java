@@ -136,6 +136,15 @@ public class EObjectElementsFactory {
                         return false;
                     }
                 });
+            case ENCOUNTERS:
+                return query.getSection(EncountersSectionImpl.class, new Filter<EncountersSectionImpl>() {
+                    public boolean accept(EncountersSectionImpl item) {
+                        for (Class c : item.getClass().getInterfaces())
+                            if (c.equals(EncountersSection.class))
+                                return true;
+                        return false;
+                    }
+                });
             default:
                 return null;
         }

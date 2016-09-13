@@ -1,45 +1,72 @@
 package br.com.itwv.cdatasy.test;
 
-import br.com.itwv.cdatasy.base.encoding.streams.FastByteArrayOutputStream;
+import br.com.itwv.br.com.itwv.dto.PatientDto;
+import br.com.itwv.builders.PatientBuilder;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.ContinuityOfCareDocumentFactory;
-import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
+import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.IClinicalDocumentFactory;
+import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping;
+import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IDocumentMapping;
+import br.com.itwv.cdatasy.common.business.resources.Resources;
+import br.com.itwv.mappings.factory.MappingsFactory;
 import junit.framework.TestCase;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
-import org.openhealthtools.mdht.uml.cda.CDAFactory;
 import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
-import org.openhealthtools.mdht.uml.cda.ccd.CCDFactory;
-import org.openhealthtools.mdht.uml.cda.ccd.MedicationsSection;
-import org.openhealthtools.mdht.uml.cda.util.CDAUtil;
-import org.openhealthtools.mdht.uml.hl7.datatypes.DatatypesFactory;
-import org.openhealthtools.mdht.uml.hl7.vocab.ActMood;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by itwv_2 on 13/06/2016.
  */
 public class JUTest1 extends TestCase {
 
-    private ClinicalDocument clinicalDocumentInstance = CDAFactory.eINSTANCE.createClinicalDocument();
+    private InputStream file;
 
     @Override
     public void setUp() throws Exception {
         super.setUp();
-
-        MedicationsSection medicationsSection = CCDFactory.eINSTANCE.createMedicationsSection().init();
-        medicationsSection.setTitle(DatatypesFactory.eINSTANCE.createST("Medicamentos Usados"));
-        medicationsSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.2.3", null));
-        medicationsSection.setMoodCode(ActMood.EVN);
-        medicationsSection.createStrucDocText("<content ID=\"nomedicationdescription\">Não existem medicamentos.</content>");
-        medicationsSection.addSubstanceAdministration(ContinuityOfCareDocumentFactory.createMedicationsSectionEntry(null, true));
-        clinicalDocumentInstance.addSection(medicationsSection);
+        file = Resources.class.getResourceAsStream("/Dados TASY.xlsx");
+        assertNotNull(file);
     }
 
     @Test
     public void test() throws Exception {
 
-        FastByteArrayOutputStream writer = new FastByteArrayOutputStream();
-        CDAUtil.save(this.clinicalDocumentInstance, writer);
-        String docString = writer.toString();
-        writer.close();
-        System.out.println(docString);
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+        assertNotNull(workbook);
+        final List<PatientDto> patients = new PatientBuilder().build(workbook).getResult();
+        workbook.close();
+        file.close();
+
+        assertNotNull(patients);
+        assertFalse(patients.isEmpty());
+
+        for (final PatientDto patientDto : patients) {
+            ContinuityOfCareDocumentFactory.getInstance().createClinicalDocumentFactory(IClinicalDocumentFactory.x_FactoryLoadTypes.DEFAULT, null);
+            List<ClinicalDocument> docList = new ArrayList<ClinicalDocument>();
+            docList.add(ContinuityOfCareDocumentFactory.getClinicalDocumentInstance());
+
+            MappingsFactory.getInstance().createEntityMappingsFactory();
+            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.PROPERTIES, null);
+            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.AUTHOR, Arrays.asList(patientDto.getAuthor()));
+            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, Arrays.asList(patientDto.getAuthor()));
+            MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
+            if (!patientDto.getAllergies().isEmpty()) {
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ALERTS, patientDto.getAllergies());
+            }
+            if (!patientDto.getProblems().isEmpty()) {
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROBLEMS, patientDto.getProblems());
+            }
+            if (!patientDto.getProcedures().isEmpty()) {
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROCEDURES, patientDto.getProcedures());
+            }
+            if (!patientDto.getEncounters().isEmpty()) {
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ENCOUNTERS, patientDto.getEncounters());
+            }
+            ContinuityOfCareDocumentFactory.toFile(patientDto.getId() + ".xml");
+        }
     }
 }

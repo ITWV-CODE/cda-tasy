@@ -32,13 +32,15 @@ public class ClinicalMapping extends ClinicalMappingBase implements IClinicalMap
             case MEDICATIONS:
                 return super.mapMedicationsFactory(docList);
             case ALERTS:
-                return super.mapAlertsFactory(segments.get("AllergyDTO"), docList);
+                return super.mapAlertsFactory(segments.get("AllergyDto"), docList);
             case IMMUNIZATIONS:
                 return super.mapImmunizationsFactory(docList);
             case PROBLEMS:
-                return super.mapProblemsFactory(segments.get("ProblemDTO"), docList);
+                return super.mapProblemsFactory(segments.get("ProblemDto"), docList);
             case PROCEDURES:
-                return super.mapProceduresFactory(docList);
+                return super.mapProceduresFactory(segments.get("ProcedureDto"), docList);
+            case ENCOUNTERS:
+                return super.mapEncountersFactory(segments.get("EncounterDto"), docList);
             default:
                 return null;
         }

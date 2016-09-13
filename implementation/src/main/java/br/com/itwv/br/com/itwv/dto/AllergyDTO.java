@@ -2,46 +2,52 @@ package br.com.itwv.br.com.itwv.dto;
 
 import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 
+import java.io.Serializable;
+
 /**
  * Created by itwv_2 on 20/06/2016.
  */
-public class AllergyDTO extends Dto {
+public class AllergyDto extends Dto implements Serializable {
 
-    private CodedValue type;
-    private CodedValue substance;
-    private CodedValue reaction;
-    private CodedValue status;
+    private TermCodedValueDto type;
+    private TermCodedValueDto substance;
+    private TermCodedValueDto reaction;
+    private TermCodedValueDto status;
     private String date;
 
-    public CodedValue getType() {
+    public AllergyDto(String id) {
+        super(id);
+    }
+
+    public TermCodedValueDto getType() {
         return type;
     }
 
-    public void setType(CodedValue type) {
+    public void setType(TermCodedValueDto type) {
         this.type = type;
     }
 
-    public CodedValue getSubstance() {
+    public TermCodedValueDto getSubstance() {
         return substance;
     }
 
-    public void setSubstance(CodedValue substance) {
+    public void setSubstance(TermCodedValueDto substance) {
         this.substance = substance;
     }
 
-    public CodedValue getReaction() {
+    public TermCodedValueDto getReaction() {
         return reaction;
     }
 
-    public void setReaction(CodedValue reaction) {
+    public void setReaction(TermCodedValueDto reaction) {
         this.reaction = reaction;
     }
 
-    public CodedValue getStatus() {
+    public TermCodedValueDto getStatus() {
         return status;
     }
 
-    public void setStatus(CodedValue status) {
+    public void setStatus(TermCodedValueDto status) {
         this.status = status;
     }
 

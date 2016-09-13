@@ -9,6 +9,10 @@ public class Dto implements Serializable {
 
     private String id;
 
+    public Dto(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

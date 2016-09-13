@@ -1,83 +1,106 @@
 package br.com.itwv.br.com.itwv.dto;
 
-import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by itwv_2 on 20/06/2016.
  */
-public class PatientDto extends Dto {
+public class PatientDto extends PersonDto implements Serializable {
 
-    private CodedValue institution;
-    private String givenName;
-    private String familyName;
-    private String gender;
-    private String birthDate;
-    private List<AllergyDTO> allergies;
-    private List<ProblemDTO> problems;
+    private CodedValueDto institution;
+    private List<AllergyDto> allergies;
+    private List<ProblemDto> problems;
+    private AuthorDto author;
+    private List<EncounterDto> encounters;
+    private List<MedicationDto> medications;
+    private List<ProcedureDto> procedures;
+    private List<FamilyHistoryDto> familyHistory;
 
-    public CodedValue getInstitution() {
+    public PatientDto(String id) {
+        super(id);
+    }
+
+    public CodedValueDto getInstitution() {
         return institution;
     }
 
-    public void setInstitution(CodedValue institution) {
+    public void setInstitution(CodedValueDto institution) {
         this.institution = institution;
     }
 
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    public String getFamilyName() {
-        return familyName;
-    }
-
-    public void setFamilyName(String familyName) {
-        this.familyName = familyName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public List<AllergyDTO> getAllergies() {
+    public List<AllergyDto> getAllergies() {
         if (allergies == null) {
-            allergies = new ArrayList<AllergyDTO>();
+            allergies = new ArrayList<AllergyDto>();
         }
         return allergies;
     }
 
-    public void setAllergies(List<AllergyDTO> allergies) {
+    public void setAllergies(List<AllergyDto> allergies) {
         this.allergies = allergies;
     }
 
-    public List<ProblemDTO> getProblems() {
+    public List<ProblemDto> getProblems() {
         if (problems == null) {
-            problems = new ArrayList<ProblemDTO>();
+            problems = new ArrayList<ProblemDto>();
         }
         return problems;
     }
 
-    public void setProblems(List<ProblemDTO> problems) {
+    public void setProblems(List<ProblemDto> problems) {
         this.problems = problems;
     }
 
+    public AuthorDto getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorDto author) {
+        this.author = author;
+    }
+
+    public List<MedicationDto> getMedications() {
+        if (medications == null) {
+            medications = new ArrayList<MedicationDto>();
+        }
+        return medications;
+    }
+
+    public void setMedications(List<MedicationDto> medications) {
+        this.medications = medications;
+    }
+
+    public List<ProcedureDto> getProcedures() {
+        if (procedures == null) {
+            procedures = new ArrayList<ProcedureDto>();
+        }
+        return procedures;
+    }
+
+    public void setProcedures(List<ProcedureDto> procedures) {
+        this.procedures = procedures;
+    }
+
+    public List<FamilyHistoryDto> getFamilyHistory() {
+        if (familyHistory == null) {
+            familyHistory = new ArrayList<FamilyHistoryDto>();
+        }
+        return familyHistory;
+    }
+
+    public void setFamilyHistory(List<FamilyHistoryDto> familyHistory) {
+        this.familyHistory = familyHistory;
+    }
+
+    public List<EncounterDto> getEncounters() {
+        if (encounters == null) {
+            encounters = new ArrayList<EncounterDto>();
+        }
+        return encounters;
+    }
+
+    public void setEncounters(List<EncounterDto> encounters) {
+        this.encounters = encounters;
+    }
 }

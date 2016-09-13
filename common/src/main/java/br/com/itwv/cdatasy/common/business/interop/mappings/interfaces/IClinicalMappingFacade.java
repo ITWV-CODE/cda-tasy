@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IClinicalMappingFacade {
 
-    public <T extends Dto>Object mapClinicalSections(List<ClinicalDocument> docList, Object relatedDocumentObject,
-                                                     IClinicalMapping.x_DocClinicalSectionType x_DocClinicalSectionType, List<T> segments) throws Exception;
+    public <T extends Dto> Object mapClinicalSections(List<ClinicalDocument> docList, Object relatedDocumentObject,
+                                                      IClinicalMapping.x_DocClinicalSectionType x_DocClinicalSectionType, List<T> segments) throws Exception;
 }

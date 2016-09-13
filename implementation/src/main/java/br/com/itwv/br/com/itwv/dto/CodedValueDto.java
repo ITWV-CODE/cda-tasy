@@ -5,17 +5,17 @@ import java.io.Serializable;
 /**
  * Created by itwv_2 on 20/06/2016.
  */
-public class CodedValue implements Serializable {
+public class CodedValueDto implements Serializable {
 
     private String code;
     private String description;
 
-    public CodedValue(String code, String description) {
+    public CodedValueDto(String code, String description) {
         this.code = code;
         this.description = description;
     }
 
-    public CodedValue() {
+    public CodedValueDto() {
     }
 
     public String getCode() {

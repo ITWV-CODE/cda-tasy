@@ -1,12 +1,16 @@
 package br.com.itwv.mappings.document;
 
+import br.com.itwv.br.com.itwv.dto.AuthorDto;
 import br.com.itwv.cdatasy.base.encoding.streams.OIDUtil;
+import br.com.itwv.cdatasy.base.util.ExtendedDateUtils;
+import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
 import org.openhealthtools.mdht.uml.cda.*;
 import org.openhealthtools.mdht.uml.hl7.datatypes.*;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public abstract class DocumentMappingBase {
 
@@ -53,17 +57,21 @@ public abstract class DocumentMappingBase {
         return doc;
     }
 
-    protected static ClinicalDocument mapDocumentAuthor(ClinicalDocument doc) throws Exception {
+    protected static ClinicalDocument mapDocumentAuthor(ClinicalDocument doc, final List<Dto> dto) throws Exception {
         try {
+
+            final AuthorDto author = (AuthorDto) dto.get(0);
+
             doc.getAuthors().clear();
             doc.getAuthors().add(
                     CDADataTypesFactory.getInstance().createBaseAuthor(
-                            new SimpleDateFormat("yyyyMMddHHmmssZ").format(new Timestamp(new java.util.Date().getTime())),
-                            "123456789",
+                            //new SimpleDateFormat("yyyyMMddHHmmssZ").format(new Timestamp(new java.util.Date().getTime())),
+                            ExtendedDateUtils.getUTCDateFormatted(ExtendedDateUtils.CDA_DATE_TIME_FORMAT),
+                            author.getId(),
                             "2.16.840.1.113883.19.5", null,
-                            "FERREIRA",
-                            "PAULO",
-                            "DR", null, null, "PT",
+                            author.getFamilyName(),
+                            author.getGivenName(),
+                            author.getPrefix(), null, null, "BR",
                             null, null, null, null));
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,18 +79,19 @@ public abstract class DocumentMappingBase {
         return doc;
     }
 
-    protected static ClinicalDocument mapDocumentCustodian(ClinicalDocument doc)
+    protected static ClinicalDocument mapDocumentCustodian(final ClinicalDocument doc, final List<Dto> dto)
             throws Exception {
         try {
+            final AuthorDto author = (AuthorDto) dto.get(0);
             Custodian custodian = CDAFactory.eINSTANCE.createCustodian();
             AssignedCustodian assignedCustodian = CDAFactory.eINSTANCE.createAssignedCustodian();
             CustodianOrganization custodianOrganization = CDAFactory.eINSTANCE.createCustodianOrganization();
             assignedCustodian.setRepresentedCustodianOrganization(custodianOrganization);
             custodian.setAssignedCustodian(assignedCustodian);
             doc.setCustodian(custodian);
-            custodianOrganization.getIds().add(DatatypesFactory.eINSTANCE.createII("2.16.840.1.113883.19.5", "UM"));
+            custodianOrganization.getIds().add(DatatypesFactory.eINSTANCE.createII("2.16.840.1.113883.19.5", author.getInstitution().getCode()));
             ON custodianOrganizationName = DatatypesFactory.eINSTANCE.createON();
-            custodianOrganizationName.addText("Unimed Maringá");
+            custodianOrganizationName.addText(author.getInstitution().getDescription());
             custodianOrganization.setName(custodianOrganizationName);
         } catch (Exception e) {
             e.printStackTrace();

@@ -60,6 +60,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                         .instanceSection(x_EObjectTypes.PROCEDURES));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.MEDICALEQUIPMENT));
+                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
+                        .instanceSection(x_EObjectTypes.ENCOUNTERS));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,6 +180,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                 return ContinuityOfCareDocumentFactory.instanceProceduresSection();
             case MEDICALEQUIPMENT:
                 return ContinuityOfCareDocumentFactory.instanceMedicalEquipmentSection();
+            case ENCOUNTERS:
+                return ContinuityOfCareDocumentFactory.instanceEncountersSection();
             default:
                 return null;
         }
@@ -205,6 +209,17 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         immunizationsSection.addSubstanceAdministration(ContinuityOfCareDocumentFactory.createImmunizationsSectionEntry(null, true));
 
         return immunizationsSection;
+    }
+
+    private static EncountersSection instanceEncountersSection() throws Exception {
+
+        EncountersSection encountersSection = CCDFactory.eINSTANCE.createEncountersSection().init();
+        encountersSection.setTitle(DatatypesFactory.eINSTANCE.createST("Atendimentos"));
+        encountersSection.setMoodCode(ActMood.EVN);
+        encountersSection.createStrucDocText("<content ID=\"noencountersdescription\">Não existem atendimentos.</content>");
+        encountersSection.addEncounter(ContinuityOfCareDocumentFactory.createEncountersSectionEntry(null, true));
+
+        return encountersSection;
     }
 
     private static AlertsSection instanceAlertsSection() throws Exception {
@@ -448,6 +463,18 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                     ContinuityOfCareDocumentFactory.clinicalDocumentInstance, problemAct);
         }
         return problemAct;
+    }
+
+    public static EncountersActivity createEncountersSectionEntry(EncountersActivity encountersActivity, boolean emptyEntry) throws Exception {
+
+        if (encountersActivity == null) {
+            encountersActivity = CCDFactory.eINSTANCE.createEncountersActivity().init();
+            encountersActivity.setClassCode(ActClass.ENC);
+            encountersActivity.setMoodCode(x_DocumentEncounterMood.EVN);
+            encountersActivity.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("NA", NullFlavor.NA));
+            encountersActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
+        }
+        return encountersActivity;
     }
 
     public static MedicationActivity createImmunizationsSectionEntry(MedicationActivity medicationActivity, boolean emptyEntry) throws Exception {

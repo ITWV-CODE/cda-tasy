@@ -18,7 +18,7 @@ public abstract class PatientMappingBase {
         Patient patient = CDAFactory.eINSTANCE.createPatient();
         doc.getRecordTargets().get(0).getPatientRole().setPatient(patient);
         patient.getNames().add(
-                CDADataTypesFactory.getInstance().createBasePN(patientDto.getFamilyName(), patientDto.getGivenName(), null));
+                CDADataTypesFactory.getInstance().createBasePN(patientDto.getFamilyName(), patientDto.getGivenName(), null, null));
 
         patient.setAdministrativeGenderCode(CDADataTypesFactory.getInstance().createBaseAdministrativeGenderCode(
                 patientDto.getGender()));
@@ -33,7 +33,7 @@ public abstract class PatientMappingBase {
     protected static ClinicalDocument mapPatientRole(final PatientDto patientDto, ClinicalDocument doc) throws Exception {
         PatientRole patientRole = CDAFactory.eINSTANCE.createPatientRole();
         doc.getRecordTargets().get(0).setPatientRole(patientRole);
-        patientRole.setProviderOrganization(CDADataTypesFactory.getInstance().createBaseProviderOrganization());
+        patientRole.setProviderOrganization(CDADataTypesFactory.getInstance().createBaseProviderOrganization(patientDto.getInstitution().getCode(), patientDto.getInstitution().getDescription()));
         II id = CDADataTypesFactory.getInstance().createBaseRootII(patientDto.getId(), "2.16.17.710.820", null);
         patientRole.getIds().add(id);
         return doc;

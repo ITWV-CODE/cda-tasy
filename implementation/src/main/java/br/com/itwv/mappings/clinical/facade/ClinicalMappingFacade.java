@@ -35,6 +35,8 @@ public class ClinicalMappingFacade implements IClinicalMappingFacade {
             case ALERTS:
             case IMMUNIZATIONS:
             case PROBLEMS:
+            case PROCEDURES:
+            case ENCOUNTERS:
                 return ClinicalMapping.getInstance().mapClinicalSections(docList, x_DocClinicalSectionType, segmentsHash);
             default:
                 return null;
