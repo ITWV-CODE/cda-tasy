@@ -210,7 +210,7 @@ public class CDADataTypesFactory {
         Supply supply = CCDFactory.eINSTANCE.createSupplyActivity().init();
         statement.addSupply(supply);
         supply.setMoodCode(x_DocumentSubstanceMood.INT);
-        supply.setSubject(this.createBaseSubject(relatedSubjectCode, relatedSubjectName));
+        supply.setSubject(this.createBaseSubject(relatedSubjectCode, null, relatedSubjectName));
         supply.getAuthors().add(
                 this.createBaseAuthor(time, extension, root, assigningAuthorityName, personFamilyName, personGivenName, personSuffixName,
                         organizationName, organizationExtension, country, city, postalCode, streetAddressLine, state));
@@ -218,21 +218,23 @@ public class CDADataTypesFactory {
         return supply;
     }
 
-    private Subject createBaseSubject(String relatedSubjectCode, String relatedSubjectName) {
+    public Subject createBaseSubject(String relatedSubjectCode, String relatedSubjectCodeSystemName, String relatedSubjectName) {
 
         Subject subject = CDAFactory.eINSTANCE.createSubject();
         subject.setTypeCode(ParticipationTargetSubject.SBJ);
-        subject.setRelatedSubject(this.createBaseRelatedSubject(relatedSubjectCode, relatedSubjectName));
+        subject.setRelatedSubject(this.createBaseRelatedSubject(relatedSubjectCode, relatedSubjectCodeSystemName, relatedSubjectName));
         return subject;
     }
 
-    private RelatedSubject createBaseRelatedSubject(String relatedSubjectCode, String relatedSubjectName) {
+    private RelatedSubject createBaseRelatedSubject(String relatedSubjectCode, String relatedSubjectCodeSystemName, String relatedSubjectName) {
 
         RelatedSubject relatedSubject = CDAFactory.eINSTANCE.createRelatedSubject();
-        if (relatedSubjectCode == null)
+        if (relatedSubjectCode == null) {
             relatedSubject.setNullFlavor(NullFlavor.NI);
-        else
-            relatedSubject.setCode(this.createBaseCodeCE(relatedSubjectCode, null, null, relatedSubjectName, null));
+        } else {
+            relatedSubject.setCode(this.createBaseCodeCE(relatedSubjectCode, null, relatedSubjectCodeSystemName, relatedSubjectName, null));
+            relatedSubject.setClassCode(x_DocumentSubject.PRS);
+        }
         return relatedSubject;
     }
 

@@ -61,10 +61,13 @@ public class JUTest1 extends TestCase {
                 MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROBLEMS, patientDto.getProblems());
             }
             if (!patientDto.getProcedures().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROCEDURES, patientDto.getProcedures());
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PLAN_OF_CARE, patientDto.getProcedures());
             }
             if (!patientDto.getEncounters().isEmpty()) {
                 MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ENCOUNTERS, patientDto.getEncounters());
+            }
+            if (!patientDto.getFamilyHistory().isEmpty()) {
+                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.FAMILY_HISTORY, patientDto.getFamilyHistory());
             }
             ContinuityOfCareDocumentFactory.toFile(patientDto.getId() + ".xml");
         }

@@ -7,12 +7,12 @@ import java.io.Serializable;
 /**
  * Created by itwv_2 on 29/08/2016.
  */
-public class ProcedureDto extends Dto implements Serializable {
+public class PlanOfCareDto extends Dto implements Serializable {
 
     private TermCodedValueDto procedure;
     private String date;
 
-    public ProcedureDto(String id) {
+    public PlanOfCareDto(String id) {
         super(id);
     }
 

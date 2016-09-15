@@ -1,9 +1,6 @@
 package br.com.itwv.mappings.clinical.cda;
 
-import br.com.itwv.br.com.itwv.dto.AllergyDto;
-import br.com.itwv.br.com.itwv.dto.EncounterDto;
-import br.com.itwv.br.com.itwv.dto.ProblemDto;
-import br.com.itwv.br.com.itwv.dto.ProcedureDto;
+import br.com.itwv.br.com.itwv.dto.*;
 import br.com.itwv.cdatasy.common.business.interop.entities.Dto;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.ContinuityOfCareDocumentFactory;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.IClinicalDocumentFactory;
@@ -12,7 +9,6 @@ import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.helper
 import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
 import br.com.itwv.mappings.clinical.tables.AlertSectionTable;
 import br.com.itwv.mappings.clinical.tables.ProblemSectionTable;
-import br.com.itwv.mappings.clinical.tables.ProcedureSectionTable;
 import org.openhealthtools.mdht.uml.cda.*;
 import org.openhealthtools.mdht.uml.cda.ccd.*;
 import org.openhealthtools.mdht.uml.hl7.datatypes.DatatypesFactory;
@@ -119,6 +115,24 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
+    protected static List<ClinicalDocument> insertFamilyHistoryEntry(List<Dto> familyHistoryList, List<ClinicalDocument> docList) throws Exception {
+
+        final FamilyHistorySection familyHistorySection = (FamilyHistorySection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.FAMILY_HISTORY, "", "");
+
+        for (final Dto dto : familyHistoryList) {
+            final FamilyHistoryDto familyHistory = (FamilyHistoryDto) dto;
+            FamilyHistoryObservation familyHistoryObservation = ContinuityOfCareDocumentFactory.createFamilyHistorySectionEntry(null, false);
+            familyHistorySection.addObservation(familyHistoryObservation);
+            familyHistoryObservation.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(familyHistory.getId(), null, null));
+            familyHistoryObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(familyHistory.getDate(), null));
+            familyHistoryObservation.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(familyHistory.getProblem().getCode(), null, familyHistory.getProblem().getTerminolgy(), familyHistory.getProblem().getDescription(), null));
+            familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject(familyHistory.getRelation().getCode(), familyHistory.getRelation().getTerminolgy(), familyHistory.getRelation().getDescription()));
+
+        }
+        return docList;
+    }
+
+
     protected static List<ClinicalDocument> insertImmunizationEntry(List<ClinicalDocument> docList)
             throws Exception {
 
@@ -144,9 +158,19 @@ public abstract class ClinicalMappingBase {
         return ClinicalMappingBase.insertProblemEntry(problems, docList);
     }
 
+    protected List<ClinicalDocument> mapPlanOfCareFactory(final List<Dto> planOfCareList, List<ClinicalDocument> docList) throws Exception {
+
+        return ClinicalMappingBase.insertPlanOfCareEntry(planOfCareList, docList);
+    }
+
     protected List<ClinicalDocument> mapEncountersFactory(final List<Dto> encounters, List<ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertEncounterEntry(encounters, docList);
+    }
+
+    protected List<ClinicalDocument> mapFamilyHistoryFactory(final List<Dto> familyHistoryList, List<ClinicalDocument> docList) throws Exception {
+
+        return ClinicalMappingBase.insertFamilyHistoryEntry(familyHistoryList, docList);
     }
 
 
@@ -157,25 +181,24 @@ public abstract class ClinicalMappingBase {
 
     protected static List<ClinicalDocument> insertProcedureEntry(List<Dto> procedures, List<ClinicalDocument> docList) throws Exception {
 
-        final ProceduresSection proceduresSection = (ProceduresSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.PROCEDURES, "", "");
+        return docList;
+    }
 
-        for (final Dto dto : procedures) {
-            final ProcedureDto procedure = (ProcedureDto) dto;
-            ProcedureActivityProcedure procedureActivityProcedure = ContinuityOfCareDocumentFactory.createProceduresSectionEntry(null, false);
-            proceduresSection.addProcedure(procedureActivityProcedure);
-            procedureActivityProcedure.getIds().add(
-                    CDADataTypesFactory.getInstance().createBaseRootII(procedure.getId(), null, null));
-            procedureActivityProcedure.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(
-                    procedure.getDate(), null));
-            procedureActivityProcedure
-                    .getObservations()
-                    .get(0)
-                    .setCode(
-                            CDADataTypesFactory.getInstance().createBaseCodeCD(procedure.getProcedure().getCode(), null,
-                                    procedure.getProcedure().getTerminolgy(), procedure.getProcedure().getDescription(), null));
-            ClinicalMappingEntryRelationships.getInstance().defineProcedureActivityProcedureEntryRelationships(docList.get(0), procedureActivityProcedure);
+    protected static List<ClinicalDocument> insertPlanOfCareEntry(List<Dto> planOfCareList, List<ClinicalDocument> docList) throws Exception {
+
+        final PlanOfCareSection planOfCareSection = (PlanOfCareSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.PLAN_OF_CARE, "", "");
+
+        for (final Dto dto : planOfCareList) {
+            final PlanOfCareDto planOfCare = (PlanOfCareDto) dto;
+            PlanOfCareActivityProcedure planOfCareActivityProcedure = ContinuityOfCareDocumentFactory.createPlanOfCareSectionEntry(null, false);
+            planOfCareSection.addProcedure(planOfCareActivityProcedure);
+            planOfCareActivityProcedure.getIds().add(
+                    CDADataTypesFactory.getInstance().createBaseRootII(planOfCare.getId(), null, null));
+            planOfCareActivityProcedure.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(
+                    planOfCare.getDate(), null));
+            planOfCareActivityProcedure.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(planOfCare.getProcedure().getCode(), null,
+                    planOfCare.getProcedure().getTerminolgy(), planOfCare.getProcedure().getDescription(), null));
         }
-        proceduresSection.createStrucDocText(ProcedureSectionTable.getInstance().getTable(proceduresSection));
         return docList;
     }
 

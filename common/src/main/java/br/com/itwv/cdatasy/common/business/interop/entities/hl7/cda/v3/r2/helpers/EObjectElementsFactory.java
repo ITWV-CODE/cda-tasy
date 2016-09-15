@@ -145,6 +145,24 @@ public class EObjectElementsFactory {
                         return false;
                     }
                 });
+            case FAMILY_HISTORY:
+                return query.getSection(FamilyHistorySectionImpl.class, new Filter<FamilyHistorySectionImpl>() {
+                    public boolean accept(FamilyHistorySectionImpl item) {
+                        for (Class c : item.getClass().getInterfaces())
+                            if (c.equals(FamilyHistorySection.class))
+                                return true;
+                        return false;
+                    }
+                });
+            case PLAN_OF_CARE:
+                return query.getSection(PlanOfCareSectionImpl.class, new Filter<PlanOfCareSectionImpl>() {
+                    public boolean accept(PlanOfCareSectionImpl item) {
+                        for (Class c : item.getClass().getInterfaces())
+                            if (c.equals(PlanOfCareSection.class))
+                                return true;
+                        return false;
+                    }
+                });
             default:
                 return null;
         }
@@ -335,6 +353,15 @@ public class EObjectElementsFactory {
                 break;
             case PROCEDURES:
                 id = "nosurgeries";
+                break;
+            case ENCOUNTERS:
+                id = "noencounters";
+                break;
+            case FAMILY_HISTORY:
+                id = "nofamilyhistory";
+                break;
+            case PLAN_OF_CARE:
+                id = "noplanofcare";
                 break;
             default:
                 break;

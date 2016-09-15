@@ -15,7 +15,7 @@ public class PatientDto extends PersonDto implements Serializable {
     private AuthorDto author;
     private List<EncounterDto> encounters;
     private List<MedicationDto> medications;
-    private List<ProcedureDto> procedures;
+    private List<PlanOfCareDto> procedures;
     private List<FamilyHistoryDto> familyHistory;
 
     public PatientDto(String id) {
@@ -71,14 +71,14 @@ public class PatientDto extends PersonDto implements Serializable {
         this.medications = medications;
     }
 
-    public List<ProcedureDto> getProcedures() {
+    public List<PlanOfCareDto> getProcedures() {
         if (procedures == null) {
-            procedures = new ArrayList<ProcedureDto>();
+            procedures = new ArrayList<PlanOfCareDto>();
         }
         return procedures;
     }
 
-    public void setProcedures(List<ProcedureDto> procedures) {
+    public void setProcedures(List<PlanOfCareDto> procedures) {
         this.procedures = procedures;
     }
 

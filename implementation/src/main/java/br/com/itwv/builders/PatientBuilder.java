@@ -53,7 +53,7 @@ public class PatientBuilder {
         final XSSFSheet allergiesSheet = workbook.getSheet("Alergias");
         final XSSFSheet problemsSheet = workbook.getSheet("Problemas");
         final XSSFSheet medicationsSheet = workbook.getSheet("Medicamentos");
-        final XSSFSheet proceduresSheet = workbook.getSheet("Procedimentos");
+        final XSSFSheet planOfCareSheet = workbook.getSheet("Procedimentos");
         final XSSFSheet familyHistorySheet = workbook.getSheet("Antecedentes Familiares");
 
         this.buildAllergies(patient, allergiesSheet, sequence);
@@ -61,7 +61,7 @@ public class PatientBuilder {
         this.buildEncounters(patient, encountersSheet, sequence);
         this.buildProblems(patient, problemsSheet, sequence);
         this.buildMedications(patient, medicationsSheet, sequence);
-        this.buildProcedures(patient, proceduresSheet, sequence);
+        this.buildPlanOfCare(patient, planOfCareSheet, sequence);
         this.buildFamilyHistory(patient, familyHistorySheet, sequence);
     }
 
@@ -157,18 +157,18 @@ public class PatientBuilder {
         }
     }
 
-    private void buildProcedures(final PatientDto patient, final XSSFSheet proceduresSheet, final String sequence) {
+    private void buildPlanOfCare(final PatientDto patient, final XSSFSheet planOfCareSheet, final String sequence) {
 
-        final Iterator<Row> rowIterator = proceduresSheet.iterator();
+        final Iterator<Row> rowIterator = planOfCareSheet.iterator();
         rowIterator.next();
 
         while (rowIterator.hasNext()) {
             final Row row = rowIterator.next();
             if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
-                final ProcedureDto procedure = new ProcedureDto(ExcelUtils.getCellValue(row.getCell(1)));
-                patient.getProcedures().add(procedure);
-                procedure.setDate(ExcelUtils.getCellValue(row.getCell(2)));
-                procedure.setProcedure(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(3)), ExcelUtils.getCellValue(row.getCell(4)), "TASY"));
+                final PlanOfCareDto planOfCare = new PlanOfCareDto(ExcelUtils.getCellValue(row.getCell(1)));
+                patient.getProcedures().add(planOfCare);
+                planOfCare.setDate(ExcelUtils.getCellValue(row.getCell(2)));
+                planOfCare.setProcedure(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(3)), ExcelUtils.getCellValue(row.getCell(4)), "TASY"));
             }
         }
     }
