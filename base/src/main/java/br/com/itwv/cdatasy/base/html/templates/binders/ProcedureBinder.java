@@ -1,8 +1,9 @@
 package br.com.itwv.cdatasy.base.html.templates.binders;
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlTable;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 import br.com.itwv.cdatasy.base.html.elements.HtmlTr;
-import br.com.itwv.cdatasy.base.html.flows.HtmlView;
+import br.com.itwv.cdatasy.base.html.flows.HtmlTableView;
 import br.com.itwv.cdatasy.base.html.flows.ModelBinder;
 import br.com.itwv.cdatasy.base.html.templates.objects.Procedure;
 
@@ -56,19 +57,21 @@ public class ProcedureBinder {
     }
 
     @SuppressWarnings("unchecked")
-    public static HtmlView<Iterable<Procedure>> taskListView() {
-        HtmlView<Iterable<Procedure>> taskView = new HtmlView<Iterable<Procedure>>();
-        taskView.head();
+    public static HtmlTableView<Iterable<Procedure>> taskListView() {
 
-        HtmlTable<Iterable<Procedure>> t = taskView.body().table();
-        HtmlTr<Iterable<Procedure>> headerRow = t.tr();
-        headerRow.th().text("Classificação");
-        headerRow.th().text("Código");
-        headerRow.th().text("Descrição");
-        headerRow.th().text("Data Início");
-        headerRow.th().text("Data Fim");
+        HtmlTableView<Iterable<Procedure>> taskView = new HtmlTableView<Iterable<Procedure>>();
 
-        t.trFromIterable(ProcedureBinder.binderGetClassificationCode(),
+        HtmlTHead<Iterable<Procedure>> thead = taskView.thead();
+        HtmlTBody<Iterable<Procedure>> tbody = taskView.tbody();
+        HtmlTr<Iterable<Procedure>> trHead = thead.tr();
+
+        trHead.th().text("Classificação");
+        trHead.th().text("Código");
+        trHead.th().text("Descrição");
+        trHead.th().text("Data Início");
+        trHead.th().text("Data Fim");
+
+        tbody.trFromIterable(ProcedureBinder.binderGetClassificationCode(),
                 ProcedureBinder.binderGetCode(),
                 ProcedureBinder.binderGetDescription(),
                 ProcedureBinder.binderGetInitialDate(),

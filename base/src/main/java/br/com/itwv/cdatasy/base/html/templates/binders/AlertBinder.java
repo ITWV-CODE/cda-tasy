@@ -1,8 +1,9 @@
 package br.com.itwv.cdatasy.base.html.templates.binders;
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlTable;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 import br.com.itwv.cdatasy.base.html.elements.HtmlTr;
-import br.com.itwv.cdatasy.base.html.flows.HtmlView;
+import br.com.itwv.cdatasy.base.html.flows.HtmlTableView;
 import br.com.itwv.cdatasy.base.html.flows.ModelBinder;
 import br.com.itwv.cdatasy.base.html.templates.objects.Alert;
 
@@ -83,22 +84,24 @@ public class AlertBinder {
     }
 
     @SuppressWarnings("unchecked")
-    public static HtmlView<Iterable<Alert>> taskListView() {
-        HtmlView<Iterable<Alert>> taskView = new HtmlView<Iterable<Alert>>();
-        taskView.head();
+    public static HtmlTableView<Iterable<Alert>> taskListView() {
 
-        HtmlTable<Iterable<Alert>> t = taskView.body().table();
-        HtmlTr<Iterable<Alert>> headerRow = t.tr();
-        headerRow.th().text("Código Alergénio CPARA");
-        headerRow.th().text("Descrição Alergénio");
-        headerRow.th().text("Data Diagnóstico");
-        headerRow.th().text("Reacção");
-        headerRow.th().text("Estado");
-        headerRow.th().text("Categoria");
-        headerRow.th().text("Severidade");
-        headerRow.th().text("Origem");
+        HtmlTableView<Iterable<Alert>> taskView = new HtmlTableView<Iterable<Alert>>();
 
-        t.trFromIterable(AlertBinder.binderGetAllergenCode(),
+        HtmlTHead<Iterable<Alert>> thead = taskView.thead();
+        HtmlTBody<Iterable<Alert>> tbody = taskView.tbody();
+        HtmlTr<Iterable<Alert>> trHead = thead.tr();
+
+        trHead.th().text("Código Alergénio CPARA");
+        trHead.th().text("Descrição Alergénio");
+        trHead.th().text("Data Diagnóstico");
+        trHead.th().text("Reacção");
+        trHead.th().text("Estado");
+        trHead.th().text("Categoria");
+        trHead.th().text("Severidade");
+        trHead.th().text("Origem");
+
+        tbody.trFromIterable(AlertBinder.binderGetAllergenCode(),
                 AlertBinder.binderGetAllergenDescription(),
                 AlertBinder.binderGetDiagnosisDate(),
                 AlertBinder.binderGetReactions(),

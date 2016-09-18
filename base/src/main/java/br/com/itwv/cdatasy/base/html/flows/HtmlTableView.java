@@ -1,25 +1,19 @@
 package br.com.itwv.cdatasy.base.html.flows;
 
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlBody;
-import br.com.itwv.cdatasy.base.html.elements.HtmlHead;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 
 import java.io.OutputStreamWriter;
 
-public class HtmlView<T> extends HtmlWriterComposite<T> {
+public class HtmlTableView<T> extends HtmlWriterComposite<T> {
 
-    private boolean write = true;
-
-    public void write(boolean write) {
-        this.write = write;
+    public HtmlTHead<T> thead() {
+        return addChild(new HtmlTHead<T>());
     }
 
-    public HtmlHead<T> head() {
-        return addChild(new HtmlHead<T>());
-    }
-
-    public HtmlBody<T> body() {
-        return addChild(new HtmlBody<T>());
+    public HtmlTBody<T> tbody() {
+        return addChild(new HtmlTBody<T>());
     }
 
     @Override
@@ -27,16 +21,12 @@ public class HtmlView<T> extends HtmlWriterComposite<T> {
             throws Exception {
         // out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
         // out.println("<html xmlns=\"http://www.w3.org/1999/xhtml\" >");
-        if (write) {
-            out.write("<html>");
-        }
+        out.write("<table>");
     }
 
     @Override
     public void doWriteAfter(OutputStreamWriter out, int depth)
             throws Exception {
-        if (write) {
-            out.write("</html>");
-        }
+        out.write("</table>");
     }
 }

@@ -9,13 +9,14 @@ import java.util.List;
  */
 public class PatientDto extends PersonDto implements Serializable {
 
+    private String sequence;
     private CodedValueDto institution;
     private List<AllergyDto> allergies;
     private List<ProblemDto> problems;
     private AuthorDto author;
     private List<EncounterDto> encounters;
     private List<MedicationDto> medications;
-    private List<PlanOfCareDto> procedures;
+    private List<PlanOfCareDto> planOfCares;
     private List<FamilyHistoryDto> familyHistory;
 
     public PatientDto(String id) {
@@ -71,15 +72,15 @@ public class PatientDto extends PersonDto implements Serializable {
         this.medications = medications;
     }
 
-    public List<PlanOfCareDto> getProcedures() {
-        if (procedures == null) {
-            procedures = new ArrayList<PlanOfCareDto>();
+    public List<PlanOfCareDto> getPlanOfCares() {
+        if (planOfCares == null) {
+            planOfCares = new ArrayList<PlanOfCareDto>();
         }
-        return procedures;
+        return planOfCares;
     }
 
-    public void setProcedures(List<PlanOfCareDto> procedures) {
-        this.procedures = procedures;
+    public void getPlanOfCares(List<PlanOfCareDto> planOfCares) {
+        this.planOfCares = planOfCares;
     }
 
     public List<FamilyHistoryDto> getFamilyHistory() {
@@ -102,5 +103,13 @@ public class PatientDto extends PersonDto implements Serializable {
 
     public void setEncounters(List<EncounterDto> encounters) {
         this.encounters = encounters;
+    }
+
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
     }
 }

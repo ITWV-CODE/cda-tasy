@@ -1,8 +1,9 @@
 package br.com.itwv.cdatasy.base.html.templates.binders;
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlTable;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 import br.com.itwv.cdatasy.base.html.elements.HtmlTr;
-import br.com.itwv.cdatasy.base.html.flows.HtmlView;
+import br.com.itwv.cdatasy.base.html.flows.HtmlTableView;
 import br.com.itwv.cdatasy.base.html.flows.ModelBinder;
 import br.com.itwv.cdatasy.base.html.templates.objects.Problem;
 
@@ -56,19 +57,21 @@ public class ProblemBinder {
     }
 
     @SuppressWarnings("unchecked")
-    public static HtmlView<Iterable<Problem>> taskListView() {
-        HtmlView<Iterable<Problem>> taskView = new HtmlView<Iterable<Problem>>();
-        taskView.head();
+    public static HtmlTableView<Iterable<Problem>> taskListView() {
 
-        HtmlTable<Iterable<Problem>> t = taskView.body().table();
-        HtmlTr<Iterable<Problem>> headerRow = t.tr();
-        headerRow.th().text("Classificação");
-        headerRow.th().text("Código");
-        headerRow.th().text("Descrição");
-        headerRow.th().text("Data Início");
-        headerRow.th().text("Data Fim");
+        HtmlTableView<Iterable<Problem>> taskView = new HtmlTableView<Iterable<Problem>>();
 
-        t.trFromIterable(ProblemBinder.binderGetClassificationCode(),
+        HtmlTHead<Iterable<Problem>> thead = taskView.thead();
+        HtmlTBody<Iterable<Problem>> tbody = taskView.tbody();
+        HtmlTr<Iterable<Problem>> trHead = thead.tr();
+
+        trHead.th().text("Classificação");
+        trHead.th().text("Código");
+        trHead.th().text("Descrição");
+        trHead.th().text("Data Início");
+        trHead.th().text("Data Fim");
+
+        tbody.trFromIterable(ProblemBinder.binderGetClassificationCode(),
                 ProblemBinder.binderGetCode(),
                 ProblemBinder.binderGetDescription(),
                 ProblemBinder.binderGetInitialDate(),

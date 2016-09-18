@@ -92,7 +92,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         ContinuityOfCareDocumentFactory.clinicalDocumentInstance = clinicalDocumentInstance;
     }
 
-    private static boolean validate() throws Exception {
+    public static boolean validate() throws Exception {
         return CDAUtil.validate(ContinuityOfCareDocumentFactory.clinicalDocumentInstance, new BasicValidationHandler() {
             @Override
             public void handleError(Diagnostic diagnostic) {

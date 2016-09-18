@@ -1,8 +1,9 @@
 package br.com.itwv.cdatasy.base.html.templates.binders;
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlTable;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 import br.com.itwv.cdatasy.base.html.elements.HtmlTr;
-import br.com.itwv.cdatasy.base.html.flows.HtmlView;
+import br.com.itwv.cdatasy.base.html.flows.HtmlTableView;
 import br.com.itwv.cdatasy.base.html.flows.ModelBinder;
 import br.com.itwv.cdatasy.base.html.templates.objects.Immunization;
 
@@ -59,20 +60,21 @@ public class ImmunizationBinder {
     }
 
     @SuppressWarnings("unchecked")
-    public static HtmlView<Iterable<Immunization>> taskListView() {
-        HtmlView<Iterable<Immunization>> taskView = new HtmlView<Iterable<Immunization>>();
-        taskView.head();
+    public static HtmlTableView<Iterable<Immunization>> taskListView() {
+        HtmlTableView<Iterable<Immunization>> taskView = new HtmlTableView<Iterable<Immunization>>();
 
-        HtmlTable<Iterable<Immunization>> t = taskView.body().table();
-        HtmlTr<Iterable<Immunization>> headerRow = t.tr();
-        headerRow.th().text("Data Administração");
-        headerRow.th().text("Código");
-        headerRow.th().text("Nome");
-        headerRow.th().text("Dosagem");
-        headerRow.th().text("Lote");
-        headerRow.th().text("Nome Comercial");
+        HtmlTHead<Iterable<Immunization>> thead = taskView.thead();
+        HtmlTBody<Iterable<Immunization>> tbody = taskView.tbody();
+        HtmlTr<Iterable<Immunization>> trHead = thead.tr();
 
-        t.trFromIterable(ImmunizationBinder.binderGetInitialDate(), ImmunizationBinder.binderGetCode(), ImmunizationBinder.binderGetName(),
+        trHead.th().text("Data Administração");
+        trHead.th().text("Código");
+        trHead.th().text("Nome");
+        trHead.th().text("Dosagem");
+        trHead.th().text("Lote");
+        trHead.th().text("Nome Comercial");
+
+        tbody.trFromIterable(ImmunizationBinder.binderGetInitialDate(), ImmunizationBinder.binderGetCode(), ImmunizationBinder.binderGetName(),
                 ImmunizationBinder.binderGetDosage(), ImmunizationBinder.binderGetLot(), ImmunizationBinder.binderGetComercialCode());
         return taskView;
     }

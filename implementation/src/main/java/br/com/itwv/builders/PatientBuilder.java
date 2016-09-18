@@ -27,6 +27,7 @@ public class PatientBuilder {
 
     public PatientBuilder build(final XSSFWorkbook workbook) {
 
+        System.out.println("----------> Loading the patients sheet...");
         final XSSFSheet patientsSheet = workbook.getSheet("Pacientes");
         final Iterator<Row> rowIterator = patientsSheet.iterator();
         rowIterator.next();
@@ -42,6 +43,9 @@ public class PatientBuilder {
         this.patients.add(patient);
 
         final String sequence = ExcelUtils.getCellValue(row.getCell(0));
+        System.out.println("----------> Loading information for patient with sequence " + sequence + "...");
+
+        patient.setSequence(ExcelUtils.getCellValue(row.getCell(0)));
         patient.setInstitution(new CodedValueDto(ExcelUtils.getCellValue(row.getCell(2)), ExcelUtils.getCellValue(row.getCell(3))));
         patient.setGivenName(ExcelUtils.getCellValue(row.getCell(4)));
         patient.setFamilyName(ExcelUtils.getCellValue(row.getCell(5)));
@@ -56,8 +60,8 @@ public class PatientBuilder {
         final XSSFSheet planOfCareSheet = workbook.getSheet("Procedimentos");
         final XSSFSheet familyHistorySheet = workbook.getSheet("Antecedentes Familiares");
 
-        this.buildAllergies(patient, allergiesSheet, sequence);
         this.buildAuthor(patient, authorsSheet, sequence);
+        this.buildAllergies(patient, allergiesSheet, sequence);
         this.buildEncounters(patient, encountersSheet, sequence);
         this.buildProblems(patient, problemsSheet, sequence);
         this.buildMedications(patient, medicationsSheet, sequence);
@@ -166,7 +170,7 @@ public class PatientBuilder {
             final Row row = rowIterator.next();
             if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
                 final PlanOfCareDto planOfCare = new PlanOfCareDto(ExcelUtils.getCellValue(row.getCell(1)));
-                patient.getProcedures().add(planOfCare);
+                patient.getPlanOfCares().add(planOfCare);
                 planOfCare.setDate(ExcelUtils.getCellValue(row.getCell(2)));
                 planOfCare.setProcedure(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(3)), ExcelUtils.getCellValue(row.getCell(4)), "TASY"));
             }

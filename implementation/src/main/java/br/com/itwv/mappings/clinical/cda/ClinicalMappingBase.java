@@ -7,8 +7,7 @@ import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.IClini
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.helpers.ClinicalMappingEntryRelationships;
 import br.com.itwv.cdatasy.common.business.interop.entities.hl7.cda.v3.r2.helpers.EObjectElementsFactory;
 import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
-import br.com.itwv.mappings.clinical.tables.AlertSectionTable;
-import br.com.itwv.mappings.clinical.tables.ProblemSectionTable;
+import br.com.itwv.mappings.clinical.tables.*;
 import org.openhealthtools.mdht.uml.cda.*;
 import org.openhealthtools.mdht.uml.cda.ccd.*;
 import org.openhealthtools.mdht.uml.hl7.datatypes.DatatypesFactory;
@@ -112,6 +111,8 @@ public abstract class ClinicalMappingBase {
             encountersActivity.getPerformers().get(0).setTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(encounter.getDate(), null));
             encountersActivity.getPerformers().get(0).setAssignedEntity(CDADataTypesFactory.getInstance().createBaseAssignedEntity(encounter.getAuthor().getId(), "2.16.840.1.113883.1", null, encounter.getAuthor().getFamilyName(), encounter.getAuthor().getGivenName(), null, encounter.getAuthor().getPrefix(), encounter.getInstituition().getDescription(), encounter.getInstituition().getCode(), null, null, null, null, null, null, true));
         }
+        encountersSection.createStrucDocText(EncounterSectionTable.getInstance().getTable(encountersSection));
+
         return docList;
     }
 
@@ -124,11 +125,13 @@ public abstract class ClinicalMappingBase {
             FamilyHistoryObservation familyHistoryObservation = ContinuityOfCareDocumentFactory.createFamilyHistorySectionEntry(null, false);
             familyHistorySection.addObservation(familyHistoryObservation);
             familyHistoryObservation.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(familyHistory.getId(), null, null));
-            familyHistoryObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(familyHistory.getDate(), null));
+            familyHistoryObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(familyHistory.getDate(), familyHistory.getDate()));
             familyHistoryObservation.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(familyHistory.getProblem().getCode(), null, familyHistory.getProblem().getTerminolgy(), familyHistory.getProblem().getDescription(), null));
             familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject(familyHistory.getRelation().getCode(), familyHistory.getRelation().getTerminolgy(), familyHistory.getRelation().getDescription()));
 
         }
+        familyHistorySection.createStrucDocText(FamilyHistorySectionTable.getInstance().getTable(familyHistorySection));
+
         return docList;
     }
 
@@ -199,6 +202,8 @@ public abstract class ClinicalMappingBase {
             planOfCareActivityProcedure.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(planOfCare.getProcedure().getCode(), null,
                     planOfCare.getProcedure().getTerminolgy(), planOfCare.getProcedure().getDescription(), null));
         }
+        planOfCareSection.createStrucDocText(PlanOfCareSectionTable.getInstance().getTable(planOfCareSection));
+
         return docList;
     }
 

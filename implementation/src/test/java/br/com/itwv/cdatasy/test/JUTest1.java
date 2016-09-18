@@ -35,8 +35,10 @@ public class JUTest1 extends TestCase {
     @Test
     public void test() throws Exception {
 
+        System.out.println("----------> Loading excel file...");
         XSSFWorkbook workbook = new XSSFWorkbook(file);
         assertNotNull(workbook);
+        System.out.println("----------> Starting building the dto object instances...");
         final List<PatientDto> patients = new PatientBuilder().build(workbook).getResult();
         workbook.close();
         file.close();
@@ -44,32 +46,43 @@ public class JUTest1 extends TestCase {
         assertNotNull(patients);
         assertFalse(patients.isEmpty());
 
-        for (final PatientDto patientDto : patients) {
-            ContinuityOfCareDocumentFactory.getInstance().createClinicalDocumentFactory(IClinicalDocumentFactory.x_FactoryLoadTypes.DEFAULT, null);
-            List<ClinicalDocument> docList = new ArrayList<ClinicalDocument>();
-            docList.add(ContinuityOfCareDocumentFactory.getClinicalDocumentInstance());
+        System.out.println("\t----------> Starting generating the clinical documents...");
 
-            MappingsFactory.getInstance().createEntityMappingsFactory();
-            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.PROPERTIES, null);
-            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.AUTHOR, Arrays.asList(patientDto.getAuthor()));
-            MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, Arrays.asList(patientDto.getAuthor()));
-            MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
-            if (!patientDto.getAllergies().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ALERTS, patientDto.getAllergies());
+        for (final PatientDto patientDto : patients) {
+
+            if (patientDto.getPlanOfCares().size() > 0 || patientDto.getProblems().size() > 0 || patientDto.getMedications().size() > 0 || patientDto.getAllergies().size() > 0 || patientDto.getEncounters().size() > 0 || patientDto.getFamilyHistory().size() > 0) {
+
+                ContinuityOfCareDocumentFactory.getInstance().createClinicalDocumentFactory(IClinicalDocumentFactory.x_FactoryLoadTypes.DEFAULT, null);
+                List<ClinicalDocument> docList = new ArrayList<ClinicalDocument>();
+                docList.add(ContinuityOfCareDocumentFactory.getClinicalDocumentInstance());
+
+                MappingsFactory.getInstance().createEntityMappingsFactory();
+                MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.PROPERTIES, null);
+                MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.AUTHOR, Arrays.asList(patientDto.getAuthor()));
+                MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, Arrays.asList(patientDto.getAuthor()));
+                MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
+
+
+                if (!patientDto.getAllergies().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ALERTS, patientDto.getAllergies());
+                }
+                if (!patientDto.getProblems().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROBLEMS, patientDto.getProblems());
+                }
+                if (!patientDto.getPlanOfCares().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PLAN_OF_CARE, patientDto.getPlanOfCares());
+                }
+                if (!patientDto.getEncounters().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ENCOUNTERS, patientDto.getEncounters());
+                }
+                if (!patientDto.getFamilyHistory().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.FAMILY_HISTORY, patientDto.getFamilyHistory());
+                }
+                ContinuityOfCareDocumentFactory.toFile("./out/" + patientDto.getId() + ".xml");
+                System.out.println("\t\t----------> Clinical document generated for patient with sequence " + patientDto.getSequence() + "...");
+            } else {
+                System.out.println("\t\t----------> Skipping clinical document generation for patient with sequence " + patientDto.getSequence() + "...");
             }
-            if (!patientDto.getProblems().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PROBLEMS, patientDto.getProblems());
-            }
-            if (!patientDto.getProcedures().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.PLAN_OF_CARE, patientDto.getProcedures());
-            }
-            if (!patientDto.getEncounters().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ENCOUNTERS, patientDto.getEncounters());
-            }
-            if (!patientDto.getFamilyHistory().isEmpty()) {
-                MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.FAMILY_HISTORY, patientDto.getFamilyHistory());
-            }
-            ContinuityOfCareDocumentFactory.toFile(patientDto.getId() + ".xml");
         }
     }
 }

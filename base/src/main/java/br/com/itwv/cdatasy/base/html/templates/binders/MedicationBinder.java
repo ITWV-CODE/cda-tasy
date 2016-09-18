@@ -1,8 +1,9 @@
 package br.com.itwv.cdatasy.base.html.templates.binders;
 
-import br.com.itwv.cdatasy.base.html.elements.HtmlTable;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTBody;
+import br.com.itwv.cdatasy.base.html.elements.HtmlTHead;
 import br.com.itwv.cdatasy.base.html.elements.HtmlTr;
-import br.com.itwv.cdatasy.base.html.flows.HtmlView;
+import br.com.itwv.cdatasy.base.html.flows.HtmlTableView;
 import br.com.itwv.cdatasy.base.html.flows.ModelBinder;
 import br.com.itwv.cdatasy.base.html.templates.objects.Medication;
 
@@ -83,22 +84,24 @@ public class MedicationBinder {
     }
 
     @SuppressWarnings("unchecked")
-    public static HtmlView<Iterable<Medication>> taskListView() {
-        HtmlView<Iterable<Medication>> taskView = new HtmlView<Iterable<Medication>>();
-        taskView.head();
+    public static HtmlTableView<Iterable<Medication>> taskListView() {
 
-        HtmlTable<Iterable<Medication>> t = taskView.body().table();
-        HtmlTr<Iterable<Medication>> headerRow = t.tr();
-        headerRow.th().text("Substância Activa");
-        headerRow.th().text("Código ATC");
-        headerRow.th().text("Forma Farmacêutica");
-        headerRow.th().text("Dosagem");
-        headerRow.th().text("Data Início");
-        headerRow.th().text("Data Fim");
-        headerRow.th().text("Posologia");
-        headerRow.th().text("Descrição");
+        HtmlTableView<Iterable<Medication>> taskView = new HtmlTableView<Iterable<Medication>>();
 
-        t.trFromIterable(MedicationBinder.binderGetActiveSubstance(),
+        HtmlTHead<Iterable<Medication>> thead = taskView.thead();
+        HtmlTBody<Iterable<Medication>> tbody = taskView.tbody();
+        HtmlTr<Iterable<Medication>> trHead = thead.tr();
+
+        trHead.th().text("Substância Activa");
+        trHead.th().text("Código ATC");
+        trHead.th().text("Forma Farmacêutica");
+        trHead.th().text("Dosagem");
+        trHead.th().text("Data Início");
+        trHead.th().text("Data Fim");
+        trHead.th().text("Posologia");
+        trHead.th().text("Descrição");
+
+        tbody.trFromIterable(MedicationBinder.binderGetActiveSubstance(),
                 MedicationBinder.binderGetCodeATC(),
                 MedicationBinder.binderGetPharmaceuticalForm(),
                 MedicationBinder.binderGetDosage(),
