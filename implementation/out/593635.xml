@@ -2,10 +2,10 @@
 <ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
   <templateId root="2.16.840.1.113883.10.20.1"/>
-  <id root="2.16.840.1.113883.19.5" extension="f9fca16c-e97a-4065-a1aa-595609a3da12"/>
+  <id root="2.16.840.1.113883.19.5" extension="29aea411-cdcb-47cc-b421-c51ff1352f80"/>
   <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Patient Summary"/>
   <title>Sumário Clínico</title>
-  <effectiveTime value="20160919111401-0300"/>
+  <effectiveTime value="20160919144834-0300"/>
   <confidentialityCode code="R" codeSystem="2.16.840.1.113883.5.25"/>
   <languageCode code="pt-BR"/>
   <versionNumber value="1"/>
@@ -24,16 +24,15 @@
     </patientRole>
   </recordTarget>
   <author>
-    <time value="20160919111401-0300"/>
+    <time value="20160919144834-0300"/>
     <assignedAuthor>
       <id root="2.16.840.1.113883.19.5" extension="168"/>
       <assignedPerson>
         <name><family>Da Rosa Veiga</family><given>Mauro</given></name>
       </assignedPerson>
       <representedOrganization>
-        <id root="2.25.216915026960253847968467168473721472231"/>
+        <id root="2.25.56262722656125805174300232651466029871"/>
         <name nullFlavor="NI"/>
-        <addr><country>BR</country><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
       </representedOrganization>
     </assignedAuthor>
   </author>
@@ -59,7 +58,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
-              <id root="e30d71aa-f1ed-4d45-948b-cec431fe2d69"/>
+              <id root="c7b465ab-ba61-48fc-b40f-39bb4eeb60ae"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -72,7 +71,7 @@
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <id root="76135752-9a08-4fa4-b272-a2b046bf49dc"/>
+                  <id root="f83c4d6b-72e2-4f0a-89d3-026f4c02fdd9"/>
                   <code nullFlavor="NA" code="NA"/>
                   <text><reference value="#allergy"/></text>
                   <statusCode code="completed"/>
@@ -97,17 +96,17 @@
           <title>Medicamentos Usados</title>
           <text><table><thead>			<tr>				<th>Substância</th><th>Dosagem</th><th>Data</th>
 			</tr>			
-		</thead>		<tbody>			<tr>				<td>Dipirona Sódica 500mg/ml 2ml Iv</td><td>1 amp   1x   IV</td><td>2011/02/07</td>
-			</tr>			<tr>				<td>Tenoxican 20mg </td><td>1 FA   1x ao dia   IV</td><td>2010/11/18</td>
+		</thead>		<tbody>			<tr>				<td>Dipirona Sódica 500mg/ml 2ml Iv</td><td>1 amp   1x ao dia   IV</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Dipirona Sódica 500mg/ml 2ml Iv</td><td>1 amp   1x   IV</td><td>2011/02/07</td>
 			</tr>			<tr>				<td>Tenoxican 20mg </td><td>1 FA   1x   IV</td><td>2011/02/07</td>
-			</tr>			<tr>				<td>Dipirona Sódica 500mg/ml 2ml Iv</td><td>1 amp   1x ao dia   IV</td><td>2010/11/18</td>
 			</tr>			<tr>				<td>Ranitidina 50mg/ 2ml </td><td>1 amp   1x ao dia   IV</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Tenoxican 20mg </td><td>1 FA   1x ao dia   IV</td><td>2010/11/18</td>
 			</tr>			
 		</tbody>		</table></text>
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <id root="2.25.188895315772733477426874651775323710808" extension="11738301"/>
+              <id root="2.25.201955648346879081153621512130058675630" extension="11738301"/>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20110207"/>
@@ -123,8 +122,9 @@
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
-              <entryRelationship>
-                <act classCode="ACT" moodCode="EVN">
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <typeId root="2.16.840.1.113883.1.3" extension="cenas"/>
                   <templateId root="2.16.840.1.113883.10.20.1.49"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
                   <text>1 FA   1x   IV</text>
@@ -136,7 +136,7 @@
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <id root="2.25.143940663434566976075126604862533518952" extension="11738304"/>
+              <id root="2.25.269892426110450613809787039647133820515" extension="11738304"/>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20110207"/>
@@ -152,8 +152,9 @@
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
-              <entryRelationship>
-                <act classCode="ACT" moodCode="EVN">
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <typeId root="2.16.840.1.113883.1.3" extension="cenas"/>
                   <templateId root="2.16.840.1.113883.10.20.1.49"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
                   <text>1 amp   1x   IV</text>
@@ -165,7 +166,7 @@
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <id root="2.25.26312742812704645022177371540296282857" extension="10739781"/>
+              <id root="2.25.79849734648959759258255500254843011284" extension="10739781"/>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20101118"/>
@@ -181,8 +182,9 @@
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
-              <entryRelationship>
-                <act classCode="ACT" moodCode="EVN">
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <typeId root="2.16.840.1.113883.1.3" extension="cenas"/>
                   <templateId root="2.16.840.1.113883.10.20.1.49"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
                   <text>1 FA   1x ao dia   IV</text>
@@ -194,7 +196,7 @@
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <id root="2.25.60696156856029674501542229209339728404" extension="10739783"/>
+              <id root="2.25.153129582324590784840874030650634179124" extension="10739783"/>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20101118"/>
@@ -210,8 +212,9 @@
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
-              <entryRelationship>
-                <act classCode="ACT" moodCode="EVN">
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <typeId root="2.16.840.1.113883.1.3" extension="cenas"/>
                   <templateId root="2.16.840.1.113883.10.20.1.49"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
                   <text>1 amp   1x ao dia   IV</text>
@@ -223,7 +226,7 @@
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <id root="2.25.202837235610218464145608875284196719024" extension="10739785"/>
+              <id root="2.25.266365560522437368456326038380827875745" extension="10739785"/>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20101118"/>
@@ -239,8 +242,9 @@
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
-              <entryRelationship>
-                <act classCode="ACT" moodCode="EVN">
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <typeId root="2.16.840.1.113883.1.3" extension="cenas"/>
                   <templateId root="2.16.840.1.113883.10.20.1.49"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
                   <text>1 amp   1x ao dia   IV</text>
@@ -268,7 +272,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.17754868209146709394437526840699446556" extension="1032"/>
+              <id root="2.25.200502761166506549126183237967251041568" extension="1032"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -279,7 +283,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.12117078772177772763110133858867234868"/>
+                  <id root="2.25.156239458648552690570374877871804242117"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -310,7 +314,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.208420645828990858950307905856115382916" extension="1031"/>
+              <id root="2.25.100668853861964831220057990372646218614" extension="1031"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -321,7 +325,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.206400662571195493522694711146675138556"/>
+                  <id root="2.25.215384436303593758257718481916489851023"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -357,19 +361,19 @@
           <text><table><thead>			<tr>				<th>Descrição</th><th>Local</th><th>Data</th>
 			</tr>			
 		</thead>		<tbody>			<tr>				<td>Externo</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/02/09</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/09/09</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/02/08</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/02/07</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2010/11/18</td>
 			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/08/30</td>
 			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/12/31</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/02/07</td>
 			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2012/10/31</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/02/08</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/09/09</td>
 			</tr>			
 		</tbody>		</table></text>
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.305181656053445314793310762255272748542" extension="1021091"/>
+              <id root="2.25.225871292569368364587850749696797599690" extension="1021091"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -387,9 +391,8 @@
                     <name><family>Gomes Dos Santos</family><given>Paula</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.151838683705363853964455545192866889211" extension="76767219000263"/>
+                    <id root="2.25.16882280245479073195200787931498734959" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -407,7 +410,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.113019634057447280328814815881201371613" extension="778920"/>
+              <id root="2.25.259550534968974373807399347708388094047" extension="778920"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -425,9 +428,8 @@
                     <name><family>Da Rosa Veiga</family><given>Mauro</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.219466691417394007466001766897720818745" extension="76767219000263"/>
+                    <id root="2.25.150894109765326171210983827438251414139" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -445,7 +447,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.1592827782779832302051543136736569638" extension="871476"/>
+              <id root="2.25.324383466965170148269491364215982417990" extension="871476"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -463,9 +465,8 @@
                     <name><family>Gomes Dos Santos</family><given>Paula</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.166904056746831403992625017510236300180" extension="76767219000263"/>
+                    <id root="2.25.304051652560775060435716809997495428313" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -483,7 +484,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.67556334882808808100072810309055730773" extension="1204616"/>
+              <id root="2.25.235754512357290953616662425284330632514" extension="1204616"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -501,9 +502,8 @@
                     <name><family>Haddad</family><given>Alexei</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.56200948979751441124532118731998350702" extension="76767219000263"/>
+                    <id root="2.25.5288950599929371425109545380309263086" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -521,7 +521,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.161464192451609488239918682326273802435" extension="1344582"/>
+              <id root="2.25.247801337727767337136238766222434555879" extension="1344582"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -539,9 +539,8 @@
                     <name><family>Avanco Santos</family><given>Fabiana</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.320183870251128099589938780262394389485" extension="76767219000263"/>
+                    <id root="2.25.13505560593339148429363964400788292482" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -559,7 +558,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.324070073630593728597122396596081423611" extension="870020"/>
+              <id root="2.25.43008187339664788091735708876564042387" extension="870020"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -577,9 +576,8 @@
                     <name><family>Del Rosario Insfran Do Carmo</family><given>Arnaldo</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.319357125171387540821430613218650253122" extension="76767219000263"/>
+                    <id root="2.25.191260128803820559924973305732581975815" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -597,7 +595,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.145827721802279767851708406646658033873" extension="1541624"/>
+              <id root="2.25.142798555503749807639969028052663632092" extension="1541624"/>
               <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -615,9 +613,8 @@
                     <name><family>Wassano Kuroda</family><given>Gilson</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.312909945858399049002366131510527155583" extension="76767219000263"/>
+                    <id root="2.25.151887263316118927223058085450511346733" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -635,7 +632,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.237916887751756970601655885552149863652" extension="873079"/>
+              <id root="2.25.246668861934496792717898791686318696275" extension="873079"/>
               <code code="7" codeSystemName="TASY" displayName="Externo"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -653,9 +650,8 @@
                     <name><family>Gomes Dos Santos</family><given>Paula</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.211892669033650880569940405788096982907" extension="76767219000263"/>
+                    <id root="2.25.246812572726835257553052745690148930005" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
-                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
                 </assignedEntity>
               </performer>
@@ -686,7 +682,7 @@
           <entry>
             <observation classCode="OBS" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.22"/>
-              <id root="2.25.211602618233678093493473887872759835747" extension="1033"/>
+              <id root="2.25.105128347655494101449038276828430530325" extension="1033"/>
               <code code="I10" codeSystemName="CID" displayName="Hipertensao Essencial (Primaria)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -703,7 +699,7 @@
           <entry>
             <observation classCode="OBS" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.22"/>
-              <id root="2.25.251171173811062013579875710342766153228" extension="1034"/>
+              <id root="2.25.313557234388476520081170358850066835361" extension="1034"/>
               <code code="DES1034" codeSystemName="CID" displayName="Dm"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -726,29 +722,29 @@
           <title>Plano de cuidados</title>
           <text><table><thead>			<tr>				<th>Descrição</th><th>Data</th>
 			</tr>			
-		</thead>		<tbody>			<tr>				<td>RX - Joelho</td><td>2014/12/31</td>
-			</tr>			<tr>				<td>Cantoplastia Ungueal</td><td>2011/02/07</td>
-			</tr>			<tr>				<td>Sala Ambulatorial I (Observacao)</td><td>2011/02/07</td>
-			</tr>			<tr>				<td>Patologias osteomioarticulares com dependência de atividades da vida diária</td><td>2011/09/09</td>
+		</thead>		<tbody>			<tr>				<td>Sala Ambulatorial I (Observacao)</td><td>2010/11/18</td>
 			</tr>			<tr>				<td>Curativo em geral (097)</td><td>2011/02/08</td>
-			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2014/12/31</td>
-			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2010/11/18</td>
-			</tr>			<tr>				<td>RX - Pé ou pododáctilo</td><td>2012/10/31</td>
-			</tr>			<tr>				<td>Fraturas e/ou luxações do antepé - redução incruenta</td><td>2012/10/31</td>
-			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/02/07</td>
 			</tr>			<tr>				<td>Tórax - 1 Incidência</td><td>2010/11/18</td>
-			</tr>			<tr>				<td>Sala Ambulatorial II (Pequenas Cirurgias)</td><td>2011/02/07</td>
-			</tr>			<tr>				<td>Sala Ambulatorial I (Observacao)</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Fraturas e/ou luxações do antepé - redução incruenta</td><td>2012/10/31</td>
+			</tr>			<tr>				<td>Patologias osteomioarticulares com dependência de atividades da vida diária</td><td>2011/09/09</td>
 			</tr>			<tr>				<td>Sala Ambulatorial II (Pequenas Cirurgias)</td><td>2012/10/31</td>
 			</tr>			<tr>				<td>Curativo em geral (097)</td><td>2011/02/09</td>
-			</tr>			<tr>				<td>ECG Convencional De Até 12 Derivações</td><td>2010/11/18</td>
 			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2012/10/31</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/02/07</td>
+			</tr>			<tr>				<td>ECG Convencional De Até 12 Derivações</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2014/12/31</td>
+			</tr>			<tr>				<td>RX - Joelho</td><td>2014/12/31</td>
+			</tr>			<tr>				<td>Cantoplastia Ungueal</td><td>2011/02/07</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2010/11/18</td>
+			</tr>			<tr>				<td>Sala Ambulatorial I (Observacao)</td><td>2011/02/07</td>
+			</tr>			<tr>				<td>Sala Ambulatorial II (Pequenas Cirurgias)</td><td>2011/02/07</td>
+			</tr>			<tr>				<td>RX - Pé ou pododáctilo</td><td>2012/10/31</td>
 			</tr>			
 		</tbody>		</table></text>
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.150236622013136952922955333259945461208" extension="17274901"/>
+              <id root="2.25.27479914143970699600507787073545135276" extension="17274901"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -760,7 +756,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.115798564450981645865659305043790737801" extension="10739781"/>
+              <id root="2.25.53230274963164262331143342316757093449" extension="10739781"/>
               <code code="40805018" codeSystemName="TASY" displayName="Tórax - 1 Incidência"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -772,7 +768,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.290491132852175298529827293377760522760" extension="17275041"/>
+              <id root="2.25.109007797893560815621864039118470003206" extension="17275041"/>
               <code code="40804097" codeSystemName="TASY" displayName="RX - Pé ou pododáctilo"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -784,7 +780,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.225455506363866712325439510138018467085" extension="17275241"/>
+              <id root="2.25.168550143748384195220275658054430244785" extension="17275241"/>
               <code code="30729165" codeSystemName="TASY" displayName="Fraturas e/ou luxações do antepé - redução incruenta"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -796,7 +792,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.271382144807819101967885112278084938824" extension="23856831"/>
+              <id root="2.25.296316280530889900602208470929174930991" extension="23856831"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -808,7 +804,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.311096453832582525716431285353118383516" extension="23856871"/>
+              <id root="2.25.73877488456224809640608498670181436962" extension="23856871"/>
               <code code="40804054" codeSystemName="TASY" displayName="RX - Joelho"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -820,7 +816,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.15777188163056260916034749301517168885" extension="10739782"/>
+              <id root="2.25.95967031884404073334546092326848098199" extension="10739782"/>
               <code code="40101010" codeSystemName="TASY" displayName="ECG Convencional De Até 12 Derivações"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -832,7 +828,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.44870345848000518807382105117558458383" extension="10739941"/>
+              <id root="2.25.110280303701963716212895062990700300070" extension="10739941"/>
               <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observacao)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -844,7 +840,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.300887634950408027338337624613076817267" extension="14051781"/>
+              <id root="2.25.94856368075614509301238063496523914820" extension="14051781"/>
               <code code="20103522" codeSystemName="TASY" displayName="Patologias osteomioarticulares com dependência de atividades da vida diária"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -856,7 +852,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.38470499359217346815422132196252576829" extension="11738301"/>
+              <id root="2.25.176112919034449019050081422422942662106" extension="11738301"/>
               <code code="30729076" codeSystemName="TASY" displayName="Cantoplastia Ungueal"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -868,7 +864,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.267137158374558254465119173095892748393" extension="11772811"/>
+              <id root="2.25.248524248271495367838053055718025428190" extension="11772811"/>
               <code code="80041867" codeSystemName="TASY" displayName="Curativo em geral (097)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -880,7 +876,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.2603188758851946577084075526180993279" extension="10739551"/>
+              <id root="2.25.91446957009129706806685852724123148894" extension="10739551"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -892,7 +888,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.240776339588723676601238670318449614950" extension="11738121"/>
+              <id root="2.25.244580970589063120562903808211701907729" extension="11738121"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -904,7 +900,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.138589469254666766376069901013073391166" extension="11738641"/>
+              <id root="2.25.173009843801956848005007476839247573870" extension="11738641"/>
               <code code="80031609" codeSystemName="TASY" displayName="Sala Ambulatorial II (Pequenas Cirurgias)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -916,7 +912,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.235761131334448926766302143045466116230" extension="11755961"/>
+              <id root="2.25.40085338753261301644783634341908082481" extension="11755961"/>
               <code code="80041867" codeSystemName="TASY" displayName="Curativo em geral (097)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -928,7 +924,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.308831416124901807985471282497922044804" extension="17275351"/>
+              <id root="2.25.316890315161277225856997765662432491009" extension="17275351"/>
               <code code="80031609" codeSystemName="TASY" displayName="Sala Ambulatorial II (Pequenas Cirurgias)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -940,7 +936,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.148704778132335379687807835110641326640" extension="11738621"/>
+              <id root="2.25.268311782271980333462783825718051535133" extension="11738621"/>
               <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observacao)"/>
               <statusCode code="completed"/>
               <effectiveTime>

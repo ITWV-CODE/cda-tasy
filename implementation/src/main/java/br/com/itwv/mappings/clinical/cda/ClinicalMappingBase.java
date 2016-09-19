@@ -69,6 +69,7 @@ public abstract class ClinicalMappingBase {
                     CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getMedicine().getCode(), "2.16.840.1.113883.6.96", medication.getMedicine().getTerminolgy(), medication.getMedicine().getDescription(), null));
 
             CDADataTypesFactory.getInstance().createBasePatientInstruction(medicationActivity, medication.getDosage());
+            ClinicalMappingEntryRelationships.getInstance().defineMedicationActivityEntryRelationships(docList.get(0), medicationActivity);
 
         }
         medicationSection.createStrucDocText(MedicationSectionTable.getInstance().getTable(medicationSection));

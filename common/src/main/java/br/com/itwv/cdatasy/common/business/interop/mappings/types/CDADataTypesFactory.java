@@ -289,7 +289,8 @@ public class CDADataTypesFactory {
         PatientInstruction patientInstruction = CCDFactory.eINSTANCE.createPatientInstruction().init();
         statement.addAct(patientInstruction);
         patientInstruction.setClassCode(x_ActClassDocumentEntryAct.ACT);
-        patientInstruction.setMoodCode(x_DocumentActMood.EVN);
+        patientInstruction.setMoodCode(x_DocumentActMood.INT);
+        patientInstruction.setTypeId(this.createInfrastructureRootTypeId("cenas"));
         patientInstruction.setCode(this.createBaseCodeCD("PINSTRUCT", "1.3.6.1.4.1.19376.1.5.3.2", "IHEActCode", null, null));
         patientInstruction.setText(this.createBaseED(instructions, null));
         patientInstruction.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
@@ -504,7 +505,7 @@ public class CDADataTypesFactory {
         try {
             organization.getIds().add(this.createBaseRootII(organizationExtension, null, null));
             organization.getNames().add(this.createBaseOrganizationName(organizationName));
-            organization.getAddrs().add(this.createBaseAddress(country, city, postalCode, streetAddressLine, state));
+            // organization.getAddrs().add(this.createBaseAddress(country, city, postalCode, streetAddressLine, state));
         } catch (Exception e) {
             organization.setNullFlavor(NullFlavor.NI);
         }
