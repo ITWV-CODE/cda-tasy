@@ -53,13 +53,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.MEDICATIONS));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
-                        .instanceSection(x_EObjectTypes.IMMUNIZATIONS));
-                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.PROBLEMS));
-                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
-                        .instanceSection(x_EObjectTypes.PROCEDURES));
-                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
-                        .instanceSection(x_EObjectTypes.MEDICALEQUIPMENT));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.ENCOUNTERS));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
