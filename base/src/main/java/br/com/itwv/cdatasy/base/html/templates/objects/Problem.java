@@ -1,62 +1,30 @@
 package br.com.itwv.cdatasy.base.html.templates.objects;
 
 public class Problem {
-	private String classificationCode;
-	private String code;
-	private String description;
-	private String initialDate;
-	private String finalDate;
+    private String problem;
+    private String status;
 
-	public Problem() {
-		this(null, null, null, null, null);
-	}
+    public Problem() {
+    }
 
-	public Problem(String classificationCode, String code, String description, String initialDate, String finalDate) {
-		super();
-		this.setClassificationCode(classificationCode);
-		this.setCode(code);
-		this.setDescription(description);
-		this.setInitialDate(initialDate);
-		this.setFinalDate(finalDate);
-	}
+    public Problem(String problem, String status) {
+        this.problem = problem;
+        this.status = status;
+    }
 
-	public String getClassificationCode() {
-		return (classificationCode == null) ? "--" : classificationCode;
-	}
+    public String getProblem() {
+        return (problem == null) ? "--" : problem;
+    }
 
-	public void setClassificationCode(String classificationCode) {
-		this.classificationCode = classificationCode;
-	}
+    public void setProblem(String problem) {
+        this.problem = problem;
+    }
 
-	public String getCode() {
-		return (code == null) ? "--" : code;
-	}
+    public String getStatus() {
+        return (status == null) ? "--" : status;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getDescription() {
-		return (description == null) ? "--" : description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getInitialDate() {
-		return (initialDate == null) ? "--" : initialDate;
-	}
-
-	public void setInitialDate(String initialDate) {
-		this.initialDate = initialDate;
-	}
-
-	public String getFinalDate() {
-		return (finalDate == null) ? "--" : finalDate;
-	}
-
-	public void setFinalDate(String finalDate) {
-		this.finalDate = finalDate;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -1,0 +1,2045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.1"/>
+  <id root="2.16.840.1.113883.19.5" extension="92709c76-cd4d-4755-9adc-080c6d7185a8"/>
+  <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Patient Summary"/>
+  <title>Sumário Clínico</title>
+  <effectiveTime value="20160919101724-0300"/>
+  <confidentialityCode code="R" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="pt-BR"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole>
+      <id root="2.16.17.710.820" extension="520962"/>
+      <patient>
+        <name><family>Iwanaga Da Silva</family><given>Jacqueline</given></name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7:AdministrativeGender" displayName="Feminino"/>
+        <birthTime value="20040729"/>
+      </patient>
+      <providerOrganization>
+        <id root="2.16.840.1.113883.19.5" extension="76767219000263"/>
+        <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20160919101724-0300"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.19.5" extension="595891"/>
+      <assignedPerson>
+        <name><family>Grignani Linhares</family><given>Daniela</given></name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="2.25.49269863327045317359586569381759743214"/>
+        <name nullFlavor="NI"/>
+        <addr><country>BR</country><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="2.16.840.1.113883.19.5" extension="76767219000263"/>
+        <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component>
+    <structuredBody>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.2"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, adverse reactions, alerts"/>
+          <title>Alergias, reacções adversas, alertas</title>
+          <text><table><thead>			<tr>				<th>Substância</th><th>Reacção</th><th>Estado</th>
+			</tr>			
+		</thead>		<tbody>			<tr>				<td>Amoxicilina + Clavulanato Potássio 500mg </td><td>Não Informado</td><td>Ativo</td>
+			</tr>			<tr>				<td>Amoxicilina Sodica</td><td>Alergica A Amoxicilina. Causa Dermatite E Dispneia. </td><td>Ativo</td>
+			</tr>			
+		</tbody>		</table></text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+              <id root="2.25.49531219348460931174122672762580305247" extension="1641"/>
+              <code nullFlavor="NA" code="NA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110531"/>
+                <high value="20110531"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.18"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <id root="a6f9a73e-2c64-49d8-ae79-ac38bcc14d14"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <text><reference value="#allergy"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low nullFlavor="NA"/>
+                    <high nullFlavor="NA"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="6" codeSystemName="TASY">
+                    <originalText><reference value="Medicamentos"/></originalText>
+                  </value>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="581-DMC" codeSystemName="TASY" displayName="Amoxicilina Sodica"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                      <code code="418799008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Finding reported 1950 by subject or history provider"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CD" code="1641" codeSystemName="TASY" displayName="Alergica A Amoxicilina. Causa Dermatite E Dispneia. "/>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.39"/>
+                      <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CE" code="A" codeSystemName="TASY" displayName="Ativo">
+                        <originalText nullFlavor="NA"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+              <id root="2.25.83818771599714666048414419002591459650" extension="41020"/>
+              <code nullFlavor="NA" code="NA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130804"/>
+                <high value="20130804"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.18"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <id root="e72eff99-03c8-4640-94b2-59856a7a5c07"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <text><reference value="#allergy"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low nullFlavor="NA"/>
+                    <high nullFlavor="NA"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="0" codeSystemName="TASY">
+                    <originalText><reference value="Não Informado"/></originalText>
+                  </value>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="4237-MAT" codeSystemName="TASY" displayName="Amoxicilina + Clavulanato Potássio 500mg "/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                      <code code="418799008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Finding reported 1950 by subject or history provider"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CD" code="0" codeSystemName="TASY" displayName="Não Informado"/>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.39"/>
+                      <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CE" code="A" codeSystemName="TASY" displayName="Ativo">
+                        <originalText nullFlavor="NA"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.8"/>
+          <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.3"/>
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of medication use"/>
+          <title>Medicamentos Usados</title>
+          <text><content ID="nomedicationdescription">Não existem medicamentos.</content></text>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+              <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.4"/>
+              <id root="1609504c-e567-4232-8e66-b238e9839190"/>
+              <code code="182904002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Tratamento desconhecido">
+                <originalText><reference value="#medicationdescription"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <doseQuantity nullFlavor="NI"/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <manufacturedMaterial>
+                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                    <code nullFlavor="NA">
+                      <originalText><reference value="#nomedicationdescription"/></originalText>
+                    </code>
+                    <name nullFlavor="NA"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.6"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of immunizations"/>
+          <title>Historial de Vacinação</title>
+          <text><content ID="noimmunizationsdescription">Não existem vacinas.</content></text>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <id root="278fefd5-7ac1-403d-9336-8632a32b4e9a"/>
+              <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
+              <statusCode code="completed"/>
+              <doseQuantity nullFlavor="NI"/>
+              <consumable typeCode="CSM">
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <manufacturedMaterial classCode="MMAT" determinerCode="KIND">
+                    <code nullFlavor="NA">
+                      <originalText><reference value="#noimmunizationsdescription"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Problem list"/>
+          <title>Historial de Doenças</title>
+          <text><content ID="actnoproblem">Não existem problemas activos.</content></text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="3478ef0a-651d-4ec3-b60a-aa983ee367fe"/>
+              <code nullFlavor="NA" code="NA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low nullFlavor="NA"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <id root="2.25.195986337576425682343182007623467942735"/>
+                  <code nullFlavor="NA"/>
+                  <text><reference value="#actnoproblem"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low nullFlavor="NA"/>
+                    <high nullFlavor="NA"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="160245001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Não existem problemas activos">
+                    <originalText><reference value="#actnoproblem"/></originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.12"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12"/>
+          <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of procedures"/>
+          <title>Intervenções Cirúrgicas</title>
+          <text><content ID="nosurgeries">Sem cirurgias conhecidas.</content></text>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <id root="3f203c8e-f4e0-4f72-8bdb-c89eeb188834"/>
+              <code nullFlavor="NA" code="NA"/>
+              <text><reference value="#noprocedure"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low nullFlavor="NA"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <id root="da986e03-1805-465a-948e-95ec4fe793af"/>
+                  <code nullFlavor="NA" code="NA"/>
+                </observation>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.7"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.5"/>
+          <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.4" assigningAuthorityName="epSOS"/>
+          <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of medical device use"/>
+          <title>Dispositivos Médicos e Implantes</title>
+          <text><content ID="nomedicalequipment">Não existem dispositivos médicos.</content></text>
+          <entry>
+            <supply nullFlavor="NA" classCode="SPLY" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.5"/>
+              <effectiveTime nullFlavor="NA"/>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <playingDevice classCode="DEV" determinerCode="INSTANCE">
+                    <code nullFlavor="NA"/>
+                  </playingDevice>
+                </participantRole>
+              </participant>
+            </supply>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.3"/>
+          <code code="46240-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of encounters"/>
+          <title>Atendimentos</title>
+          <text><table><thead>			<tr>				<th>Descrição</th><th>Local</th><th>Data</th>
+			</tr>			
+		</thead>		<tbody>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/03/04</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/05/15</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/02/08</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/09/17</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/05/31</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/08/04</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/01/10</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/11/28</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2012/08/26</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/11/29</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/03/05</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/04/28</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/03/31</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2010/08/19</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/01/12</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/07/11</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/03/04</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/05/20</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/10</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/07/02</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/01/25</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/01/03</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/04/16</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/29</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/09/05</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2011/03/25</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/03/12</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/10/19</td>
+			</tr>			
+		</tbody>		</table></text>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.239305722652172811531703662297949695870" extension="1332051"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130804"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20130804"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="141"/>
+                  <assignedPerson>
+                    <name><family>Roberto Maftoum</family><given>Jose</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.306207980786033938024967868055081137445" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.40887452185737903338210392793705026141" extension="1574527"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150331"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150331"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="931584"/>
+                  <assignedPerson>
+                    <name><family>Cristina Da Silva Coimbra</family><given>Claudia</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.47872992192031959013893113951735716121" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.59985436876163952741905468511949826525" extension="1503072"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20140917"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20140917"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="1081402"/>
+                  <assignedPerson>
+                    <name><family>Botelho De Medeiros</family><given>Patricia</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.132144700568786571361951142532421885479" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.158485010786801027634477207447701743792" extension="1231789"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130103"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20130103"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="523178"/>
+                  <assignedPerson>
+                    <name><family>Felix Da Silva Junior</family><given>Joao</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.128641084216292279620744906569759473796" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.126884350766883921267933763974703914449" extension="836894"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110112"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110112"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="146"/>
+                  <assignedPerson>
+                    <name><family>Alexandre Ferreira Da Silva</family><given>Carlos</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.41162029250125322124599547037744139858" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.173612092873594812651265831368634082535" extension="931030"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110325"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110325"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="595891"/>
+                  <assignedPerson>
+                    <name><family>Grignani Linhares</family><given>Daniela</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.296078866463875114400949930674937077060" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.28226860724057994058426312402560998167" extension="974140"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110515"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110515"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="662902"/>
+                  <assignedPerson>
+                    <name><family>Beletato Dos Santos Balancieri</family><given>Adriana</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.159729412055687213065131390247106340175" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.287456535896214742438380176812576526076" extension="1566530"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150312"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150312"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="144"/>
+                  <assignedPerson>
+                    <name><family>Cristina Gimenes Franco Patto</family><given>Viviane</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.94908957941672631463374032781330305894" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.163487773329874690102496458719761315246" extension="1586120"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150428"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150428"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="153"/>
+                  <assignedPerson>
+                    <name><family>Joana Werlang Barbieri Fleck</family><given>Lorena</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.244981986863853686838297900140308712133" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.124280214816854173390701525459371730818" extension="1895287"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20160711"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20160711"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="130"/>
+                  <assignedPerson>
+                    <name><family>Henrique Saboia Gomes</family><given>Luiz</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.192339950066350132177156847832727456295" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.168939035448597171161964616626337204698" extension="1563700"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150305"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150305"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="581001"/>
+                  <assignedPerson>
+                    <name><family>Gomes Dos Santos</family><given>Paula</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.43803725497607070885436993008606705508" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.205237563322256920820662721442816737092" extension="1529681"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20141128"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20141128"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="139"/>
+                  <assignedPerson>
+                    <name><family>Hussein Abdallah</family><given>Mohamad</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.187775903499221524254846924915016755308" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.91053086502349477126565202691319463921" extension="1563367"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150304"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150304"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="979788"/>
+                  <assignedPerson>
+                    <name><family>Paula Borsari</family><given>Rayane</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.268176356362683157660318211978082910586" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.48669931230906890246196057284939550910" extension="1563369"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150304"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150304"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="931584"/>
+                  <assignedPerson>
+                    <name><family>Cristina Da Silva Coimbra</family><given>Claudia</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.172014210301522012885911359126439622045" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.63559076377472365022467368988622502824" extension="980906"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110531"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110531"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="139"/>
+                  <assignedPerson>
+                    <name><family>Hussein Abdallah</family><given>Mohamad</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.206824581317833836014806889193992582190" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.281043895478586048629293127655093502" extension="1055798"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20111129"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20111129"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="141"/>
+                  <assignedPerson>
+                    <name><family>Roberto Maftoum</family><given>Jose</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.45871456859089275843297144580071583811" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.305569653345297205360736609337542686851" extension="1173190"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20120826"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20120826"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="151"/>
+                  <assignedPerson>
+                    <name><family>De Assis Soncin</family><given>Francisco</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.312037201971576297652135824521513981658" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.44519102558739610293249125307909653855" extension="976577"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110520"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110520"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="151"/>
+                  <assignedPerson>
+                    <name><family>De Assis Soncin</family><given>Francisco</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.39546398846738209378991837455915919221" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.325394060544320862288848750654342662123" extension="1554351"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150208"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20150208"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="146"/>
+                  <assignedPerson>
+                    <name><family>Alexandre Ferreira Da Silva</family><given>Carlos</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.255552905754667845606524162637550212851" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.178277620533935828712383476386522029972" extension="1726259"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20151110"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="127"/>
+                  <assignedPerson>
+                    <name><family>Cesar Xavier Ravelli</family><given>Tulio</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.292213637401023914807100421436262878002" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.154411631467218667950060508513974260593" extension="1828772"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20160416"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20160416"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="1028599"/>
+                  <assignedPerson>
+                    <name><family>Lusia Felicio</family><given>Monia</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.40121387116001496618248913207841883654" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.336500094009690609019094735027123058895" extension="1368805"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20131019"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20131019"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="606482"/>
+                  <assignedPerson>
+                    <name><family>Martins De Oliveira Junior</family><given>Jose</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.238930692096980622667020113200487085429" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.5824158234070597789532716325888223168" extension="569001"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20100819"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20100819"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="595891"/>
+                  <assignedPerson>
+                    <name><family>Grignani Linhares</family><given>Daniela</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.16669104888337035760855913751592521519" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.180051303707177462370455212390286350871" extension="834824"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110110"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="136"/>
+                  <assignedPerson>
+                    <name><family>Valeska Herreira</family><given>Cristina</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.136272119585787652490609209506694058083" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.163919351641918481963739968690926423259" extension="1019243"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110905"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110905"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="136"/>
+                  <assignedPerson>
+                    <name><family>Valeska Herreira</family><given>Cristina</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.203673409225603588390993094800286951104" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.320964249502180274401654766978087693125" extension="1758227"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151229"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20151229"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="141"/>
+                  <assignedPerson>
+                    <name><family>Roberto Maftoum</family><given>Jose</given><prefix>Dr.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.154896373019107072089757884716712669011" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.132796817146560433367317241689714732544" extension="1410012"/>
+              <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20140125"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20140125"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="1028599"/>
+                  <assignedPerson>
+                    <name><family>Lusia Felicio</family><given>Monia</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.19915963033317838856548739422338964915" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <id root="2.25.134850334584893907298030966577614323082" extension="993461"/>
+              <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110702"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <performer>
+                <time>
+                  <low value="20110702"/>
+                  <high nullFlavor="NA"/>
+                </time>
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="2.16.840.1.113883.1" extension="137"/>
+                  <assignedPerson>
+                    <name><family>Nemer</family><given>Elen</given><prefix>Dra.</prefix></name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="2.25.1831383772785397198691870187814704195" extension="76767219000263"/>
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                    <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45"/>
+                <participantRole>
+                  <id root="2.16.840.1.113883.1" extension="76767219000263"/>
+                  <playingEntity classCode="PLC">
+                    <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.4"/>
+          <code code="10157-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of family member diseases"/>
+          <title>Antecedentes Familiares</title>
+          <text><content ID="nofamilyhistory">Não existem antecedentes familiares.</content></text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.22"/>
+              <code nullFlavor="NA" code="NA"/>
+              <statusCode code="completed"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.1.10"/>
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Treatment plan"/>
+          <title>Plano de cuidados</title>
+          <text><table><thead>			<tr>				<th>Descrição</th><th>Data</th>
+			</tr>			
+		</thead>		<tbody>			<tr>				<td>Lesões ligamentares agudas ao nível do tornozelo - tratamento incruento</td><td>2015/11/10</td>
+			</tr>			<tr>				<td>Sutura de pequenos ferimentos com ou sem desbridamento</td><td>2013/01/03</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2014/09/17</td>
+			</tr>			<tr>				<td>RX - Articulação tibiotársica (tornozelo)</td><td>2015/11/10</td>
+			</tr>			<tr>				<td>Sala Ambulatorial II (Pequenas Cirurgias)</td><td>2013/01/03</td>
+			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2012/08/26</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2015/02/08</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/01/12</td>
+			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2015/11/10</td>
+			</tr>			<tr>				<td>Sequelas em politraumatizados (em diferentes segmentos)</td><td>2015/03/31</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/08/04</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2014/11/28</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/05/31</td>
+			</tr>			<tr>				<td>Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)</td><td>2014/11/28</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/05/20</td>
+			</tr>			<tr>				<td>RX - Tórax - 2 incidências</td><td>2015/12/29</td>
+			</tr>			<tr>				<td>Sequelas em politraumatizados (em diferentes segmentos)</td><td>2015/03/05</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2012/08/26</td>
+			</tr>			<tr>				<td>Inalação</td><td>2011/01/10</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/01/10</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2010/08/19</td>
+			</tr>			<tr>				<td>Seios Da Face</td><td>2010/08/19</td>
+			</tr>			<tr>				<td>Taxa Por Uso/Sessao De Sala De Procedimento Ambulatorial</td><td>2015/03/12</td>
+			</tr>			<tr>				<td>Sequelas em politraumatizados (em diferentes segmentos)</td><td>2015/03/04</td>
+			</tr>			<tr>				<td>Medicamentos</td><td>2011/05/15</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/05/15</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/07/02</td>
+			</tr>			<tr>				<td>Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)</td><td>2014/11/28</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/10/19</td>
+			</tr>			<tr>				<td>Nutrição</td><td>2015/03/04</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2014/01/25</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2011/09/05</td>
+			</tr>			<tr>				<td>Proteína C reativa, quantitativa - pesquisa e/ou dosagem</td><td>2014/11/28</td>
+			</tr>			<tr>				<td>Consulta em Emergência - PA</td><td>2011/03/25</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/01/03</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2011/11/29</td>
+			</tr>			<tr>				<td>Tórax - 1 Incidência</td><td>2010/08/19</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2015/04/28</td>
+			</tr>			<tr>				<td>Nutrição</td><td>2015/03/31</td>
+			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2016/07/11</td>
+			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2016/04/16</td>
+			</tr>			<tr>				<td>Taxa De Sala/Sessao De Inalacao/Nebulizacao</td><td>2015/12/29</td>
+			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2015/12/29</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2015/03/12</td>
+			</tr>			
+		</tbody>		</table></text>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.137145211126643494685410374443429607942" extension="27792761"/>
+              <code code="10101039" codeSystemName="TASY" displayName="Consulta em pronto socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20160711"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.146704390103206014043119660782632883600" extension="24321091"/>
+              <code code="10101179" codeSystemName="TASY" displayName="Nutrição"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150304"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.327742112917355023893122722818029979666" extension="24799901"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150428"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.315138362228429572714603849697112648468" extension="26499401"/>
+              <code code="60022965" codeSystemName="TASY" displayName="Taxa De Sala/Sessao De Inalacao/Nebulizacao"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151229"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.82630335034813895993103155623614503709" extension="26499251"/>
+              <code code="40805026" codeSystemName="TASY" displayName="RX - Tórax - 2 incidências"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151229"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.274405250230951506018710785149091901915" extension="24321041"/>
+              <code code="20103700" codeSystemName="TASY" displayName="Sequelas em politraumatizados (em diferentes segmentos)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150304"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.139200181040177360706008599411814621229" extension="24385331"/>
+              <code code="60023384" codeSystemName="TASY" displayName="Taxa Por Uso/Sessao De Sala De Procedimento Ambulatorial"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150312"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.34469815589403032800887221710508819368" extension="24385291"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150312"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.78173872608076733365044301716256075729" extension="23008461"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20140917"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.10696960327192223375400380430640555759" extension="24327481"/>
+              <code code="20103700" codeSystemName="TASY" displayName="Sequelas em politraumatizados (em diferentes segmentos)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150305"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.276201247545085522454664031555927514979" extension="24135531"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150208"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.331085304620350481701974443552271977257" extension="21000781"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20140125"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.85913148151804041901057295123759243083" extension="11382011"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110112"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.306564863778240264212444886034225415530" extension="24555851"/>
+              <code code="20103700" codeSystemName="TASY" displayName="Sequelas em politraumatizados (em diferentes segmentos)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150331"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.114152201206602906747029851978423014539" extension="26498891"/>
+              <code code="10101039" codeSystemName="TASY" displayName="Consulta em pronto socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151229"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.322969509060447100040423472738390677886" extension="24555871"/>
+              <code code="10101179" codeSystemName="TASY" displayName="Nutrição"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150331"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.112100556719458741824905995168314225414" extension="17750651"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130103"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.120788150540376884477572356921829966139" extension="26182842"/>
+              <code code="40804089" codeSystemName="TASY" displayName="RX - Articulação tibiotársica (tornozelo)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.171871221661148823007003825448600740164" extension="26182771"/>
+              <code code="10101039" codeSystemName="TASY" displayName="Consulta em pronto socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.98224179188118616099490657139616385335" extension="26182841"/>
+              <code code="30728134" codeSystemName="TASY" displayName="Lesões ligamentares agudas ao nível do tornozelo - tratamento incruento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20151110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.131480317250061471876665096720440732807" extension="13043481"/>
+              <code code="90000013" codeSystemName="TASY" displayName="Medicamentos"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110515"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.25581989716532142047901428336382021737" extension="17751191"/>
+              <code code="80031609" codeSystemName="TASY" displayName="Sala Ambulatorial II (Pequenas Cirurgias)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130103"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.116609882267792785721215185591832910824" extension="19533361"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130804"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.173035375590670770455207393165657744592" extension="12422741"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110325"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.301706804948554682384074068229275546691" extension="14753131"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20111129"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.312168036256783893856063781265302270338" extension="13042991"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110515"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.93111506714299122052200271934857978217" extension="13096461"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110520"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.339504764172437743135374568686995787223" extension="20192841"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20131019"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.89135011716938227529820746361902888025" extension="13195381"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110531"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.73829047062970524861215215453118491845" extension="11361111"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.217904899760120141584830939257783134737" extension="13475921"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110702"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.184865875906763084701997037621468521660" extension="17751182"/>
+              <code code="30101794" codeSystemName="TASY" displayName="Sutura de pequenos ferimentos com ou sem desbridamento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20130103"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.83171657848414417238242067342488548426" extension="16751351"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20120826"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.338154099057592187062020446856935049673" extension="23603071"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20141128"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.337001199082444516271150348406660829121" extension="16751521"/>
+              <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observação)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20120826"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.217649441582470395608248986294086373354" extension="23603401"/>
+              <code code="40308391" codeSystemName="TASY" displayName="Proteína C reativa, quantitativa - pesquisa e/ou dosagem"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20141128"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.257961541439187447318986884179310850371" extension="23603403"/>
+              <code code="40304361" codeSystemName="TASY" displayName="Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20141128"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.107590206374014855711166970342723707522" extension="23603402"/>
+              <code code="40311210" codeSystemName="TASY" displayName="Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20141128"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.10721201794986184662723377327076663943" extension="14014451"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110905"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.40078072077760438441507119483492876935" extension="7548841"/>
+              <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - PA"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20100819"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.242797751188779544969327960297398618419" extension="27249351"/>
+              <code code="10101039" codeSystemName="TASY" displayName="Consulta em pronto socorro"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20160416"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.141209548251416833034285828856993886996" extension="7549312"/>
+              <code code="40805018" codeSystemName="TASY" displayName="Tórax - 1 Incidência"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20100819"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.91505307970963764732197910370004801818" extension="11361171"/>
+              <code code="80061214" codeSystemName="TASY" displayName="Inalação"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20110110"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <id root="2.25.98126131392027651454041368077381398899" extension="7549311"/>
+              <code code="40801063" codeSystemName="TASY" displayName="Seios Da Face"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20100819"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

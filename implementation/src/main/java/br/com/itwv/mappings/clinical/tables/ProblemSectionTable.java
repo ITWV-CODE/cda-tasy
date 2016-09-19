@@ -3,11 +3,13 @@ package br.com.itwv.mappings.clinical.tables;
 import br.com.itwv.cdatasy.base.html.templates.collections.ProblemCollection;
 import br.com.itwv.cdatasy.base.html.templates.objects.Problem;
 import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping;
-import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
 import org.openhealthtools.mdht.uml.cda.Observation;
 import org.openhealthtools.mdht.uml.cda.ccd.ProblemAct;
 import org.openhealthtools.mdht.uml.cda.ccd.ProblemObservation;
 import org.openhealthtools.mdht.uml.cda.ccd.ProblemSection;
+import org.openhealthtools.mdht.uml.cda.ccd.ProblemStatusObservation;
+import org.openhealthtools.mdht.uml.hl7.datatypes.ANY;
+import org.openhealthtools.mdht.uml.hl7.datatypes.CD;
 
 public class ProblemSectionTable {
     private static ProblemSectionTable instance = null;
@@ -34,13 +36,17 @@ public class ProblemSectionTable {
                 case COMPLETED: {
 
                     Problem problem = new Problem();
-                    problem.setInitialDate(CDADataTypesFactory.getInstance().getPrettyPrintDate(problemAct.getEffectiveTime().getLow(), "yyyyMMdd",
-                            "yyyy/MM/dd"));
+
                     for (Observation observation : problemAct.getObservations()) {
                         if (observation instanceof ProblemObservation) {
-                            problem.setCode(observation.getCode().getCode());
-                            problem.setDescription(observation.getCode().getDisplayName());
-                            problem.setClassificationCode(observation.getCode().getCodeSystemName());
+                            problem.setProblem(observation.getCode().getDisplayName());
+                        }
+                        for (Observation problemStatusObservation : observation.getObservations()) {
+                            if (problemStatusObservation instanceof ProblemStatusObservation) {
+                                for (ANY value : problemStatusObservation.getValues()) {
+                                    problem.setStatus(((CD) value).getDisplayName());
+                                }
+                            }
                         }
                     }
                     problemCollection.add(problem);

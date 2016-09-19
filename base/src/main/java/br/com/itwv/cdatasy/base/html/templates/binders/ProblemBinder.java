@@ -11,47 +11,20 @@ import java.io.OutputStreamWriter;
 
 public class ProblemBinder {
 
-    private static ModelBinder<Problem> binderGetClassificationCode() {
+    private static ModelBinder<Problem> binderGetProblem() {
         return new ModelBinder<Problem>() {
             public void bind(OutputStreamWriter out, Problem model)
                     throws Exception {
-                out.write(model.getClassificationCode());
+                out.write(model.getProblem());
             }
         };
     }
 
-    private static ModelBinder<Problem> binderGetCode() {
+    private static ModelBinder<Problem> binderGetStatus() {
         return new ModelBinder<Problem>() {
             public void bind(OutputStreamWriter out, Problem model)
                     throws Exception {
-                out.write(model.getCode());
-            }
-        };
-    }
-
-    private static ModelBinder<Problem> binderGetDescription() {
-        return new ModelBinder<Problem>() {
-            public void bind(OutputStreamWriter out, Problem model)
-                    throws Exception {
-                out.write(model.getDescription());
-            }
-        };
-    }
-
-    private static ModelBinder<Problem> binderGetInitialDate() {
-        return new ModelBinder<Problem>() {
-            public void bind(OutputStreamWriter out, Problem model)
-                    throws Exception {
-                out.write(model.getInitialDate());
-            }
-        };
-    }
-
-    private static ModelBinder<Problem> binderGetFinalDate() {
-        return new ModelBinder<Problem>() {
-            public void bind(OutputStreamWriter out, Problem model)
-                    throws Exception {
-                out.write(model.getFinalDate());
+                out.write(model.getStatus());
             }
         };
     }
@@ -65,17 +38,12 @@ public class ProblemBinder {
         HtmlTBody<Iterable<Problem>> tbody = taskView.tbody();
         HtmlTr<Iterable<Problem>> trHead = thead.tr();
 
-        trHead.th().text("Classificação");
-        trHead.th().text("Código");
-        trHead.th().text("Descrição");
-        trHead.th().text("Data Início");
-        trHead.th().text("Data Fim");
+        trHead.th().text("Problema");
+        trHead.th().text("Estado");
 
-        tbody.trFromIterable(ProblemBinder.binderGetClassificationCode(),
-                ProblemBinder.binderGetCode(),
-                ProblemBinder.binderGetDescription(),
-                ProblemBinder.binderGetInitialDate(),
-                ProblemBinder.binderGetFinalDate());
+        tbody.trFromIterable(
+                ProblemBinder.binderGetProblem(),
+                ProblemBinder.binderGetStatus());
         return taskView;
     }
 }

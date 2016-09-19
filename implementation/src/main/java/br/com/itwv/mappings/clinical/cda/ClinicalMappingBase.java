@@ -56,9 +56,9 @@ public abstract class ClinicalMappingBase {
             ProblemAct problemAct = ContinuityOfCareDocumentFactory.createAlertsSectionEntry(null, false);
             alertsSection.addAct(problemAct);
             problemAct.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(allergy.getId(), null, null));
-            problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(allergy.getDate(), null));
-            problemAct.getObservations().get(0).setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getSubstance().getCode(), null, allergy.getSubstance().getTerminolgy(), allergy.getSubstance().getDescription(), null));
+            problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(allergy.getDate(), allergy.getDate()));
             problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getType().getCode(), null, allergy.getType().getTerminolgy(), null, CDADataTypesFactory.getInstance().createBaseED(null, allergy.getType().getDescription())));
+            problemAct.getObservations().get(0).setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("ASSERTION", "2.16.840.1.113883.5.4", null, null, null));
 
             //CDADataTypesFactory.getInstance().createBaseComment(problemAct.getObservations().get(0), null, nte.getNte3_Comment(0).getValue());
             Participant2 participant = CDAFactory.eINSTANCE.createParticipant2();
@@ -72,6 +72,8 @@ public abstract class ClinicalMappingBase {
             PlayingEntity playingEntity = CDAFactory.eINSTANCE.createPlayingEntity();
             participantRole.setPlayingEntity(playingEntity);
             playingEntity.setClassCode(EntityClassRoot.MMAT);
+            playingEntity.setCode(CDADataTypesFactory.getInstance().createBaseCodeCE(allergy.getSubstance().getCode(), null, allergy.getSubstance().getTerminolgy(), allergy.getSubstance().getDescription(), null));
+
             CDADataTypesFactory.getInstance().createBaseReactionObservation(problemAct.getObservations().get(0), allergy.getReaction().getCode(), null, allergy.getReaction().getTerminolgy(), allergy.getReaction().getDescription());
             CDADataTypesFactory.getInstance().createBaseAlertStatusObservation(problemAct.getObservations().get(0), allergy.getStatus().getCode(), null, allergy.getStatus().getTerminolgy(), allergy.getStatus().getDescription(), null);
             ClinicalMappingEntryRelationships.getInstance().defineProblemActEntryRelationships(docList.get(0), problemAct);

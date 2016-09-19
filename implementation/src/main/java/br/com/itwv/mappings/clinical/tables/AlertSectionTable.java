@@ -3,15 +3,14 @@ package br.com.itwv.mappings.clinical.tables;
 import br.com.itwv.cdatasy.base.html.templates.collections.AlertCollection;
 import br.com.itwv.cdatasy.base.html.templates.objects.Alert;
 import br.com.itwv.cdatasy.common.business.interop.mappings.interfaces.IClinicalMapping;
-import br.com.itwv.cdatasy.common.business.interop.mappings.types.CDADataTypesFactory;
-import org.openhealthtools.mdht.uml.cda.Author;
 import org.openhealthtools.mdht.uml.cda.Observation;
 import org.openhealthtools.mdht.uml.cda.Participant2;
-import org.openhealthtools.mdht.uml.cda.Supply;
-import org.openhealthtools.mdht.uml.cda.ccd.*;
+import org.openhealthtools.mdht.uml.cda.ccd.AlertObservation;
+import org.openhealthtools.mdht.uml.cda.ccd.AlertsSection;
+import org.openhealthtools.mdht.uml.cda.ccd.ProblemAct;
+import org.openhealthtools.mdht.uml.cda.ccd.ReactionObservation;
 import org.openhealthtools.mdht.uml.hl7.datatypes.ANY;
 import org.openhealthtools.mdht.uml.hl7.datatypes.CD;
-import org.openhealthtools.mdht.uml.hl7.datatypes.ON;
 
 public class AlertSectionTable {
     private static AlertSectionTable instance = null;
@@ -37,8 +36,6 @@ public class AlertSectionTable {
                 case COMPLETED: {
 
                     Alert alert = new Alert();
-                    alert.setDiagnosisDate(CDADataTypesFactory.getInstance().getPrettyPrintDate(problemAct.getEffectiveTime().getLow(), "yyyyMMdd",
-                            "yyyy/MM/dd"));
 
                     for (Observation observation : problemAct.getObservations()) {
 
@@ -51,31 +48,12 @@ public class AlertSectionTable {
                             }
                             for (Participant2 participant2 : ((AlertObservation) observation).getParticipants()) {
                                 if (participant2.getParticipantRole().getPlayingEntity().getCode() != null) {
-                                    alert.setAllergenCode(participant2.getParticipantRole().getPlayingEntity().getCode().getCode());
-                                    alert.setAllergenDescription(participant2.getParticipantRole().getPlayingEntity().getCode().getDisplayName());
+                                    alert.setSubstance(participant2.getParticipantRole().getPlayingEntity().getCode().getDisplayName());
                                 }
                             }
                             for (ReactionObservation reactionObservation : ((AlertObservation) observation).getReactionObservations()) {
                                 for (ANY value : reactionObservation.getValues()) {
-                                    alert.setReactions(((CD) value).getDisplayName());
-                                }
-
-                            }
-
-                            if (observation.getCode() != null) {
-                                alert.setCategory(((AlertObservation) observation).getCode().getDisplayName());
-                            }
-
-                            for (Observation alertObservationObservation : ((AlertObservation) observation).getObservations())
-                                if (alertObservationObservation instanceof SeverityObservation)
-                                    for (ANY value : alertObservationObservation.getValues())
-                                        alert.setSeverity(((CD) value).getDisplayName());
-
-                            for (Supply supply : ((AlertObservation) observation).getSupplies()) {
-                                for (Author author : supply.getAuthors()) {
-
-                                    for (ON name : author.getAssignedAuthor().getRepresentedOrganization().getNames())
-                                        alert.setSource(name.getText());
+                                    alert.setReaction(((CD) value).getDisplayName());
                                 }
                             }
                         }

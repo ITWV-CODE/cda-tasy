@@ -11,38 +11,20 @@ import java.io.OutputStreamWriter;
 
 public class AlertBinder {
 
-    private static ModelBinder<Alert> binderGetAllergenCode() {
+    private static ModelBinder<Alert> binderGetSubstance() {
         return new ModelBinder<Alert>() {
             public void bind(OutputStreamWriter out, Alert model)
                     throws Exception {
-                out.write(model.getAllergenCode());
+                out.write(model.getSubstance());
             }
         };
     }
 
-    private static ModelBinder<Alert> binderGetAllergenDescription() {
+    private static ModelBinder<Alert> binderGetReaction() {
         return new ModelBinder<Alert>() {
             public void bind(OutputStreamWriter out, Alert model)
                     throws Exception {
-                out.write(model.getAllergenDescription());
-            }
-        };
-    }
-
-    private static ModelBinder<Alert> binderGetDiagnosisDate() {
-        return new ModelBinder<Alert>() {
-            public void bind(OutputStreamWriter out, Alert model)
-                    throws Exception {
-                out.write(model.getDiagnosisDate());
-            }
-        };
-    }
-
-    private static ModelBinder<Alert> binderGetReactions() {
-        return new ModelBinder<Alert>() {
-            public void bind(OutputStreamWriter out, Alert model)
-                    throws Exception {
-                out.write(model.getReactions());
+                out.write(model.getReaction());
             }
         };
     }
@@ -56,33 +38,6 @@ public class AlertBinder {
         };
     }
 
-    private static ModelBinder<Alert> binderGetCategory() {
-        return new ModelBinder<Alert>() {
-            public void bind(OutputStreamWriter out, Alert model)
-                    throws Exception {
-                out.write(model.getCategory());
-            }
-        };
-    }
-
-    private static ModelBinder<Alert> binderGetSeverity() {
-        return new ModelBinder<Alert>() {
-            public void bind(OutputStreamWriter out, Alert model)
-                    throws Exception {
-                out.write(model.getSeverity());
-            }
-        };
-    }
-
-    private static ModelBinder<Alert> binderGetSource() {
-        return new ModelBinder<Alert>() {
-            public void bind(OutputStreamWriter out, Alert model)
-                    throws Exception {
-                out.write(model.getSource());
-            }
-        };
-    }
-
     @SuppressWarnings("unchecked")
     public static HtmlTableView<Iterable<Alert>> taskListView() {
 
@@ -92,21 +47,13 @@ public class AlertBinder {
         HtmlTBody<Iterable<Alert>> tbody = taskView.tbody();
         HtmlTr<Iterable<Alert>> trHead = thead.tr();
 
-        trHead.th().text("Código Alergénio CPARA");
-        trHead.th().text("Descrição Alergénio");
-        trHead.th().text("Data Diagnóstico");
+        trHead.th().text("Substância");
         trHead.th().text("Reacção");
         trHead.th().text("Estado");
-        trHead.th().text("Categoria");
-        trHead.th().text("Severidade");
-        trHead.th().text("Origem");
 
-        tbody.trFromIterable(AlertBinder.binderGetAllergenCode(),
-                AlertBinder.binderGetAllergenDescription(),
-                AlertBinder.binderGetDiagnosisDate(),
-                AlertBinder.binderGetReactions(),
-                AlertBinder.binderGetStatus(), AlertBinder.binderGetCategory(),
-                AlertBinder.binderGetSeverity(), AlertBinder.binderGetSource());
+        tbody.trFromIterable(AlertBinder.binderGetSubstance(),
+                AlertBinder.binderGetReaction(),
+                AlertBinder.binderGetStatus());
         return taskView;
     }
 }
