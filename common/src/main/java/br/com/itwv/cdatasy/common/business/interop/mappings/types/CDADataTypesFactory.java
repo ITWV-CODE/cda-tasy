@@ -346,8 +346,8 @@ public class CDADataTypesFactory {
 
         IVL_PQ doseQuantity = DatatypesFactory.eINSTANCE.createIVL_PQ();
         try {
-            doseQuantity.setLow(this.createBaseIVXB_PQ(value, units));
-            doseQuantity.setHigh(this.createBaseIVXB_PQ(value, units));
+            doseQuantity.setValue(Double.parseDouble(value));
+            doseQuantity.setUnit(units);
         } catch (Exception e) {
             doseQuantity.setNullFlavor(NullFlavor.NA);
         }

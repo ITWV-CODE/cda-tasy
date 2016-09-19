@@ -42,12 +42,42 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertMedicationEntry(List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertMedicationEntry(List<Dto> medications, List<ClinicalDocument> docList) throws Exception {
+
+
+        final MedicationsSection medicationSection = (MedicationsSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.MEDICATIONS, "", "");
+
+        for (final Dto dto : medications) {
+            final MedicationDto medication = (MedicationDto) dto;
+            MedicationActivity medicationActivity = ContinuityOfCareDocumentFactory.createMedicationsSectionEntry(null, false);
+            medicationSection.addSubstanceAdministration(medicationActivity);
+            medicationActivity.getIds().add(
+                    CDADataTypesFactory.getInstance().createBaseRootII(medication.getId(), null, null));
+
+            medicationActivity.getEffectiveTimes().add(
+                    CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(medication.getDate(), medication.getDate()));
+
+            medicationActivity.setRouteCode(CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getRoute().getCode(), medication.getRoute().getTerminolgy(), null,
+                    medication.getRoute().getDescription(), null));
+
+            medicationActivity.setDoseQuantity(CDADataTypesFactory.getInstance().createBaseIVL_PQ());
+
+            medicationActivity
+                    .getConsumable()
+                    .getManufacturedProduct()
+                    .getManufacturedMaterial().setCode(
+                    CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getMedicine().getCode(), "2.16.840.1.113883.6.96", medication.getMedicine().getTerminolgy(), medication.getMedicine().getDescription(), null));
+
+            CDADataTypesFactory.getInstance().createBasePatientInstruction(medicationActivity, medication.getDosage());
+
+        }
+        medicationSection.createStrucDocText(MedicationSectionTable.getInstance().getTable(medicationSection));
 
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertAlertEntry(List<Dto> allergies, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertAlertEntry
+            (List<Dto> allergies, List<ClinicalDocument> docList) throws Exception {
 
         final AlertsSection alertsSection = (AlertsSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.ALLERGIES, "", "");
 
@@ -57,7 +87,7 @@ public abstract class ClinicalMappingBase {
             alertsSection.addAct(problemAct);
             problemAct.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(allergy.getId(), null, null));
             problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(allergy.getDate(), allergy.getDate()));
-            problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getType().getCode(), null, allergy.getType().getTerminolgy(), null, CDADataTypesFactory.getInstance().createBaseED(null, allergy.getType().getDescription())));
+            problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getType().getCode(), "2.16.840.1.113883.6.96", allergy.getType().getTerminolgy(), allergy.getType().getDescription(), null));
             problemAct.getObservations().get(0).setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("ASSERTION", "2.16.840.1.113883.5.4", null, null, null));
 
             //CDADataTypesFactory.getInstance().createBaseComment(problemAct.getObservations().get(0), null, nte.getNte3_Comment(0).getValue());
@@ -82,7 +112,8 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertEncounterEntry(List<Dto> encounters, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertEncounterEntry
+            (List<Dto> encounters, List<ClinicalDocument> docList) throws Exception {
 
         final EncountersSection encountersSection = (EncountersSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.ENCOUNTERS, "", "");
 
@@ -118,7 +149,8 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertFamilyHistoryEntry(List<Dto> familyHistoryList, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertFamilyHistoryEntry
+            (List<Dto> familyHistoryList, List<ClinicalDocument> docList) throws Exception {
 
         final FamilyHistorySection familyHistorySection = (FamilyHistorySection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.FAMILY_HISTORY, "", "");
 
@@ -144,52 +176,62 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> mapMedicationsFactory(List<ClinicalDocument> docList) throws Exception {
-        return ClinicalMappingBase.insertMedicationEntry(docList);
+    protected static List<ClinicalDocument> mapMedicationsFactory(final List<Dto> medications, List<ClinicalDocument> docList) throws
+            Exception {
+        return ClinicalMappingBase.insertMedicationEntry(medications, docList);
     }
 
-    protected static List<ClinicalDocument> mapImmunizationsFactory(List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> mapImmunizationsFactory(List<ClinicalDocument> docList) throws
+            Exception {
 
         return ClinicalMappingBase.insertImmunizationEntry(docList);
     }
 
-    protected static List<ClinicalDocument> mapAlertsFactory(final List<Dto> allergies, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> mapAlertsFactory(final List<Dto> allergies, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertAlertEntry(allergies, docList);
     }
 
-    protected List<ClinicalDocument> mapProblemsFactory(final List<Dto> problems, List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapProblemsFactory(final List<Dto> problems, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertProblemEntry(problems, docList);
     }
 
-    protected List<ClinicalDocument> mapPlanOfCareFactory(final List<Dto> planOfCareList, List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapPlanOfCareFactory(final List<Dto> planOfCareList, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertPlanOfCareEntry(planOfCareList, docList);
     }
 
-    protected List<ClinicalDocument> mapEncountersFactory(final List<Dto> encounters, List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapEncountersFactory(final List<Dto> encounters, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertEncounterEntry(encounters, docList);
     }
 
-    protected List<ClinicalDocument> mapFamilyHistoryFactory(final List<Dto> familyHistoryList, List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapFamilyHistoryFactory(final List<Dto> familyHistoryList, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertFamilyHistoryEntry(familyHistoryList, docList);
     }
 
 
-    protected List<ClinicalDocument> mapProceduresFactory(final List<Dto> procedures, List<ClinicalDocument> docList) throws Exception {
+    protected List<ClinicalDocument> mapProceduresFactory(final List<Dto> procedures, List<
+            ClinicalDocument> docList) throws Exception {
 
         return ClinicalMappingBase.insertProcedureEntry(procedures, docList);
     }
 
-    protected static List<ClinicalDocument> insertProcedureEntry(List<Dto> procedures, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertProcedureEntry
+            (List<Dto> procedures, List<ClinicalDocument> docList) throws Exception {
 
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertPlanOfCareEntry(List<Dto> planOfCareList, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertPlanOfCareEntry
+            (List<Dto> planOfCareList, List<ClinicalDocument> docList) throws Exception {
 
         final PlanOfCareSection planOfCareSection = (PlanOfCareSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.PLAN_OF_CARE, "", "");
 
@@ -209,7 +251,8 @@ public abstract class ClinicalMappingBase {
         return docList;
     }
 
-    protected static List<ClinicalDocument> insertProblemEntry(List<Dto> problems, List<ClinicalDocument> docList) throws Exception {
+    protected static List<ClinicalDocument> insertProblemEntry
+            (List<Dto> problems, List<ClinicalDocument> docList) throws Exception {
 
         final ProblemSection problemSection = (ProblemSection) EObjectElementsFactory.getLogicalDocumentSection(docList.get(0), IClinicalDocumentFactory.x_EObjectTypes.PROBLEMS, "", "");
 

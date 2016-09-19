@@ -1,94 +1,41 @@
 package br.com.itwv.cdatasy.base.html.templates.objects;
 
 public class Medication {
-	private String activeSubstance;
-	private String codeATC;
-	private String pharmaceuticalForm;
-	private String dosage;
-	private String initialDate;
-	private String finalDate;
-	private String applicationRate;
-	private String description;
+    private String substance;
+    private String dosage;
+    private String date;
 
-	public Medication() {
-		this(null, null, null, null, null, null, null, null);
-	}
+    public Medication() {
+    }
 
-	public Medication(String activeSubstance, String codeATC, String pharmaceuticalForm, String dosage, String initialDate, String finalDate,
-			String applicationRate, String description) {
+    public Medication(String substance, String dosage, String date) {
 
-		this.setActiveSubstance(activeSubstance);
-		this.setCodeATC(codeATC);
-		this.setPharmaceuticalForm(pharmaceuticalForm);
-		this.setDosage(dosage);
-		this.setInitialDate(initialDate);
-		this.setFinalDate(finalDate);
-		this.setApplicationRate(applicationRate);
-		this.setDescription(description);
-	}
+        this.substance = substance;
+        this.dosage = dosage;
+        this.date = date;
+    }
 
-	public String getActiveSubstance() {
-		return (activeSubstance == null) ? "--" : activeSubstance;
-	}
+    public String getSubstance() {
+        return (substance == null) ? "--" : substance;
+    }
 
-	public void setActiveSubstance(String activeSubstance) {
-		this.activeSubstance = activeSubstance;
-	}
+    public void setSubstance(String substance) {
+        this.substance = substance;
+    }
 
-	public String getCodeATC() {
-		return (codeATC == null) ? "--" : codeATC;
-	}
+    public String getDosage() {
+        return (dosage == null) ? "--" : dosage;
+    }
 
-	public void setCodeATC(String codeATC) {
-		this.codeATC = codeATC;
-	}
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
 
-	public String getPharmaceuticalForm() {
-		return (pharmaceuticalForm == null) ? "--" : pharmaceuticalForm;
-	}
+    public String getDate() {
+        return (date == null) ? "--" : date;
+    }
 
-	public void setPharmaceuticalForm(String pharmaceuticalForm) {
-		this.pharmaceuticalForm = pharmaceuticalForm;
-	}
-
-	public String getDosage() {
-		return (dosage == null) ? "--" : dosage;
-	}
-
-	public void setDosage(String dosage) {
-		this.dosage = dosage;
-	}
-
-	public String getInitialDate() {
-		return (initialDate == null) ? "--" : initialDate;
-	}
-
-	public void setInitialDate(String initialDate) {
-		this.initialDate = initialDate;
-	}
-
-	public String getFinalDate() {
-		return (finalDate == null) ? "--" : finalDate;
-	}
-
-	public void setFinalDate(String finalDate) {
-		this.finalDate = finalDate;
-	}
-
-	public String getApplicationRate() {
-		return (applicationRate == null) ? "--" : applicationRate;
-	}
-
-	public void setApplicationRate(String applicationRate) {
-		this.applicationRate = applicationRate;
-	}
-
-	public String getDescription() {
-		return (description == null) ? "--" : description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

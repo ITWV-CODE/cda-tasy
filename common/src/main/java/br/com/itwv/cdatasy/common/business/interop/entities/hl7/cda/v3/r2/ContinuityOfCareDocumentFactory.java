@@ -414,19 +414,17 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
             Consumable consumable = CDAFactory.eINSTANCE.createConsumable();
             Product product = CCDFactory.eINSTANCE.createProduct().init();
             medicationActivity.setMoodCode(x_DocumentSubstanceMood.EVN);
-            medicationActivity.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7", null));
-            medicationActivity.getTemplateIds()
-                    .add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7.1", null));
-            medicationActivity.getTemplateIds().add(
-                    CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.3.4", null));
+            //medicationActivity.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7", null));
+            //medicationActivity.getTemplateIds()                    .add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7.1", null));
+            //medicationActivity.getTemplateIds().add(                    CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.3.4", null));
             medicationActivity.setClassCode(ActClass.SBADM);
             medicationActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             medicationActivity.setConsumable(consumable);
             consumable.setManufacturedProduct(product);
             product.setManufacturedMaterial(material);
-            product.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7.2", null));
-            material.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.3.1", null));
-            material.setName(CDADataTypesFactory.getInstance().createBaseEN(null));
+            //product.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7.2", null));
+            //material.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.3.1", null));
+            //material.setName(CDADataTypesFactory.getInstance().createBaseEN(null));
             material.setCode(CDADataTypesFactory.getInstance().createBaseCodeCE(null, null, null, null,
                     CDADataTypesFactory.getInstance().createBaseED(null, "#medicationdescription")));
         }

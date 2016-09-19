@@ -2,10 +2,10 @@
 <ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
   <templateId root="2.16.840.1.113883.10.20.1"/>
-  <id root="2.16.840.1.113883.19.5" extension="905b8813-38d0-4e1c-8274-e0dde1b8938e"/>
+  <id root="2.16.840.1.113883.19.5" extension="aad86e79-3a16-4bc2-9f6c-8844cb760c08"/>
   <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Patient Summary"/>
   <title>Sumário Clínico</title>
-  <effectiveTime value="20160919102057-0300"/>
+  <effectiveTime value="20160919111400-0300"/>
   <confidentialityCode code="R" codeSystem="2.16.840.1.113883.5.25"/>
   <languageCode code="pt-BR"/>
   <versionNumber value="1"/>
@@ -24,14 +24,14 @@
     </patientRole>
   </recordTarget>
   <author>
-    <time value="20160919102057-0300"/>
+    <time value="20160919111400-0300"/>
     <assignedAuthor>
       <id root="2.16.840.1.113883.19.5" extension="515449"/>
       <assignedPerson>
         <name><family>Junqueira Valias Meira</family><given>Gustavo</given></name>
       </assignedPerson>
       <representedOrganization>
-        <id root="2.25.222932490228279702103975165295620171263"/>
+        <id root="2.25.56322000649730750996864745892665210488"/>
         <name nullFlavor="NI"/>
         <addr><country>BR</country><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
       </representedOrganization>
@@ -59,7 +59,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
-              <id root="a3ad65fa-13e9-4cdb-984a-d23302445765"/>
+              <id root="3e68b125-15ae-4936-bfdc-e200504af6d2"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -72,7 +72,7 @@
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <id root="0cb651ea-c132-401e-8b1a-497b5967edfb"/>
+                  <id root="a035742d-2d4e-4a95-81a0-f7eb6edfefa9"/>
                   <code nullFlavor="NA" code="NA"/>
                   <text><reference value="#allergy"/></text>
                   <statusCode code="completed"/>
@@ -95,32 +95,218 @@
           <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.3"/>
           <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of medication use"/>
           <title>Medicamentos Usados</title>
-          <text><content ID="nomedicationdescription">Não existem medicamentos.</content></text>
+          <text><table><thead>			<tr>				<th>Substância</th><th>Dosagem</th><th>Data</th>
+			</tr>			
+		</thead>		<tbody>			<tr>				<td>Soro Fisiológico 0,9% 500mL</td><td>1 Fr   1x   IV</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>BromoPRIDA 5mg/ml - 2ml </td><td>1 amp   1x   IV</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>Ranitidina 50mg/ 2ml </td><td>1 amp   1x   IV</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>Ranitidina 50mg/ 2ml </td><td>1 amp   1x   IV</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Hiospan Composto 5ml</td><td>1 amp   1x ao dia   IV</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>BromoPRIDA 5mg/ml - 2ml </td><td>1 amp   1x   IV</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Diclofenaco Sódico 25mg/ml - 3ml </td><td>1 amp   1x ao dia   IM</td><td>2012/01/21</td>
+			</tr>			
+		</tbody>		</table></text>
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
-              <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.4"/>
-              <id root="d405df76-b25c-4153-b1c9-49c66283c56b"/>
-              <code code="182904002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Tratamento desconhecido">
-                <originalText><reference value="#medicationdescription"/></originalText>
-              </code>
+              <id root="2.25.142179506863748965673357810109765751678" extension="17815441"/>
               <statusCode code="completed"/>
-              <doseQuantity nullFlavor="NI"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130113"/>
+                <high value="20130113"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
               <consumable>
                 <manufacturedProduct>
                   <templateId root="2.16.840.1.113883.10.20.1.53"/>
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                   <manufacturedMaterial>
-                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
-                    <code nullFlavor="NA">
-                      <originalText><reference value="#nomedicationdescription"/></originalText>
-                    </code>
-                    <name nullFlavor="NA"/>
+                    <code code="172" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="Soro Fisiológico 0,9% 500mL"/>
                   </manufacturedMaterial>
                 </manufacturedProduct>
               </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 Fr   1x   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.92157461307927322896108389120089181592" extension="17815442"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130113"/>
+                <high value="20130113"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="51244" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="BromoPRIDA 5mg/ml - 2ml "/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.276464039003819196494129929833018268452" extension="178154411"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130113"/>
+                <high value="20130113"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="486" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="Ranitidina 50mg/ 2ml "/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.70707818312280371360012439854516448167" extension="17820434"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130114"/>
+                <high value="20130114"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="51244" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="BromoPRIDA 5mg/ml - 2ml "/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.68425931110107875374518223174501961496" extension="178204313"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130114"/>
+                <high value="20130114"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="486" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="Ranitidina 50mg/ 2ml "/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.299586357936801766400000062632398883444" extension="15134531"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20120121"/>
+                <high value="20120121"/>
+              </effectiveTime>
+              <routeCode code="IM" codeSystem="TASY" displayName="Intramuscular"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="2181" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="Diclofenaco Sódico 25mg/ml - 3ml "/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x ao dia   IM</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <id root="2.25.88348611435601472141315770422603036783" extension="17820431"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20130114"/>
+                <high value="20130114"/>
+              </effectiveTime>
+              <routeCode code="IV" codeSystem="TASY" displayName="Intravenosa"/>
+              <doseQuantity/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <manufacturedMaterial>
+                    <code code="267" codeSystem="2.16.840.1.113883.6.96" codeSystemName="TASY" displayName="Hiospan Composto 5ml"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship>
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode"/>
+                  <text>1 amp   1x ao dia   IV</text>
+                  <statusCode code="completed"/>
+                </act>
+              </entryRelationship>
             </substanceAdministration>
           </entry>
         </section>
@@ -135,8 +321,8 @@
 			</tr>			
 		</thead>		<tbody>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
 			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
-			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
 			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Resolvido ou curado</td>
+			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
 			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
 			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
 			</tr>			<tr>				<td>Histórico do utente e diagnósticos</td><td>Em atividade (compensado)</td>
@@ -148,7 +334,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.150797654103746098130512053068862525573" extension="11017"/>
+              <id root="2.25.69894096186756270254456292434438392199" extension="11017"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -159,7 +345,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.135719802578841738527580992758726733037"/>
+                  <id root="2.25.168557469811905276733664361167738935604"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -190,7 +376,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.7802666208055649063305243361446725114" extension="11016"/>
+              <id root="2.25.31596067386244255762641249581307081003" extension="11016"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -201,7 +387,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.5881816969413509800833787528648005631"/>
+                  <id root="2.25.154975520010997923535330675307952648215"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -232,7 +418,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.89342329031962993690714642816834366703" extension="7118"/>
+              <id root="2.25.283606006653585948461453596217500377257" extension="7118"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -243,7 +429,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.216666295865508993010840042347793738537"/>
+                  <id root="2.25.131904034859891880870590258277348373224"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -274,7 +460,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.295006057875192070409196789471396822302" extension="7117"/>
+              <id root="2.25.89150164646060083600845207318049658390" extension="7117"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -285,7 +471,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.334258610806274571234206012422828831205"/>
+                  <id root="2.25.211308192330522102803285685665577085199"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -316,7 +502,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.303859911448288776962978060746689851905" extension="7116"/>
+              <id root="2.25.283233245200328095514302301866487319785" extension="7116"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -327,7 +513,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.108988588429226353709577957344449601166"/>
+                  <id root="2.25.235801375420285602988010147369281251807"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -358,7 +544,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.182325869566832956782899633177977191911" extension="7115"/>
+              <id root="2.25.310827013355589069158651758481844704712" extension="7115"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -369,7 +555,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.71637127806830113194696821749797593223"/>
+                  <id root="2.25.143524484309926373704929668799529600948"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -400,7 +586,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.321913301687979257727487471909714846845" extension="7114"/>
+              <id root="2.25.160033975918469738197549900042561582369" extension="7114"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -411,7 +597,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.145360946187617637779547929123168074872"/>
+                  <id root="2.25.77573221227431438891335556508085568398"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -442,7 +628,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.27"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
-              <id root="2.25.303654319119122509297447506508190928496" extension="5073"/>
+              <id root="2.25.181945388285478122757715969044944605919" extension="5073"/>
               <code nullFlavor="NA" code="NA"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -453,7 +639,7 @@
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                  <id root="2.25.126160196846592909046304228050124830651"/>
+                  <id root="2.25.213275787190598342910061186521354006266"/>
                   <code code="57041-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Histórico do utente e diagnósticos"/>
                   <text><reference value="#problem"/></text>
                   <statusCode code="completed"/>
@@ -488,119 +674,119 @@
           <title>Atendimentos</title>
           <text><table><thead>			<tr>				<th>Descrição</th><th>Local</th><th>Data</th>
 			</tr>			
-		</thead>		<tbody>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/01/14</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/06</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/23</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/16</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/13</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/11/27</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/16</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/22</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/25</td>
+		</thead>		<tbody>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/10</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/02</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/03</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/24</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/02</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/11</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/02</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/05</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/14</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/10</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/08</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/24</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/21</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/04</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/28</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/12</td>
 			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/07/10</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/31</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/03</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/09</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/16</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/07</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/25</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/16</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/19</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/31</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/09</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/09</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/28</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/27</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/05</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/24</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/16</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/02/06</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/20</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/30</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/08</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2012/01/21</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/13</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/04/04</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/01</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/02</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/10</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/28</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/25</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/24</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/03/14</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/01</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/01</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/27</td>
-			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/10</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/11</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/04</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/04/04</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/20</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/03</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/31</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/22</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/09</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/14</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/05</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/26</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/30</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/12</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/21</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/30</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/18</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/07</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/14</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/07</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/28</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/15</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/02</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/05</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/24</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/22</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/01</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/24</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/05</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/07</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/30</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/20</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/16</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/25</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/20</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/17</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/08</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/02</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/04/04</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/31</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/18</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/05</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/05</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/12</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/09</td>
-			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/08</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/04/29</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/22</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/30</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/22</td>
-			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/27</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/07</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/16</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/09</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/25</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/02</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/07</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/13</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/09</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/09</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/03/16</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/11/27</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/21</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/28</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/10</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/27</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/04</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/03</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/04/29</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/04/04</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/24</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/27</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/26</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/17</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/06</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/01</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/01</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/12</td>
+			</tr>			<tr>				<td>Pronto Socorro</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/08</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/08</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/17</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/08/31</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/05</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/24</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/05</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/02/06</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/28</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/16</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/30</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/22</td>
 			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/15</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/25</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/30</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/10</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/11</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/28</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/09</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/31</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2012/01/21</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/13</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/15</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/03</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2016/02/19</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/06/22</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/09</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/11</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/03</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/12/14</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/07/27</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/18</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2014/03/14</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/11/23</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/16</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/05/04</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/08/17</td>
+			</tr>			<tr>				<td>Atendimento Ambulatorial</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/09/21</td>
+			</tr>			<tr>				<td>Internado</td><td>CIASU - Centro Integrado de Assistencia a Saúde</td><td>2015/10/14</td>
 			</tr>			
 		</tbody>		</table></text>
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.78021215884082370290377036329841340213" extension="1781466"/>
+              <id root="2.25.72470252562080360618541368445346940058" extension="1781466"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -618,7 +804,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.159225987035885606820061373608996070469" extension="76767219000263"/>
+                    <id root="2.25.82232627667483813783432495930367681144" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -638,7 +824,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.335469984682982480148519413632943873686" extension="1600474"/>
+              <id root="2.25.259537923072878594940603020841170072967" extension="1600474"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -656,7 +842,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.54426694243679681643118762065443619478" extension="76767219000263"/>
+                    <id root="2.25.240702005278339847907250245146562419509" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -676,7 +862,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.40412221193649273297626345121333136983" extension="1628747"/>
+              <id root="2.25.146118494223209259071893536829671306631" extension="1628747"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -694,7 +880,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.160050061463935966391780465218856970012" extension="76767219000263"/>
+                    <id root="2.25.150324333289188279287546786104809643587" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -714,7 +900,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.21841967541564048796954367050716998213" extension="1625494"/>
+              <id root="2.25.39769025870545802832328443339239164707" extension="1625494"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -732,7 +918,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.72438788138828655618793455926331992362" extension="76767219000263"/>
+                    <id root="2.25.106390223646092344922736299163301598773" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -752,7 +938,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.300320598522803235858910024427356572401" extension="1725126"/>
+              <id root="2.25.681879507508559987896175386396852488" extension="1725126"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -770,7 +956,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.287875562513887960971045948203161341956" extension="76767219000263"/>
+                    <id root="2.25.23642719233348308135520348601771121210" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -790,7 +976,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.241179712511332693764670750615432650984" extension="1779821"/>
+              <id root="2.25.292069471896018982100983411304694839810" extension="1779821"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -808,7 +994,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.328208278447359216052874154691340774412" extension="76767219000263"/>
+                    <id root="2.25.67334455087053548298202813499749598831" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -828,7 +1014,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.200914196474911087643350458958484989467" extension="1629916"/>
+              <id root="2.25.167264128280305471314123151334190604649" extension="1629916"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -846,7 +1032,7 @@
                     <name><family>Verrengia Florencio</family><given>Debora</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.148898146687698834197976934229322438478" extension="76767219000263"/>
+                    <id root="2.25.103559156438921938515530627527217029341" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -866,7 +1052,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.10237912513628178485436226019720879571" extension="1658936"/>
+              <id root="2.25.147212609768385880034226740561640627647" extension="1658936"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -884,7 +1070,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.283039240101958210248954472608359744584" extension="76767219000263"/>
+                    <id root="2.25.72289249597881454902807530655461866555" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -904,7 +1090,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.256727045282720130924103147482580189045" extension="1655456"/>
+              <id root="2.25.283503787153605111310960948663537711046" extension="1655456"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -922,7 +1108,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.269415052078398242815438841640347054870" extension="76767219000263"/>
+                    <id root="2.25.298192644789568017652666544141443972775" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -942,7 +1128,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.262880065391830413240385600643518092092" extension="1655633"/>
+              <id root="2.25.223114405665989961316126947124480214944" extension="1655633"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -960,7 +1146,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.174561299464498428801620324952870263982" extension="76767219000263"/>
+                    <id root="2.25.76749744993390314873310000350005981926" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -980,7 +1166,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.317215331586766457235562196885523448241" extension="1629973"/>
+              <id root="2.25.5927540943470745033868462539832872558" extension="1629973"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -998,7 +1184,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.208229186905415248734640530904599876565" extension="76767219000263"/>
+                    <id root="2.25.289778178616652481468927197508112602071" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1018,7 +1204,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.100278293481863703268620517919604860631" extension="1661103"/>
+              <id root="2.25.248461375073138489150314816836389857159" extension="1661103"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1036,7 +1222,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.85469867615322020931190059529439952278" extension="76767219000263"/>
+                    <id root="2.25.316302653526763500375103505747581358330" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1056,7 +1242,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.300987298650824713692846879329801497034" extension="1661160"/>
+              <id root="2.25.244528590049149013015256914554592077252" extension="1661160"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1074,7 +1260,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.309754751976841946055572377458627994535" extension="76767219000263"/>
+                    <id root="2.25.23046949998741847583212258537135717796" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1094,7 +1280,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.292137318429760621152729422760600985293" extension="1735011"/>
+              <id root="2.25.334447213555004950340832557474775084905" extension="1735011"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1112,7 +1298,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.213665771118944199049749380232439374384" extension="76767219000263"/>
+                    <id root="2.25.128938339761873913700840865371970269646" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1132,7 +1318,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.277623571939964355368165098468252482232" extension="1671316"/>
+              <id root="2.25.173073792288403720822315585818722418129" extension="1671316"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1150,7 +1336,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.101538725207511920072541796590150387277" extension="76767219000263"/>
+                    <id root="2.25.138810225528168403754791073333188990753" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1170,7 +1356,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.87379044754599808109363261115067658322" extension="1670953"/>
+              <id root="2.25.157186758450480530117862921535369668509" extension="1670953"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1188,7 +1374,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.36522901323635104519200981734811825868" extension="76767219000263"/>
+                    <id root="2.25.303347102767655209712439217983596685751" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1208,7 +1394,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.218157828378216347773312937508338170957" extension="1671309"/>
+              <id root="2.25.305252530578646066466453571404967074621" extension="1671309"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1226,7 +1412,7 @@
                     <name><family>Scremin De Souza</family><given>Debora</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.68663497539582637806724793109767321169" extension="76767219000263"/>
+                    <id root="2.25.203576233754832034930481477776400677909" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1246,7 +1432,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.4315615917753951752314230189493116440" extension="1611519"/>
+              <id root="2.25.98547333798141372618014067647769835369" extension="1611519"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1264,7 +1450,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.116840437719666077635688387321703139402" extension="76767219000263"/>
+                    <id root="2.25.296297938064940193159650602461525395697" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1284,7 +1470,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.17013628408986775560950613565665708496" extension="1707475"/>
+              <id root="2.25.67376455667760824646645805343643830976" extension="1707475"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1302,7 +1488,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.51577887015884623326457638881183912478" extension="76767219000263"/>
+                    <id root="2.25.148010847981560486375362942936345606187" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1322,7 +1508,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.121131772009965898670942033863088285715" extension="1674284"/>
+              <id root="2.25.61268139124823095395157014938396083446" extension="1674284"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1340,7 +1526,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.5000473273270945046623530571050121965" extension="76767219000263"/>
+                    <id root="2.25.306939838897326668938020183273686792746" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1360,7 +1546,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.131502031909956079336755560111805184863" extension="1792259"/>
+              <id root="2.25.60902498180308529952631984543883492783" extension="1792259"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1378,7 +1564,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.71618088099226968460600245912832631260" extension="76767219000263"/>
+                    <id root="2.25.317680904983034028237460578030095827713" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1398,7 +1584,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.14815832555595127395944038744355556671" extension="1783261"/>
+              <id root="2.25.144159135043806211878460067338708597043" extension="1783261"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1416,7 +1602,7 @@
                     <name><family>Riedo Batilani</family><given>Jhonatan</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.117382108736755217058240280794715003623" extension="76767219000263"/>
+                    <id root="2.25.201987725333827682359319325673769314894" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1436,7 +1622,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.336756902652110720650731099868174340049" extension="1595531"/>
+              <id root="2.25.276404052429779628684687680347612666257" extension="1595531"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1454,7 +1640,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.204546166412860257819868008291782542120" extension="76767219000263"/>
+                    <id root="2.25.108792682478161062457166288021781350571" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1474,7 +1660,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.288322965728296920479730068408882074319" extension="1673300"/>
+              <id root="2.25.228558751126628140834253936934557368064" extension="1673300"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1492,7 +1678,7 @@
                     <name><family>Riedo Batilani</family><given>Jhonatan</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.320254571659295200988729614501845833056" extension="76767219000263"/>
+                    <id root="2.25.291642119646009183076366683651374085057" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1512,7 +1698,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.304335722450484877386339559722895192083" extension="1674153"/>
+              <id root="2.25.4836240578756135332572192805754890301" extension="1674153"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1530,7 +1716,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.280534924903318077355497619349601721200" extension="76767219000263"/>
+                    <id root="2.25.40569076364628870982769361463715598768" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1550,7 +1736,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.85512404873323529815063295471780485512" extension="1730008"/>
+              <id root="2.25.79849468563176749486743894842802725955" extension="1730008"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1568,7 +1754,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.283062256785242500402392340898634100483" extension="76767219000263"/>
+                    <id root="2.25.225565942111626877127118279978842879001" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1588,7 +1774,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.317360949131065841996076879906534811889" extension="1659065"/>
+              <id root="2.25.217820822627180154154467987424487934108" extension="1659065"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1606,7 +1792,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.96734165157798198701515726207435878358" extension="76767219000263"/>
+                    <id root="2.25.182917055633205637359981096584928742077" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1626,7 +1812,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.340134426514057997112227526236429483797" extension="1936843"/>
+              <id root="2.25.156716279763234847908522933316526350281" extension="1936843"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1644,7 +1830,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.116690303567322130698241775295843367262" extension="76767219000263"/>
+                    <id root="2.25.138753932405478734121744934212288599225" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1664,7 +1850,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.175164276534077662202394201525495623665" extension="1930947"/>
+              <id root="2.25.294586617142537364563133897257780235575" extension="1930947"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1682,7 +1868,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.293715869239526216038576229235536395352" extension="76767219000263"/>
+                    <id root="2.25.28944050214551444925099193564087709420" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1702,7 +1888,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.43203567152700045147990635589574948009" extension="1235455"/>
+              <id root="2.25.208772626689547234585869652834046048292" extension="1235455"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1720,7 +1906,7 @@
                     <name><family>Elias Silvestre Oliveira</family><given>Maicon</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.167302132184171110754041565977247542858" extension="76767219000263"/>
+                    <id root="2.25.137536417392658677730192727753291974722" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1740,7 +1926,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.99923324118985620879273361778167414333" extension="1934785"/>
+              <id root="2.25.260295880176804034323621568992348241703" extension="1934785"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1758,7 +1944,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.99240931671043936046680864890300834660" extension="76767219000263"/>
+                    <id root="2.25.74730781549186142686096795762274857721" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1778,7 +1964,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.175783010919054742280601759658389208631" extension="1934887"/>
+              <id root="2.25.205939106876225059791022743799237640860" extension="1934887"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1796,7 +1982,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.200541324757594050144410073053541768256" extension="76767219000263"/>
+                    <id root="2.25.6679938488542701328585882298951425749" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1816,7 +2002,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.148425035182125558529646241077698500239" extension="1924898"/>
+              <id root="2.25.55838192833792153187816515652681367958" extension="1924898"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1834,7 +2020,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.256390781697926312658667601311047439922" extension="76767219000263"/>
+                    <id root="2.25.170301863320485627003160539738549211732" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1854,7 +2040,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.29449358963574194775447460948205148256" extension="1917370"/>
+              <id root="2.25.9497075961879716143288073504175546942" extension="1917370"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1872,7 +2058,7 @@
                     <name><family>Riedo Batilani</family><given>Jhonatan</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.258985224938375699199346251998039503089" extension="76767219000263"/>
+                    <id root="2.25.141276188282478302323459158132402052408" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1892,7 +2078,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.128246796470032903233607380975887795467" extension="1235249"/>
+              <id root="2.25.99972221771175771104804043618232369518" extension="1235249"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1910,7 +2096,7 @@
                     <name><family>Valdir Bringmann</family><given>Nevton</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.230470549046839499894487235609053980292" extension="76767219000263"/>
+                    <id root="2.25.500346942373215604884484824554838034" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1930,7 +2116,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.58711967041906401423644076189812384587" extension="1751338"/>
+              <id root="2.25.89969062697309533807326196193099182040" extension="1751338"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1948,7 +2134,7 @@
                     <name><family>Caroline Nasato Zanoni Ambrosio</family><given>Anna</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.286378947642960211007392331317808686944" extension="76767219000263"/>
+                    <id root="2.25.94437246974714997590640124785151962085" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -1968,7 +2154,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.318199100565755745921779561250837168718" extension="1428270"/>
+              <id root="2.25.200891930707819171182799938014841216420" extension="1428270"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -1986,7 +2172,7 @@
                     <name><family>Gomes Valerio</family><given>Joelma</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.192909979248537732390666911584371018356" extension="76767219000263"/>
+                    <id root="2.25.339781472770570354019096514303889467239" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2006,7 +2192,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.97605137741679760530718623424595537376" extension="1750654"/>
+              <id root="2.25.16922991350721324874769498346390840333" extension="1750654"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2024,7 +2210,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.173629982912044000785808339470766770826" extension="76767219000263"/>
+                    <id root="2.25.83733991562096792084960299556100764693" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2044,7 +2230,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.157932471610582495173975058732121462544" extension="1818292"/>
+              <id root="2.25.247479418349846799399705370848089529614" extension="1818292"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2062,7 +2248,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.180756280077587262718453855861778771053" extension="76767219000263"/>
+                    <id root="2.25.292145749754854719095499284821858845313" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2082,7 +2268,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.43958641665058685115425290941601609958" extension="1818307"/>
+              <id root="2.25.220462742215011305855667633239946944231" extension="1818307"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2100,7 +2286,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.192340789641039691685013575236430260149" extension="76767219000263"/>
+                    <id root="2.25.24118174764020315836916225816745657201" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2120,7 +2306,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.146986562953331910591085885120323383935" extension="1653135"/>
+              <id root="2.25.114565526278149039088625301338352163920" extension="1653135"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2138,7 +2324,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.242077975784549012869762412540167607033" extension="76767219000263"/>
+                    <id root="2.25.332826153523828245810524177223828964707" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2158,7 +2344,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.158687452015346252763213900722866805456" extension="1654444"/>
+              <id root="2.25.85098406578149450240889309511215129891" extension="1654444"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2176,7 +2362,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.173629019684259242032862674076392336954" extension="76767219000263"/>
+                    <id root="2.25.226810549969550573302940273801474416" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2196,7 +2382,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.203372110734391692307784909197585529108" extension="1688784"/>
+              <id root="2.25.279298279680721773591338759769840997318" extension="1688784"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2214,7 +2400,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.227891573501351484236095790200919206499" extension="76767219000263"/>
+                    <id root="2.25.24136160289975872091681266098331381209" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2234,7 +2420,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.55381908799712721963436254998563464913" extension="1693190"/>
+              <id root="2.25.303183201408639384142434503623213567826" extension="1693190"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2252,7 +2438,7 @@
                     <name><family>Massako Ozako Ribeiro</family><given>Elaine</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.68675154581007069535313766981656139016" extension="76767219000263"/>
+                    <id root="2.25.251616032580269979044464698594757007109" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2272,7 +2458,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.278229073665472863724607069197093919421" extension="1773450"/>
+              <id root="2.25.41282278291589198600727896396810126072" extension="1773450"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2290,7 +2476,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.1541225901932720814844822920694624710" extension="76767219000263"/>
+                    <id root="2.25.100952657313276936657316381197589984226" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2310,7 +2496,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.87708189461126064143630834648613956724" extension="1603565"/>
+              <id root="2.25.135166072521640186121527403073590525536" extension="1603565"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2328,7 +2514,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.175204129797195392262142383288603627087" extension="76767219000263"/>
+                    <id root="2.25.325670656199819649632966497788763049908" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2348,7 +2534,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.158144408213361328397655030123978178564" extension="1718339"/>
+              <id root="2.25.226134915981410095513121254643682055730" extension="1718339"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2366,7 +2552,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.156994953800637079858707983403840535287" extension="76767219000263"/>
+                    <id root="2.25.162628768410837818161534720217786664602" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2386,7 +2572,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.208482017548959347684708675307455803166" extension="1644530"/>
+              <id root="2.25.84987151925544676586546393584131774754" extension="1644530"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2404,7 +2590,7 @@
                     <name><family>Verrengia Florencio</family><given>Debora</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.337364997964017910639743342006830015571" extension="76767219000263"/>
+                    <id root="2.25.131751479383727501832636953277775307978" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2424,7 +2610,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.232860046459897226468614011151700509096" extension="1648113"/>
+              <id root="2.25.318110224520920586961737475048518477662" extension="1648113"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2442,7 +2628,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.13083452586475491685167829545248507351" extension="76767219000263"/>
+                    <id root="2.25.84895322325613016037125552602635261255" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2462,7 +2648,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.272217614834529533163971057111606831676" extension="1644624"/>
+              <id root="2.25.44762842611322189478931115553641109862" extension="1644624"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2480,7 +2666,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.292733144748347574214116255529706120535" extension="76767219000263"/>
+                    <id root="2.25.8053973537816930851506302340233141670" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2500,7 +2686,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.112753983917032634063422423355440656874" extension="1680864"/>
+              <id root="2.25.254082232587021493044823069682081426988" extension="1680864"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2518,7 +2704,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.335083012068670345011858371653884880157" extension="76767219000263"/>
+                    <id root="2.25.120899547775618684628840083325110541574" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2538,7 +2724,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.93799943420807976200711118165952190455" extension="1685872"/>
+              <id root="2.25.101737573531495698109219663309657555500" extension="1685872"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2556,7 +2742,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.288918515079225947827280116645867829569" extension="76767219000263"/>
+                    <id root="2.25.282880836852698572777848540195095236230" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2576,7 +2762,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.37138263181441454488381223788949278046" extension="1643770"/>
+              <id root="2.25.9479833697332450556357971441820992436" extension="1643770"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2594,7 +2780,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.74183841602761803321989218708130650139" extension="76767219000263"/>
+                    <id root="2.25.154466848315898227167835518758584365141" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2614,7 +2800,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.280188916023059579302025888089081494568" extension="1668915"/>
+              <id root="2.25.125379420062588437649007409341740801956" extension="1668915"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2632,7 +2818,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.114219248354817449330080138947853188028" extension="76767219000263"/>
+                    <id root="2.25.150251579807491886908343830604303362130" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2652,7 +2838,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.329095114962435256151695260439381255035" extension="1615899"/>
+              <id root="2.25.128580814894663593730324842525819196529" extension="1615899"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2670,7 +2856,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.199066147689538903219888975786007312612" extension="76767219000263"/>
+                    <id root="2.25.129544474579508882520024996148634605131" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2690,7 +2876,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.257687865482908318183654522646824644547" extension="1700616"/>
+              <id root="2.25.244745666026725177904413643178920160021" extension="1700616"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2708,7 +2894,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.216594052932466220825853325196943911026" extension="76767219000263"/>
+                    <id root="2.25.138730373293701594676247991606470533923" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2728,7 +2914,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.194609813232809044166280681085256869334" extension="1700619"/>
+              <id root="2.25.205418719764741068809703516969804173193" extension="1700619"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2746,7 +2932,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.109804724532962353606975526806903922204" extension="76767219000263"/>
+                    <id root="2.25.104656455333651352583252047154908076233" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2766,7 +2952,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.299850975561548107078939034899514255739" extension="1668989"/>
+              <id root="2.25.12458911177880885642744967852287575903" extension="1668989"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2784,7 +2970,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.162889114382742670475692554018975100725" extension="76767219000263"/>
+                    <id root="2.25.297898923689565307250764125121147960541" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2804,7 +2990,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.227099068362892475300717587410274380351" extension="1587088"/>
+              <id root="2.25.233091813890303174265436503197147166812" extension="1587088"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2822,7 +3008,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.171349571147985535078685334976046898383" extension="76767219000263"/>
+                    <id root="2.25.333161355187427708243779035737644905030" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2842,7 +3028,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.10877828417472038752763627365279996420" extension="1614447"/>
+              <id root="2.25.119614029352683125295524753169952966475" extension="1614447"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2860,7 +3046,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.244488859597316281257777520564628442733" extension="76767219000263"/>
+                    <id root="2.25.305640295174588438687803543579759125530" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2880,7 +3066,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.280947092031809816342511647431548351596" extension="1702895"/>
+              <id root="2.25.74279475736247853989926193493115134928" extension="1702895"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2898,7 +3084,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.330450721364778413088429210280010083569" extension="76767219000263"/>
+                    <id root="2.25.132221293218481804945580078729406154893" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2918,7 +3104,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.46836177951377792504858119368504243002" extension="1790165"/>
+              <id root="2.25.306914957388139086586524011729647506776" extension="1790165"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2936,7 +3122,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.117815322590793722649466440450544053481" extension="76767219000263"/>
+                    <id root="2.25.272124808913470654145200950155125526594" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2956,7 +3142,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.16276727692782042670984228698049582881" extension="1553892"/>
+              <id root="2.25.5064828974631861968310705396375715396" extension="1553892"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -2974,7 +3160,7 @@
                     <name><family>Riedo Batilani</family><given>Jhonatan</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.85767028924556950378772168863729865988" extension="76767219000263"/>
+                    <id root="2.25.291134404230628804668892287765740065683" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -2994,7 +3180,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.231093080103085638710994363021492375396" extension="1591400"/>
+              <id root="2.25.124039160658676332075170890693310601687" extension="1591400"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3012,7 +3198,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.192775411383956756155951979540238514033" extension="76767219000263"/>
+                    <id root="2.25.83925171074537185310576189216504453081" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3032,7 +3218,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.238695133588306646023522502640793267796" extension="1704464"/>
+              <id root="2.25.160692280330829373176788256839369458249" extension="1704464"/>
               <code code="3" codeSystemName="TASY" displayName="Pronto Socorro"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3050,7 +3236,7 @@
                     <name><family>Gerdes Soares</family><given>Jose</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.315379000483651265645889032451883584916" extension="76767219000263"/>
+                    <id root="2.25.77825408999843290303220064307555443061" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3070,7 +3256,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.41578008976697946293222093165918797402" extension="1727280"/>
+              <id root="2.25.141840803050518508303359521493820520027" extension="1727280"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3088,7 +3274,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.184135416831932825001209848943182142611" extension="76767219000263"/>
+                    <id root="2.25.9953921437327537931425714161933503345" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3108,7 +3294,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.209771029235785686389873199399330997582" extension="1736768"/>
+              <id root="2.25.301921701970886190591437592962135031298" extension="1736768"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3126,7 +3312,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.275513135062321691560599375326561040972" extension="76767219000263"/>
+                    <id root="2.25.290194279637222432408976088798154380822" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3146,7 +3332,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.267605779526527227311706077169100347443" extension="1476077"/>
+              <id root="2.25.82983882141120447931099687205056170869" extension="1476077"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3164,7 +3350,7 @@
                     <name><family>Gustavo De Paulo</family><given>Luiz</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.36848879026099358649038893726458391438" extension="76767219000263"/>
+                    <id root="2.25.54938718660751966123212655313677124572" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3184,7 +3370,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.219577638355721965795851368559947887405" extension="1745519"/>
+              <id root="2.25.302085609497493376992146926585026798104" extension="1745519"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3202,7 +3388,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.16700496362220634805237399751082276567" extension="76767219000263"/>
+                    <id root="2.25.56887496561469101792657212499393428111" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3222,7 +3408,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.314707563495041538968498635300699079460" extension="1747610"/>
+              <id root="2.25.235780925240678774376318041893870989033" extension="1747610"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3240,7 +3426,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.189718929831844797785175210424692005005" extension="76767219000263"/>
+                    <id root="2.25.301118562401316773844599804013520367336" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3260,7 +3446,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.68872424129622733976510262014285897603" extension="1803690"/>
+              <id root="2.25.24701045470126325843056537032769092825" extension="1803690"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3278,7 +3464,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.219987068179389767712520540563373757674" extension="76767219000263"/>
+                    <id root="2.25.209028209632332283930259963817438300961" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3298,7 +3484,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.66331171674506470084096362022542381621" extension="1077573"/>
+              <id root="2.25.313695638633573218693093215510107682338" extension="1077573"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3316,7 +3502,7 @@
                     <name><family>Junqueira Valias Meira</family><given>Gustavo</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.207486987226743969423750455907879280247" extension="76767219000263"/>
+                    <id root="2.25.136839171721399612393216948526104394926" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3336,7 +3522,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.124544279753541715040955690417897728144" extension="1386782"/>
+              <id root="2.25.17539224499794721487406878009220423986" extension="1386782"/>
               <code code="8" codeSystemName="TASY" displayName="Atendimento Ambulatorial"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3354,7 +3540,7 @@
                     <name><family>De Carvalho Danhoni</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.2208130348706863703936080152263915390" extension="76767219000263"/>
+                    <id root="2.25.139026196223942613352481168284943608304" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3374,7 +3560,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.74128162481862338756094628743838157850" extension="1605438"/>
+              <id root="2.25.173391044198005517680390414075096728685" extension="1605438"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3392,7 +3578,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.113713740249363382454738133324658224378" extension="76767219000263"/>
+                    <id root="2.25.281370364063589396573903998807811011483" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3412,7 +3598,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.302600183384159163653387074536815856485" extension="1675819"/>
+              <id root="2.25.254929494151587067641758059300161507637" extension="1675819"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3430,7 +3616,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.35272840998264856073226327651476509275" extension="76767219000263"/>
+                    <id root="2.25.134024215394699313618074475822800999590" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3450,7 +3636,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.184699656600785101242491025224362090140" extension="1742787"/>
+              <id root="2.25.140618640447794120700783861215685266293" extension="1742787"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3468,7 +3654,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.18864151041901961967091146616515610493" extension="76767219000263"/>
+                    <id root="2.25.232270425388967321454243797959642921505" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3488,7 +3674,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.134055903181846629682848172621042427428" extension="1796694"/>
+              <id root="2.25.258604009782602504224564470455422637301" extension="1796694"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3506,7 +3692,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.119812776914218236678144740784755104477" extension="76767219000263"/>
+                    <id root="2.25.144433070067708288117340130821701471819" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3526,7 +3712,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.88482919050753509744475864524310238944" extension="1715703"/>
+              <id root="2.25.256275318902395841962813076639486388419" extension="1715703"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3544,7 +3730,7 @@
                     <name><family>Aparecida De Almeida</family><given>Valeria</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.73634881093410018317395728659577202571" extension="76767219000263"/>
+                    <id root="2.25.139013235424195491695275856516010193992" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3564,7 +3750,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.257274273669898898901487316826323651262" extension="1676365"/>
+              <id root="2.25.17366259935553541125049090308063966442" extension="1676365"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3582,7 +3768,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.153769531788484963112731831745808612400" extension="76767219000263"/>
+                    <id root="2.25.290963442813642097658420616570022957169" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3602,7 +3788,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.107851259751285803721499645218489183614" extension="1676503"/>
+              <id root="2.25.332514726552758519207888522419155097255" extension="1676503"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3620,7 +3806,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.309441756810760984431274481756937115026" extension="76767219000263"/>
+                    <id root="2.25.317736957748578081246440124854866830442" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3640,7 +3826,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.91095922348513317212943992174446787657" extension="1589568"/>
+              <id root="2.25.61719560219183044249491874348255801514" extension="1589568"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3658,7 +3844,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.111293422008993989059842947369706346990" extension="76767219000263"/>
+                    <id root="2.25.157662391381301669097249038704735128677" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3678,7 +3864,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.137461617055849438575127993284406719533" extension="1716794"/>
+              <id root="2.25.234729926832586544827703485094306983723" extension="1716794"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3696,7 +3882,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.150367818821757812918416925114795331063" extension="76767219000263"/>
+                    <id root="2.25.292872372042195283303641904289127529648" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3716,7 +3902,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.289113359849424962997919485226974828450" extension="1630727"/>
+              <id root="2.25.123616232609874153307779052387946170320" extension="1630727"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3734,7 +3920,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.54482762423165688604387334811375866370" extension="76767219000263"/>
+                    <id root="2.25.313053195312019944068841700848372538299" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3754,7 +3940,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.126442955479315353408253366026116809057" extension="1771783"/>
+              <id root="2.25.303112860705471270475828353402713391159" extension="1771783"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3772,7 +3958,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.188396562386041227431244341037921769446" extension="76767219000263"/>
+                    <id root="2.25.93443468413122646696598417698323130880" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3792,7 +3978,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.269292012372245158572760779555904895566" extension="1666927"/>
+              <id root="2.25.87966081980345781644275085158557753697" extension="1666927"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3810,7 +3996,7 @@
                     <name><family>Siqueira</family><given>Carolina</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.321830805398614588749835350232499922608" extension="76767219000263"/>
+                    <id root="2.25.112688750310537129722975049916058273466" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3830,7 +4016,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.4846584699014899491764122562777026348" extension="1665643"/>
+              <id root="2.25.163542855916518439323972725552420840132" extension="1665643"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3848,7 +4034,7 @@
                     <name><family>Riedo Batilani</family><given>Jhonatan</given><prefix>Dr.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.235087276754366828947545193993706223022" extension="76767219000263"/>
+                    <id root="2.25.173022445507176705616133907536081005735" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3868,7 +4054,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.332771571134757667238839986509413713533" extension="1664352"/>
+              <id root="2.25.236143391147998120252157640613681407636" extension="1664352"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3886,7 +4072,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.238877495975270032417282353969523333454" extension="76767219000263"/>
+                    <id root="2.25.6446895477650521374371480160621160942" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3906,7 +4092,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.272861786781710970266683920477671673033" extension="1634637"/>
+              <id root="2.25.91235966979616850005725077466773078017" extension="1634637"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3924,7 +4110,7 @@
                     <name><family>Verrengia Florencio</family><given>Debora</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.41382440760615436685904154913094864650" extension="76767219000263"/>
+                    <id root="2.25.101575673347993216135633020260548641990" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3944,7 +4130,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.108394425808412406851060118236151898906" extension="1655291"/>
+              <id root="2.25.49009444783545880907364622276119057996" extension="1655291"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -3962,7 +4148,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.226831702231783065240979988711691533558" extension="76767219000263"/>
+                    <id root="2.25.75183162969860485490759955254788442070" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -3982,7 +4168,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.306232294748129709426846368649093315341" extension="1685548"/>
+              <id root="2.25.206492895434451952718613103910052418309" extension="1685548"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4000,7 +4186,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.236412102423629863465218547405542985213" extension="76767219000263"/>
+                    <id root="2.25.97924425276585603852415101867256061319" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4020,7 +4206,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.148941336958894541591931815078681735768" extension="1680676"/>
+              <id root="2.25.250422382340091357455064042027359560140" extension="1680676"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4038,7 +4224,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.92583068581663388038254766304551375981" extension="76767219000263"/>
+                    <id root="2.25.305521782149318916870278488882140801756" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4058,7 +4244,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.281943112464613627738534007646808128658" extension="1649232"/>
+              <id root="2.25.19249149419093187076772086225137741554" extension="1649232"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4076,7 +4262,7 @@
                     <name><family>Verrengia Florencio</family><given>Debora</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.229490046779093171858736947257080317019" extension="76767219000263"/>
+                    <id root="2.25.306079017221433790093149042259332842892" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4096,7 +4282,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.322076947120018795767309220193090073116" extension="1650115"/>
+              <id root="2.25.49784173076871200217405689843438057263" extension="1650115"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4114,7 +4300,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.11733899775565722575593743750451726041" extension="76767219000263"/>
+                    <id root="2.25.182766695418135888309246692018915871086" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4134,7 +4320,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.321655383768079609463148788651596226844" extension="1650815"/>
+              <id root="2.25.231988010490022783189616545848798556061" extension="1650815"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4152,7 +4338,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.255051614617262879600210812580342520608" extension="76767219000263"/>
+                    <id root="2.25.116456366668133045527145735335579915328" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4172,7 +4358,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.267341902473974802610643152313448751417" extension="1618456"/>
+              <id root="2.25.276964992289769681011627748079334071845" extension="1618456"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4190,7 +4376,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.169027110631602402058843295074742513611" extension="76767219000263"/>
+                    <id root="2.25.87650948344270266475413709426225448598" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4210,7 +4396,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.190163668267672728459864286235848353984" extension="1664580"/>
+              <id root="2.25.20700293179997100807608009823311388496" extension="1664580"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4228,7 +4414,7 @@
                     <name><family>Gomes Dos Santos</family><given>Simoni</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.236441708546296902870879224831313524020" extension="76767219000263"/>
+                    <id root="2.25.296119174438034578083472269443374220856" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4248,7 +4434,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.331566567929922408245743543006532675152" extension="1731985"/>
+              <id root="2.25.99597691093833344017835228519802942920" extension="1731985"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4266,7 +4452,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.269517443871208249350289860299016992641" extension="76767219000263"/>
+                    <id root="2.25.120156626348752409605853965833983115220" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4286,7 +4472,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.267817513028311620514466961096238307997" extension="1640509"/>
+              <id root="2.25.295060046629263734489287997898631697820" extension="1640509"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4304,7 +4490,7 @@
                     <name><family>Kloster Scorsato</family><given>Mayra</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.168628191882536823061894014350752299929" extension="76767219000263"/>
+                    <id root="2.25.134441594768429350645988920339899778851" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4324,7 +4510,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.99022574018698208271348512647412856069" extension="1637845"/>
+              <id root="2.25.165686130098756813776359729644286598367" extension="1637845"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4342,7 +4528,7 @@
                     <name><family>Gomes Dos Santos</family><given>Simoni</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.63783067604488853263626282352361910773" extension="76767219000263"/>
+                    <id root="2.25.16758647641632907643061250371248635746" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4362,7 +4548,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.177114225118170707256022279674441396298" extension="1620612"/>
+              <id root="2.25.329497573467169239042236848477247681518" extension="1620612"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4380,7 +4566,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.262674299514130932433080516307881469120" extension="76767219000263"/>
+                    <id root="2.25.133291482991647319982474324379162886583" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4400,7 +4586,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.217038155113048264243715427019973244044" extension="1593904"/>
+              <id root="2.25.320292854234611194747632683349077083221" extension="1593904"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4418,7 +4604,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.118558909502475073402301629043038543542" extension="76767219000263"/>
+                    <id root="2.25.240842713837123362952840203385163968684" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4438,7 +4624,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.163448925004613744833102380377195637720" extension="1623615"/>
+              <id root="2.25.7298514631267742264693965113600762213" extension="1623615"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4456,7 +4642,7 @@
                     <name><family>Bandura</family><given>Alessandra</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.243719591186211951524630398884084458180" extension="76767219000263"/>
+                    <id root="2.25.279376948109066750168905912092106407228" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4476,7 +4662,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.221637063626685771718845813920232796197" extension="1623283"/>
+              <id root="2.25.63412673211585543730050087808173254771" extension="1623283"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4494,7 +4680,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.311615383236332846572022005320568321049" extension="76767219000263"/>
+                    <id root="2.25.260631851261844695198600838329665793260" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4514,7 +4700,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.145053832457206477947446562905185866070" extension="1664344"/>
+              <id root="2.25.213630084223265021504314799082292752149" extension="1664344"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4532,7 +4718,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.132075483232695619151989477070537197498" extension="76767219000263"/>
+                    <id root="2.25.224557175900921524259814401301931384694" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4552,7 +4738,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.339693238180138231352443011284212394819" extension="1696932"/>
+              <id root="2.25.39642129448595088823458570504620810434" extension="1696932"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4570,7 +4756,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.320625978670785410057297677296993284976" extension="76767219000263"/>
+                    <id root="2.25.39536790567042859020121457152874418932" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4590,7 +4776,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.327864128975766331931490795902236292714" extension="1694942"/>
+              <id root="2.25.300786999684268197677561989050611950352" extension="1694942"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4608,7 +4794,7 @@
                     <name><family>Ruffo Lopes</family><given>Beatriz</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.125269609090621057134663228280308166948" extension="76767219000263"/>
+                    <id root="2.25.159677880720065755053362901873618028156" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4628,7 +4814,7 @@
           <entry>
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.21"/>
-              <id root="2.25.240026251571335338993203189166164748454" extension="1694466"/>
+              <id root="2.25.125512097655070037064225567283973228041" extension="1694466"/>
               <code code="1" codeSystemName="TASY" displayName="Internado"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4646,7 +4832,7 @@
                     <name><family>Andrea Delefrate Muradas</family><given>Soraya</given><prefix>Dra.</prefix></name>
                   </assignedPerson>
                   <representedOrganization>
-                    <id root="2.25.225677080253028978800229997924903859797" extension="76767219000263"/>
+                    <id root="2.25.62245055860830593037306077522978828827" extension="76767219000263"/>
                     <name>CIASU - Centro Integrado de Assistencia a Saúde</name>
                     <addr><country nullFlavor="NI"/><city nullFlavor="NI"/><postalCode nullFlavor="NI"/><streetAddressLine nullFlavor="NI"/><state nullFlavor="NI"/></addr>
                   </representedOrganization>
@@ -4678,7 +4864,7 @@
           <entry>
             <observation classCode="OBS" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.1.22"/>
-              <id root="2.25.276935407518798746761649018581019209991" extension="5074"/>
+              <id root="2.25.283836347621681132411570636806561916154" extension="5074"/>
               <code code="E119" codeSystemName="CID" displayName="Diabetes Mellitus Nao-Insulino-Dependente - Sem Complicacoes"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4701,27 +4887,27 @@
           <title>Plano de cuidados</title>
           <text><table><thead>			<tr>				<th>Descrição</th><th>Data</th>
 			</tr>			
-		</thead>		<tbody>			<tr>				<td>Gama-glutamil transferase - pesquisa e/ou dosagem</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Transaminase oxalacética (amino transferase aspartato) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2012/01/21</td>
-			</tr>			<tr>				<td>Transaminase pirúvica (amino transferase de alanina) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/01/14</td>
-			</tr>			<tr>				<td>Bilirrubinas (direta, indireta e total) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2013/01/14</td>
-			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>RX - Ossos da face</td><td>2012/01/21</td>
-			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2015/10/08</td>
-			</tr>			<tr>				<td>Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)</td><td>2013/01/13</td>
-			</tr>			<tr>				<td>Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)</td><td>2013/01/13</td>
+		</thead>		<tbody>			<tr>				<td>RX - Ossos da face</td><td>2012/01/21</td>
 			</tr>			<tr>				<td>Amilase - pesquisa e/ou dosagem</td><td>2013/01/13</td>
 			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2012/01/21</td>
+			</tr>			<tr>				<td>Transaminase pirúvica (amino transferase de alanina) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>Transaminase oxalacética (amino transferase aspartato) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Gama-glutamil transferase - pesquisa e/ou dosagem</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/01/14</td>
+			</tr>			<tr>				<td>Bilirrubinas (direta, indireta e total) - pesquisa e/ou dosagem</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2012/01/21</td>
+			</tr>			<tr>				<td>Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Consulta em pronto socorro</td><td>2015/10/08</td>
+			</tr>			<tr>				<td>Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Consulta em Emergência - Pronto Atendimento</td><td>2013/01/13</td>
+			</tr>			<tr>				<td>Sala Ambulatorial I (Observação)</td><td>2013/01/13</td>
 			</tr>			
 		</tbody>		</table></text>
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.309980434566656077287792937627006328830" extension="17815471"/>
+              <id root="2.25.330387217013300864419424938529792612754" extension="17815471"/>
               <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observação)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4733,7 +4919,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.191077417673044008781749762199746215508" extension="17815351"/>
+              <id root="2.25.170790411527294683054644227831994284556" extension="17815351"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4745,7 +4931,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.210859711102111815596569299527425690971" extension="17820071"/>
+              <id root="2.25.103555206176353657543617899511271520610" extension="17820071"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4757,7 +4943,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.14698900859134738525440205862573863089" extension="15134441"/>
+              <id root="2.25.100428263375407423019588175771134379984" extension="15134441"/>
               <code code="10090" codeSystemName="TASY" displayName="Consulta em Emergência - Pronto Atendimento"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4769,7 +4955,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.211845099823803730493791678261491467377" extension="25984161"/>
+              <id root="2.25.120402795632532529480672132949440922437" extension="25984161"/>
               <code code="10101039" codeSystemName="TASY" displayName="Consulta em pronto socorro"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4781,7 +4967,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.257725472047769625496223197826764405563" extension="15134611"/>
+              <id root="2.25.274265014264807430908415679325288088671" extension="15134611"/>
               <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observação)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4793,7 +4979,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.98003660336551175778401257106595770722" extension="15134531"/>
+              <id root="2.25.279081190176394816714721350164006577443" extension="15134531"/>
               <code code="40801098" codeSystemName="TASY" displayName="RX - Ossos da face"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4805,7 +4991,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.153777402175767088748032438599378326846" extension="17815447"/>
+              <id root="2.25.88644881780987913325865723315416054894" extension="17815447"/>
               <code code="40311210" codeSystemName="TASY" displayName="Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4817,7 +5003,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.46086320741240052639016058652635815169" extension="17815442"/>
+              <id root="2.25.124828877798691038638525801128654224994" extension="17815442"/>
               <code code="40301397" codeSystemName="TASY" displayName="Bilirrubinas (direta, indireta e total) - pesquisa e/ou dosagem"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4829,7 +5015,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.243225459796052200784145532491718436946" extension="17815441"/>
+              <id root="2.25.133707452461837125521368573325854129859" extension="17815441"/>
               <code code="40301281" codeSystemName="TASY" displayName="Amilase - pesquisa e/ou dosagem"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4841,7 +5027,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.182539276737664926790822290545239087530" extension="17820551"/>
+              <id root="2.25.114861036970640383986558783567099008198" extension="17820551"/>
               <code code="80031501" codeSystemName="TASY" displayName="Sala Ambulatorial I (Observação)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4853,7 +5039,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.166243105017848596378721664443073946338" extension="17815443"/>
+              <id root="2.25.31557959693699688060305326181574666434" extension="17815443"/>
               <code code="40301990" codeSystemName="TASY" displayName="Gama-glutamil transferase - pesquisa e/ou dosagem"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4865,7 +5051,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.105361342016647207630680595244742779416" extension="17815446"/>
+              <id root="2.25.263569835183966872961466127528429640968" extension="17815446"/>
               <code code="40304361" codeSystemName="TASY" displayName="Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4877,7 +5063,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.161358638762231373622661910161356407150" extension="17815445"/>
+              <id root="2.25.184762896099594821175510945066126334079" extension="17815445"/>
               <code code="40302512" codeSystemName="TASY" displayName="Transaminase pirúvica (amino transferase de alanina) - pesquisa e/ou dosagem"/>
               <statusCode code="completed"/>
               <effectiveTime>
@@ -4889,7 +5075,7 @@
           <entry>
             <procedure classCode="PROC" moodCode="RQO">
               <templateId root="2.16.840.1.113883.10.20.1.25"/>
-              <id root="2.25.108194600164902908011703905674408570762" extension="17815444"/>
+              <id root="2.25.167931499926439912618485899998259646393" extension="17815444"/>
               <code code="40302504" codeSystemName="TASY" displayName="Transaminase oxalacética (amino transferase aspartato) - pesquisa e/ou dosagem"/>
               <statusCode code="completed"/>
               <effectiveTime>

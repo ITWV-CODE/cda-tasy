@@ -30,7 +30,7 @@ public class ClinicalMapping extends ClinicalMappingBase implements IClinicalMap
 
         switch (x_DocClinicalSectionType) {
             case MEDICATIONS:
-                return super.mapMedicationsFactory(docList);
+                return super.mapMedicationsFactory(segments.get("MedicationDto"),docList);
             case ALERTS:
                 return super.mapAlertsFactory(segments.get("AllergyDto"), docList);
             case IMMUNIZATIONS:

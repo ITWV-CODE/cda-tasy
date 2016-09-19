@@ -63,6 +63,9 @@ public class JUTest1 extends TestCase {
                 MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
 
 
+                if (!patientDto.getMedications().isEmpty()) {
+                    MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.MEDICATIONS, patientDto.getMedications());
+                }
                 if (!patientDto.getAllergies().isEmpty()) {
                     MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.ALERTS, patientDto.getAllergies());
                 }
