@@ -6,9 +6,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by itwv_2 on 20/06/2016.
@@ -59,6 +57,7 @@ public class PatientBuilder {
         final XSSFSheet medicationsSheet = workbook.getSheet("Medicamentos");
         final XSSFSheet planOfCareSheet = workbook.getSheet("Procedimentos");
         final XSSFSheet familyHistorySheet = workbook.getSheet("Antecedentes Familiares");
+        final XSSFSheet laboratoryResultsSheet = workbook.getSheet("Resultados Laboratório");
 
         this.buildAuthor(patient, authorsSheet, sequence);
         this.buildAllergies(patient, allergiesSheet, sequence);
@@ -67,6 +66,7 @@ public class PatientBuilder {
         this.buildMedications(patient, medicationsSheet, sequence);
         this.buildPlanOfCare(patient, planOfCareSheet, sequence);
         this.buildFamilyHistory(patient, familyHistorySheet, sequence);
+        this.buildLaboratoryResults(patient, laboratoryResultsSheet, sequence);
     }
 
     private void buildAuthor(final PatientDto patient, final XSSFSheet authorsSheet, final String sequence) {
@@ -191,6 +191,40 @@ public class PatientBuilder {
                 familyHistory.setProblem(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(3)), ExcelUtils.getCellValue(row.getCell(4)), "CID"));
                 familyHistory.setRelation(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(5)), ExcelUtils.getCellValue(row.getCell(6)), "TASY"));
             }
+        }
+    }
+
+    private void buildLaboratoryResults(final PatientDto patient, final XSSFSheet laboratoryResultsSheet, final String sequence) {
+
+        final Iterator<Row> rowIterator = laboratoryResultsSheet.iterator();
+        rowIterator.next();
+        final Map<String, List<LaboratoryResultDto.LaboratoryResultTestDto>> batteryTests = new HashMap<String, List<LaboratoryResultDto.LaboratoryResultTestDto>>();
+
+        while (rowIterator.hasNext()) {
+            final Row row = rowIterator.next();
+            if (sequence.equals(ExcelUtils.getCellValue(row.getCell(0)))) {
+                final String batteryCode = ExcelUtils.getCellValue(row.getCell(2));
+
+                if (!batteryTests.containsKey(batteryCode)) {
+                    batteryTests.put(batteryCode, new ArrayList<LaboratoryResultDto.LaboratoryResultTestDto>());
+                    final LaboratoryResultDto laboratoryResult = new LaboratoryResultDto(ExcelUtils.getCellValue(row.getCell(1)));
+                    patient.getLaboratoryResults().add(laboratoryResult);
+                    laboratoryResult.setBatteryTest(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(2)), ExcelUtils.getCellValue(row.getCell(3)), "TASY"));
+                }
+                final LaboratoryResultDto.LaboratoryResultTestDto laboratoryResultTest = new LaboratoryResultDto.LaboratoryResultTestDto(ExcelUtils.getCellValue(row.getCell(4)));
+                batteryTests.get(batteryCode).add(laboratoryResultTest);
+                laboratoryResultTest.setTest(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(5)), ExcelUtils.getCellValue(row.getCell(6)), "TASY"));
+                laboratoryResultTest.setDate(ExcelUtils.getCellValue(row.getCell(7)));
+                laboratoryResultTest.setValue(ExcelUtils.getCellValue(row.getCell(8)));
+                laboratoryResultTest.setUnits(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(9)), "", "TASY"));
+                laboratoryResultTest.setInterpretationValue(new TermCodedValueDto(ExcelUtils.getCellValue(row.getCell(10)), ExcelUtils.getCellValue(row.getCell(11)), "TASY"));
+                laboratoryResultTest.setLowerReferenceValue(ExcelUtils.getCellValue(row.getCell(12)));
+                laboratoryResultTest.setHigherReferenceValue(ExcelUtils.getCellValue(row.getCell(13)));
+            }
+        }
+
+        for (final LaboratoryResultDto laboratoryResult : patient.getLaboratoryResults()) {
+            laboratoryResult.getTests().addAll(batteryTests.get(laboratoryResult.getBatteryTest().getCode()));
         }
     }
 }

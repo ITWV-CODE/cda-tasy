@@ -163,6 +163,15 @@ public class EObjectElementsFactory {
                         return false;
                     }
                 });
+            case LAB_RESULTS:
+                return query.getSection(ResultsSectionImpl.class, new Filter<ResultsSectionImpl>() {
+                    public boolean accept(ResultsSectionImpl item) {
+                        for (Class c : item.getClass().getInterfaces())
+                            if (c.equals(ResultsSection.class))
+                                return true;
+                        return false;
+                    }
+                });
             default:
                 return null;
         }

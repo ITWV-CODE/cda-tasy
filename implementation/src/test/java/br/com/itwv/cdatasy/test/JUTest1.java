@@ -50,7 +50,7 @@ public class JUTest1 extends TestCase {
 
         for (final PatientDto patientDto : patients) {
 
-            if (patientDto.getPlanOfCares().size() > 0 || patientDto.getProblems().size() > 0 || patientDto.getMedications().size() > 0 || patientDto.getAllergies().size() > 0 || patientDto.getEncounters().size() > 0 || patientDto.getFamilyHistory().size() > 0) {
+            if (patientDto.getLaboratoryResults().size() > 0 || patientDto.getPlanOfCares().size() > 0 || patientDto.getProblems().size() > 0 || patientDto.getMedications().size() > 0 || patientDto.getAllergies().size() > 0 || patientDto.getEncounters().size() > 0 || patientDto.getFamilyHistory().size() > 0) {
 
                 ContinuityOfCareDocumentFactory.getInstance().createClinicalDocumentFactory(IClinicalDocumentFactory.x_FactoryLoadTypes.DEFAULT, null);
                 List<ClinicalDocument> docList = new ArrayList<ClinicalDocument>();
@@ -61,7 +61,6 @@ public class JUTest1 extends TestCase {
                 MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.AUTHOR, Arrays.asList(patientDto.getAuthor()));
                 MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, Arrays.asList(patientDto.getAuthor()));
                 MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
-
 
                 if (!patientDto.getMedications().isEmpty()) {
                     MappingsFactory.clinicalMappingFacade.mapClinicalSections(docList, null, IClinicalMapping.x_DocClinicalSectionType.MEDICATIONS, patientDto.getMedications());

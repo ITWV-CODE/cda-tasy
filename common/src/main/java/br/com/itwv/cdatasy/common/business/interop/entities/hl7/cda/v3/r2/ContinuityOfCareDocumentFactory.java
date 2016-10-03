@@ -60,6 +60,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                         .instanceSection(x_EObjectTypes.FAMILY_HISTORY));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.PLAN_OF_CARE));
+                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
+                        .instanceSection(x_EObjectTypes.LAB_RESULTS));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -184,6 +186,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                 return ContinuityOfCareDocumentFactory.instanceFamilyHistorySection();
             case PLAN_OF_CARE:
                 return ContinuityOfCareDocumentFactory.instancePlanOfCareSection();
+            case LAB_RESULTS:
+                return ContinuityOfCareDocumentFactory.instanceResultsSection();
             default:
                 return null;
         }
@@ -224,13 +228,24 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         return encountersSection;
     }
 
+    private static ResultsSection instanceResultsSection() throws Exception {
+
+        ResultsSection resultsSection = CCDFactory.eINSTANCE.createResultsSection().init();
+        resultsSection.setTitle(DatatypesFactory.eINSTANCE.createST("Resultados de Laboratório"));
+        resultsSection.setMoodCode(ActMood.EVN);
+        resultsSection.createStrucDocText("<content ID=\"nolabresults\">Não existem resultados de laboratório.</content>");
+        resultsSection.addAct(ContinuityOfCareDocumentFactory.createAlertsSectionEntry(null, true));
+        resultsSection.addObservation(ContinuityOfCareDocumentFactory.createResultObservationEntry(null, true));
+        return resultsSection;
+    }
+
     private static AlertsSection instanceAlertsSection() throws Exception {
 
         AlertsSection alertsSection = CCDFactory.eINSTANCE.createAlertsSection().init();
         alertsSection.setTitle(DatatypesFactory.eINSTANCE.createST("Alergias, reacções adversas, alertas"));
         alertsSection.setMoodCode(ActMood.EVN);
         alertsSection.createStrucDocText("<content ID=\"noallergy\">Não existem reacções adversas.</content>");
-        alertsSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.13", null));
+        //alertsSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.13", null));
         alertsSection.addAct(ContinuityOfCareDocumentFactory.createAlertsSectionEntry(null, true));
         return alertsSection;
     }
@@ -259,7 +274,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
 
         ProblemSection problemSection = CCDFactory.eINSTANCE.createProblemSection().init();
         problemSection.setTitle(DatatypesFactory.eINSTANCE.createST("Historial de Doenças"));
-        problemSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.6", null));
+        //problemSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.6", null));
         problemSection.setMoodCode(ActMood.EVN);
         problemSection.createStrucDocText("<content ID=\"actnoproblem\">Não existem problemas activos.</content>");
         problemSection.addAct(ContinuityOfCareDocumentFactory.createProblemsSectionEntry(null, true));
@@ -272,8 +287,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         ProceduresSection proceduresSection = CCDFactory.eINSTANCE.createProceduresSection().init();
         proceduresSection.setTitle(DatatypesFactory.eINSTANCE.createST("Intervenções Cirúrgicas"));
         proceduresSection.setMoodCode(ActMood.EVN);
-        proceduresSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.11", null));
-        proceduresSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.12", null));
+        //proceduresSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.11", null));
+        //proceduresSection.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.3.12", null));
         proceduresSection.createStrucDocText("<content ID=\"nosurgeries\">Sem cirurgias conhecidas.</content>");
         proceduresSection.addProcedure(ContinuityOfCareDocumentFactory.createProceduresSectionEntry(null, true));
 
@@ -495,6 +510,18 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
             encountersActivity.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
         return encountersActivity;
+    }
+
+    public static ResultObservation createResultObservationEntry(ResultObservation resultObservation, boolean emptyEntry) throws Exception {
+
+        if (resultObservation == null) {
+            resultObservation = CCDFactory.eINSTANCE.createResultObservation().init();
+            resultObservation.setClassCode(ActClassObservation.OBS);
+            resultObservation.setMoodCode(x_ActMoodDocumentObservation.EVN);
+            resultObservation.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("NA", NullFlavor.NA));
+            resultObservation.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
+        }
+        return resultObservation;
     }
 
     public static PlanOfCareActivityProcedure createPlanOfCareSectionEntry(PlanOfCareActivityProcedure planOfCareActivityProcedure, boolean emptyEntry) throws Exception {

@@ -18,6 +18,7 @@ public class PatientDto extends PersonDto implements Serializable {
     private List<MedicationDto> medications;
     private List<PlanOfCareDto> planOfCares;
     private List<FamilyHistoryDto> familyHistory;
+    private List<LaboratoryResultDto> laboratoryResults;
 
     public PatientDto(String id) {
         super(id);
@@ -111,5 +112,16 @@ public class PatientDto extends PersonDto implements Serializable {
 
     public void setSequence(String sequence) {
         this.sequence = sequence;
+    }
+
+    public List<LaboratoryResultDto> getLaboratoryResults() {
+        if (laboratoryResults == null) {
+            laboratoryResults = new ArrayList<LaboratoryResultDto>();
+        }
+        return laboratoryResults;
+    }
+
+    public void setLaboratoryResults(List<LaboratoryResultDto> laboratoryResults) {
+        this.laboratoryResults = laboratoryResults;
     }
 }

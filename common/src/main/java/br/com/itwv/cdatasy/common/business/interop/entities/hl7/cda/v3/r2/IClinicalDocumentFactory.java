@@ -7,7 +7,7 @@ public interface IClinicalDocumentFactory {
     }
 
     public enum x_EObjectTypes {
-        ALLERGIES, MEDICATIONS, IMMUNIZATIONS, PROBLEMS, PROCEDURES, MEDICALEQUIPMENT, ENCOUNTERS, FAMILY_HISTORY, PLAN_OF_CARE
+        ALLERGIES, MEDICATIONS, IMMUNIZATIONS, PROBLEMS, PROCEDURES, MEDICALEQUIPMENT, ENCOUNTERS, FAMILY_HISTORY, PLAN_OF_CARE, LAB_RESULTS
     }
 
     public void createClinicalDocumentFactory(x_FactoryLoadTypes factoryLoadType, Object obj, boolean validateClinicalDocument,
