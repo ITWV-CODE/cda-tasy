@@ -139,11 +139,11 @@ public class CDADataTypesFactory {
                 return name;
             }
 
-            if (familyName != null)
-                name.addFamily(familyName);
-
             if (givenName != null)
                 name.addGiven(givenName);
+
+            if (familyName != null)
+                name.addFamily(familyName);
 
             if (suffixName != null)
                 name.addSuffix(suffixName);

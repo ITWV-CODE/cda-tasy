@@ -34,7 +34,7 @@ public abstract class PatientMappingBase {
         PatientRole patientRole = CDAFactory.eINSTANCE.createPatientRole();
         doc.getRecordTargets().get(0).setPatientRole(patientRole);
         patientRole.setProviderOrganization(CDADataTypesFactory.getInstance().createBaseProviderOrganization(patientDto.getInstitution().getCode(), patientDto.getInstitution().getDescription()));
-        II id = CDADataTypesFactory.getInstance().createBaseRootII(patientDto.getId(), "2.16.17.710.820", null);
+        II id = CDADataTypesFactory.getInstance().createBaseRootII(patientDto.getId(), "1.3.6.1.4.1.21367.2010.1.2.300", null);
         patientRole.getIds().add(id);
         return doc;
     }

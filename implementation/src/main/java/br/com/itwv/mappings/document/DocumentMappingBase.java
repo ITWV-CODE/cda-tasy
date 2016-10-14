@@ -24,16 +24,16 @@ public abstract class DocumentMappingBase {
             TS effectiveTime = DatatypesFactory.eINSTANCE.createTS(new SimpleDateFormat("yyyyMMddHHmmssZ").format(new Timestamp(new java.util.Date().getTime())));
             doc.setEffectiveTime(effectiveTime);
 
-            II id = DatatypesFactory.eINSTANCE.createII("2.16.840.1.113883.19.5", new OIDUtil().getUUID().toString());
+            II id = DatatypesFactory.eINSTANCE.createII("1.2.2.3.4.30", new OIDUtil().getUUID().toString());
             doc.setId(id);
 
             CE confidentialityCode = DatatypesFactory.eINSTANCE.createCE("R", "2.16.840.1.113883.5.25");
             doc.setConfidentialityCode(confidentialityCode);
 
-            ST title = DatatypesFactory.eINSTANCE.createST("Sumário Clínico");
+            ST title = DatatypesFactory.eINSTANCE.createST("Resumo de nota de episódio");
             doc.setTitle(title);
 
-            CE code = DatatypesFactory.eINSTANCE.createCE("60591-5", "2.16.840.1.113883.6.1", "LOINC", "Patient Summary");
+            CE code = DatatypesFactory.eINSTANCE.createCE("34133-9", "2.16.840.1.113883.6.1", "LOINC", "Summarization of episode note");
             doc.setCode(code);
 
             InfrastructureRootTypeId typeId = CDAFactory.eINSTANCE.createInfrastructureRootTypeId();
