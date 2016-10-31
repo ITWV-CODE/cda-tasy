@@ -60,6 +60,7 @@ public class JUTest1 extends TestCase {
                 MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.PROPERTIES, null);
                 MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.AUTHOR, Arrays.asList(patientDto.getAuthor()));
                 MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.CUSTODIAN, Arrays.asList(patientDto.getAuthor()));
+                MappingsFactory.documentMappingFacade.mapDocumentSections(docList.get(0), IDocumentMapping.x_DocDocumentSectionType.DOCUMENTOF, null);
                 MappingsFactory.patientMappingFacade.mapPatientSections(docList.get(0), patientDto);
 
                 if (!patientDto.getMedications().isEmpty()) {

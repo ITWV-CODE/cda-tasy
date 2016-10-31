@@ -57,6 +57,18 @@ public abstract class DocumentMappingBase {
         return doc;
     }
 
+    protected static ClinicalDocument mapDocumentDocumentOf(ClinicalDocument doc) throws Exception {
+
+        try {
+            doc.getDocumentationOfs().clear();
+            doc.getDocumentationOfs().add(
+                    CDADataTypesFactory.getInstance().createBaseDocumentationOf(ExtendedDateUtils.getUTCDateFormatted(ExtendedDateUtils.CDA_DATE_TIME_FORMAT), ExtendedDateUtils.getUTCDateFormatted(ExtendedDateUtils.CDA_DATE_TIME_FORMAT)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return doc;
+    }
+
     protected static ClinicalDocument mapDocumentAuthor(ClinicalDocument doc, final List<Dto> dto) throws Exception {
         try {
 

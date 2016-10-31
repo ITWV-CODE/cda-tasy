@@ -53,11 +53,11 @@ public abstract class ClinicalMappingBase {
             medicationSection.addSubstanceAdministration(medicationActivity);
             medicationActivity.getIds().add(
                     CDADataTypesFactory.getInstance().createBaseRootII(medication.getId(), null, null));
-
+            medicationActivity.setText(CDADataTypesFactory.getInstance().createBaseED(medication.getDosage(), null));
             medicationActivity.getEffectiveTimes().add(
                     CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(medication.getDate(), medication.getDate()));
 
-            medicationActivity.setRouteCode(CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getRoute().getCode(), medication.getRoute().getTerminolgy(), null,
+            medicationActivity.setRouteCode(CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getRoute().getCode(), null, medication.getRoute().getTerminolgy(),
                     medication.getRoute().getDescription(), null));
 
             medicationActivity.setDoseQuantity(CDADataTypesFactory.getInstance().createBaseIVL_PQ());
@@ -66,9 +66,9 @@ public abstract class ClinicalMappingBase {
                     .getConsumable()
                     .getManufacturedProduct()
                     .getManufacturedMaterial().setCode(
-                    CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getMedicine().getCode(), "2.16.840.1.113883.6.96", medication.getMedicine().getTerminolgy(), medication.getMedicine().getDescription(), null));
+                    CDADataTypesFactory.getInstance().createBaseCodeCE(medication.getMedicine().getCode(), null, medication.getMedicine().getTerminolgy(), medication.getMedicine().getDescription(), null));
 
-            CDADataTypesFactory.getInstance().createBasePatientInstruction(medicationActivity, medication.getDosage());
+//            CDADataTypesFactory.getInstance().createBasePatientInstruction(medicationActivity, medication.getDosage());
             ClinicalMappingEntryRelationships.getInstance().defineMedicationActivityEntryRelationships(docList.get(0), medicationActivity);
 
         }
@@ -88,7 +88,7 @@ public abstract class ClinicalMappingBase {
             alertsSection.addAct(problemAct);
             problemAct.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(allergy.getId(), null, null));
             problemAct.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(allergy.getDate(), allergy.getDate()));
-            problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getType().getCode(), "2.16.840.1.113883.6.96", allergy.getType().getTerminolgy(), allergy.getType().getDescription(), null));
+            problemAct.getObservations().get(0).getValues().add(CDADataTypesFactory.getInstance().createBaseCodeCD(allergy.getType().getCode(), null, allergy.getType().getTerminolgy(), allergy.getType().getDescription(), null));
             problemAct.getObservations().get(0).setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("ASSERTION", "2.16.840.1.113883.5.4", null, null, null));
 
             //CDADataTypesFactory.getInstance().createBaseComment(problemAct.getObservations().get(0), null, nte.getNte3_Comment(0).getValue());
@@ -162,8 +162,15 @@ public abstract class ClinicalMappingBase {
             familyHistoryObservation.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(familyHistory.getId(), null, null));
             familyHistoryObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(familyHistory.getDate(), familyHistory.getDate()));
             familyHistoryObservation.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD(familyHistory.getProblem().getCode(), null, familyHistory.getProblem().getTerminolgy(), familyHistory.getProblem().getDescription(), null));
-            familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject(familyHistory.getRelation().getCode(), familyHistory.getRelation().getTerminolgy(), familyHistory.getRelation().getDescription()));
+            //familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject(familyHistory.getRelation().getCode(), familyHistory.getRelation().getTerminolgy(), familyHistory.getRelation().getDescription()));
 
+            if (familyHistory.getRelation().getCode().equals("12")) {
+                familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject("9947008", "2.16.840.1.113883.6.96", "SNOMED_CT", "Pai"));
+            } else if (familyHistory.getRelation().getCode().equals("13")) {
+                familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject("65656005", "2.16.840.1.113883.6.96", "SNOMED_CT", "Mãe"));
+            } else if (familyHistory.getRelation().getCode().equals("14")) {
+                familyHistoryObservation.setSubject(CDADataTypesFactory.getInstance().createBaseSubject("60614009", "2.16.840.1.113883.6.96", "SNOMED_CT", "Irmão"));
+            }
         }
         familyHistorySection.createStrucDocText(FamilyHistorySectionTable.getInstance().getTable(familyHistorySection));
 

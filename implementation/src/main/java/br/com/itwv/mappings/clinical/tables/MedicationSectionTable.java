@@ -38,7 +38,7 @@ public class MedicationSectionTable {
                             ((IVL_TS) activity.getEffectiveTimes().get(0)).getHigh(), "yyyyMMdd", "yyyy/MM/dd"));
 
                     if (activity.getPatientInstructions().size() > 0)
-                        medication.setDosage(activity.getPatientInstructions().get(0).getText().getText());
+                        medication.setDosage(activity.getText().getText());
 
                     medicationCollection.add(medication);
                 }

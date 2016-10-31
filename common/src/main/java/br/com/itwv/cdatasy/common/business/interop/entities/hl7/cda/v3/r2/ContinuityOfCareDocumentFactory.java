@@ -60,8 +60,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
                         .instanceSection(x_EObjectTypes.FAMILY_HISTORY));
                 ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
                         .instanceSection(x_EObjectTypes.PLAN_OF_CARE));
-                ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory
-                        .instanceSection(x_EObjectTypes.LAB_RESULTS));
+                //ContinuityOfCareDocumentFactory.clinicalDocumentInstance.addSection(ContinuityOfCareDocumentFactory.instanceSection(x_EObjectTypes.LAB_RESULTS));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -327,8 +326,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
 
         if (problemAct == null) {
             problemAct = CCDFactory.eINSTANCE.createProblemAct().init();
-            problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.1", null));
-            problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.2", null));
+            //problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.1", null));
+            //problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.2", null));
             problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
             problemAct.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("NA", NullFlavor.NA));
             problemAct.setClassCode(x_ActClassDocumentEntryAct.ACT);
@@ -340,7 +339,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         problemObservation.setNegationInd(false);
         problemObservation.setText(CDADataTypesFactory.getInstance().createBaseED(null, "#problem"));
         problemObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(null, null));
-        problemObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5", null));
+        // problemObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5", null));
         problemObservation.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("57041-6", "2.16.840.1.113883.6.1", "LOINC",
                 "Histórico do utente e diagnósticos", null));
         problemObservation.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, null, null));
@@ -428,7 +427,7 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
             medicationActivity = CCDFactory.eINSTANCE.createMedicationActivity().init();
             Consumable consumable = CDAFactory.eINSTANCE.createConsumable();
             Product product = CCDFactory.eINSTANCE.createProduct().init();
-            medicationActivity.setMoodCode(x_DocumentSubstanceMood.EVN);
+            medicationActivity.setMoodCode(x_DocumentSubstanceMood.INT);
             //medicationActivity.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7", null));
             //medicationActivity.getTemplateIds()                    .add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.7.1", null));
             //medicationActivity.getTemplateIds().add(                    CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.12559.11.10.1.3.1.3.4", null));
@@ -466,8 +465,8 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
             problemAct = CCDFactory.eINSTANCE.createProblemAct().init();
             problemAct.setClassCode(x_ActClassDocumentEntryAct.ACT);
             problemAct.setMoodCode(x_DocumentActMood.EVN);
-            problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.1", null));
-            problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.3", null));
+            // problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.1", null));
+            //problemAct.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5.3", null));
             problemAct.setCode(CDADataTypesFactory.getInstance().createBaseCodeCD("NA", NullFlavor.NA));
             problemAct.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         }
@@ -477,9 +476,9 @@ public class ContinuityOfCareDocumentFactory implements IClinicalDocumentFactory
         alertObservation.setClassCode(ActClassObservation.OBS);
         alertObservation.setNegationInd(false);
         alertObservation.setMoodCode(x_ActMoodDocumentObservation.EVN);
-        alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.6", null));
-        alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5", null));
-        alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "2.16.840.1.113883.10.20.1.28", null));
+        //  alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.6", null));
+        //  alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "1.3.6.1.4.1.19376.1.5.3.1.4.5", null));
+        // alertObservation.getTemplateIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, "2.16.840.1.113883.10.20.1.28", null));
         alertObservation.getIds().add(CDADataTypesFactory.getInstance().createBaseRootII(null, UUID.randomUUID().toString(), null));
         alertObservation.setStatusCode(CDADataTypesFactory.getInstance().createBaseStatusCodeCS(x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         alertObservation.setEffectiveTime(CDADataTypesFactory.getInstance().createBaseEffectiveTimeIVL_TS(null, null));

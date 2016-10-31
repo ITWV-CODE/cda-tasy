@@ -39,7 +39,9 @@ public class DocumentMappingFacade implements IDocumentMappingFacade {
                 return DocumentMapping.getInstance().mapDocumentSections(doc, x_DocDocumentSectionType, null);
             case CUSTODIAN:
             case AUTHOR:
-                DocumentMapping.getInstance().mapDocumentSections(doc, x_DocDocumentSectionType, segmentsHash);
+                return DocumentMapping.getInstance().mapDocumentSections(doc, x_DocDocumentSectionType, segmentsHash);
+            case DOCUMENTOF:
+                return DocumentMapping.getInstance().mapDocumentSections(doc, x_DocDocumentSectionType, null);
             default:
                 return null;
         }

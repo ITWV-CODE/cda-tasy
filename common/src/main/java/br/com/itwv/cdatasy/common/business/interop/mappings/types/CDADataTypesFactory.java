@@ -210,7 +210,7 @@ public class CDADataTypesFactory {
         Supply supply = CCDFactory.eINSTANCE.createSupplyActivity().init();
         statement.addSupply(supply);
         supply.setMoodCode(x_DocumentSubstanceMood.INT);
-        supply.setSubject(this.createBaseSubject(relatedSubjectCode, null, relatedSubjectName));
+        supply.setSubject(this.createBaseSubject(relatedSubjectCode, null, null, relatedSubjectName));
         supply.getAuthors().add(
                 this.createBaseAuthor(time, extension, root, assigningAuthorityName, personFamilyName, personGivenName, personSuffixName,
                         organizationName, organizationExtension, country, city, postalCode, streetAddressLine, state));
@@ -218,21 +218,21 @@ public class CDADataTypesFactory {
         return supply;
     }
 
-    public Subject createBaseSubject(String relatedSubjectCode, String relatedSubjectCodeSystemName, String relatedSubjectName) {
+    public Subject createBaseSubject(String relatedSubjectCode, String relatedSubjectCodeSystem, String relatedSubjectCodeSystemName, String relatedSubjectName) {
 
         Subject subject = CDAFactory.eINSTANCE.createSubject();
         subject.setTypeCode(ParticipationTargetSubject.SBJ);
-        subject.setRelatedSubject(this.createBaseRelatedSubject(relatedSubjectCode, relatedSubjectCodeSystemName, relatedSubjectName));
+        subject.setRelatedSubject(this.createBaseRelatedSubject(relatedSubjectCode, relatedSubjectCodeSystem, relatedSubjectCodeSystemName, relatedSubjectName));
         return subject;
     }
 
-    private RelatedSubject createBaseRelatedSubject(String relatedSubjectCode, String relatedSubjectCodeSystemName, String relatedSubjectName) {
+    private RelatedSubject createBaseRelatedSubject(String relatedSubjectCode, String relatedSubjectCodeSystem, String relatedSubjectCodeSystemName, String relatedSubjectName) {
 
         RelatedSubject relatedSubject = CDAFactory.eINSTANCE.createRelatedSubject();
         if (relatedSubjectCode == null) {
             relatedSubject.setNullFlavor(NullFlavor.NI);
         } else {
-            relatedSubject.setCode(this.createBaseCodeCE(relatedSubjectCode, null, relatedSubjectCodeSystemName, relatedSubjectName, null));
+            relatedSubject.setCode(this.createBaseCodeCE(relatedSubjectCode, relatedSubjectCodeSystem, relatedSubjectCodeSystemName, relatedSubjectName, null));
             relatedSubject.setClassCode(x_DocumentSubject.PRS);
         }
         return relatedSubject;
@@ -244,7 +244,7 @@ public class CDADataTypesFactory {
         ReactionObservation reactionObservation = CCDFactory.eINSTANCE.createReactionObservation().init();
         statement.addObservation(reactionObservation);
         // TODO: SNOMED
-        reactionObservation.setCode(this.createBaseCodeCD("418799008", "2.16.840.1.113883.6.96", "SNOMED-CT",
+        reactionObservation.setCode(this.createBaseCodeCD("418799008", null, "SNOMED-CT",
                 "Finding reported 1950 by subject or history provider", null));
         reactionObservation.setStatusCode(this.createBaseStatusCodeCS(IClinicalMapping.x_DocEntryStatusCode.COMPLETED.name().toLowerCase()));
         reactionObservation.getValues().add(this.createBaseCodeCD(code, codeSystem, codeSystemName, displayName, null));
@@ -412,6 +412,8 @@ public class CDADataTypesFactory {
             codedElement.setCodeSystem(codeSystem);
         if (codeSystemName != null)
             codedElement.setCodeSystemName(codeSystemName);
+        if (codeSystemName != null && codeSystemName.equals("SNOMED_CT"))
+            codedElement.setCodeSystemVersion("20080131");
         if (displayName != null)
             codedElement.setDisplayName(displayName);
         if (originalText != null)
@@ -579,6 +581,18 @@ public class CDADataTypesFactory {
         return serviceEvent;
     }
 
+    private ServiceEvent createBaseServiceEvent(String serviceEventLowValue, String serviceEventHighValue) {
+
+        ServiceEvent serviceEvent = CDAFactory.eINSTANCE.createServiceEvent();
+        try {
+            serviceEvent.setClassCode(ActClassRoot.PCPR);
+            serviceEvent.setEffectiveTime(this.createBaseEffectiveTimeIVL_TS(serviceEventLowValue, serviceEventHighValue));
+        } catch (Exception e) {
+            serviceEvent.setNullFlavor(NullFlavor.NI);
+        }
+        return serviceEvent;
+    }
+
     public DocumentationOf createBaseDocumentationOf(String serviceEventLowValue, String serviceEventHighValue, String performerLowValue,
                                                      String performerHighValue, String performerFunctionCode, String performerFunctionDisplayName, String extension, String root,
                                                      String assigningAuthorityName, String personFamilyName, String personGivenName, String personSuffixName, String personPrefixName, String organizationName,
@@ -590,6 +604,13 @@ public class CDADataTypesFactory {
                 performerHighValue, performerFunctionCode, performerFunctionDisplayName, extension, root, assigningAuthorityName, personFamilyName,
                 personGivenName, personSuffixName, personPrefixName, organizationName, organizationExtension, clinicalRecordIdentifier, country, city, postalCode,
                 streetAddressLine, state));
+        return documentationOf;
+    }
+
+    public DocumentationOf createBaseDocumentationOf(String serviceEventLowValue, String serviceEventHighValue) {
+
+        DocumentationOf documentationOf = CDAFactory.eINSTANCE.createDocumentationOf();
+        documentationOf.setServiceEvent(this.createBaseServiceEvent(serviceEventLowValue, serviceEventHighValue));
         return documentationOf;
     }
 
@@ -654,8 +675,8 @@ public class CDADataTypesFactory {
         }
 
         codedDefinition.setCode(code);
-        codedDefinition.setCodeSystem((codeSystemName.equals("I9C")) ? "2.16.840.1.113883.6.2"
-                : (codeSystemName.equals("ICNP")) ? "2.16.840.1.113883.6.97" : (codeSystemName.equals("ICPC")) ? "2.16.840.1.113883.6.139" : "");
+        // codedDefinition.setCodeSystem((codeSystemName.equals("I9C")) ? "2.16.840.1.113883.6.2"
+        //         : (codeSystemName.equals("ICNP")) ? "2.16.840.1.113883.6.97" : (codeSystemName.equals("ICPC")) ? "2.16.840.1.113883.6.139" : "");
         codedDefinition.setCodeSystemName((codeSystemName.equals("I9C")) ? "ICD-9CM" : (codeSystemName.equals("ICNP")) ? "ICNP" : (codeSystemName
                 .equals("ICPC")) ? "ICPC2E" : "");
         codedDefinition.setDisplayName(displayName);

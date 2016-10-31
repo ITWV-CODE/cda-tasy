@@ -30,9 +30,10 @@ public class DocumentMapping extends DocumentMappingBase implements IDocumentMap
                 return super.mapDocumentProperties(doc);
             case AUTHOR:
                 return super.mapDocumentAuthor(doc, segments.get("AuthorDto"));
-
             case CUSTODIAN:
                 return super.mapDocumentCustodian(doc, segments.get("AuthorDto"));
+            case DOCUMENTOF:
+                return super.mapDocumentDocumentOf(doc);
             default:
                 return null;
         }
